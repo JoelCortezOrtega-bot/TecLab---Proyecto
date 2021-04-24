@@ -90,5 +90,23 @@ namespace LabTec
 
             }
         }
+
+        private void lblContraOl_MouseHover(object sender, EventArgs e)
+        {
+            lblContraOl.ForeColor = Color.Blue;
+            lblContraOl.Font = new System.Drawing.Font(lblContraOl.Font, FontStyle.Underline);
+        }
+
+        private void lblContraOl_MouseLeave(object sender, EventArgs e)
+        {
+            lblContraOl.ForeColor = Color.Black;
+            lblContraOl.Font = new System.Drawing.Font(lblContraOl.Font, FontStyle.Regular);
+        }
+
+        private void lblContraOl_Click(object sender, EventArgs e)
+        {
+            FrRecuperarClave fr = new FrRecuperarClave();
+            fr.Show();
+        }
     }
 }
