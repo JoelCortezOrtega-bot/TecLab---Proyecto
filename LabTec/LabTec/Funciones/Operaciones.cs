@@ -29,14 +29,14 @@ namespace LabTec.Operaciones
         public void Login()
         {
             //Verifica si los datos recibidos estan vacios
-            if (IDUsuario1 != 0 || Clave1 != 0)
+            if (IDUsuario1 != 0 || Clave1 != "")
             {
                 //Indicamos al comando la conexión
                 Comando.Connection = Cn.Conexiones;
                 //Abrimos la conexion
                 Cn.Conexiones.Open();
                 //Asignamos al comando la consulta de B_activo
-                Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario(" + Convert.ToInt32(IDUsuario1) + "," + Convert.ToInt32(Clave1) + ")";
+                Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario("+ IDUsuario1 +", '"+ Clave1 +"')";
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
                 if (B_activo == "1")

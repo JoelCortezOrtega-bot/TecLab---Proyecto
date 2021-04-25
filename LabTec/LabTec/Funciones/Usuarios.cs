@@ -14,12 +14,12 @@ namespace LabTec.Operaciones
         private string ApellidoM;
         private string Genero;
         private string Correo;
-        private int Clave;
+        private string Clave;
         private int Rol;
         private string Estado;
 
         public int IDUsuario1 { get => IDUsuario; set => IDUsuario = value; }
-        public int Clave1 { get => Clave; set => Clave = value; }
+        public string Clave1 { get => Clave; set => Clave = value; }
 
         public string Correo1 { get => Correo; set => Correo = value; }
     }

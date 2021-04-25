@@ -32,7 +32,7 @@ namespace LabTec
             {
                 //Asigna los valor capturadores de los txtbox en las variables 
                 op.IDUsuario1 = Convert.ToInt32(txtIDUsuario.Text);
-                op.Clave1 = Convert.ToInt32(txtClave.Text);
+                op.Clave1 = txtClave.Text;
                 //Llama al metodo Login de la clase Operaciones
                 op.Login();
             }
