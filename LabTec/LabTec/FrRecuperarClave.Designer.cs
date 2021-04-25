@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBusca = new System.Windows.Forms.Button();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.tltDescripcion = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -59,7 +61,7 @@
             this.btnBusca.Name = "btnBusca";
             this.btnBusca.Size = new System.Drawing.Size(129, 33);
             this.btnBusca.TabIndex = 41;
-            this.btnBusca.Text = "&Busca";
+            this.btnBusca.Text = "&Buscar";
             this.btnBusca.UseVisualStyleBackColor = false;
             this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
@@ -117,5 +119,6 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.ToolTip tltDescripcion;
     }
 }

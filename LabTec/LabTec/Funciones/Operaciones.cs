@@ -114,7 +114,8 @@ namespace LabTec.Operaciones
             }
             else
             {
-                MessageBox.Show("No se ha encontrado el correo");
+                //Muestra un mensaje indicando al usuario en caso de no encontrar el error.
+                MessageBox.Show("No se ha encontrado el correo","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
     }

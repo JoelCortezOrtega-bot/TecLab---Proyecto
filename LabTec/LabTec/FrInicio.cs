@@ -48,7 +48,7 @@ namespace LabTec
                 //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
                 else
                 {
-                    string mensaje = "Por favor, solamente se aceptan numeros enteros.";
+                    string mensaje = "Por favor, no ingrese los datos correctos.";
                     MessageBox.Show(mensaje, "Error de formato",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
