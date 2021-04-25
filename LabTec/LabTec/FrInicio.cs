@@ -16,7 +16,7 @@ namespace LabTec
         {
             InitializeComponent();
             //Muestra una breve descripcion en los cuadros de texto
-            //Indica que debe colocar su ID y Contraseña
+            //Indica al usuario que debe colocar su ID y Contraseña
             ttlpMensajes.SetToolTip(txtIDUsuario, "Ingrese su ID.");
             ttlpMensajes.SetToolTip(txtClave, "Ingrese su contraseña.");
             //Indica que ese es el boton de salida
@@ -49,7 +49,7 @@ namespace LabTec
                 else
                 {
                     string mensaje = "Por favor, solamente se aceptan numeros enteros.";
-                    MessageBox.Show(mensaje, "Error de formato");
+                    MessageBox.Show(mensaje, "Error de formato",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             finally
@@ -73,19 +73,19 @@ namespace LabTec
             if (x == "" && y == "")
             {
                 //Envia el siguiente mensaje.
-                MessageBox.Show("Por favor rellenar ambos cuadros de texto");
+                MessageBox.Show("Por favor rellenar ambos cuadros de texto","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
                 //Verifica si el txt de la contraseña esta vacio
                 if (y == "")
                 {
-                    MessageBox.Show("Por favor, no deje el recuadro de contraseña vacio.");
+                    MessageBox.Show("Por favor, no deje el recuadro de contraseña vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 //Verifica si el txt de la usuario esta vacio
                 else
                 {
-                    MessageBox.Show("Por favor, no deje el recuadro de usuario vacio.");
+                    MessageBox.Show("Por favor, no deje el recuadro de usuario vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -93,18 +93,22 @@ namespace LabTec
 
         private void lblContraOl_MouseHover(object sender, EventArgs e)
         {
+            //Cuando el usuario coloque la flecha del mouse Cambiar de color y se marcara el texto 
+            //con una linea debajo del texto
             lblContraOl.ForeColor = Color.Blue;
             lblContraOl.Font = new System.Drawing.Font(lblContraOl.Font, FontStyle.Underline);
         }
 
         private void lblContraOl_MouseLeave(object sender, EventArgs e)
         {
+            //Cuando el usuario la flecha del mouse deje el texto volvera a los cambios predeterminados.
             lblContraOl.ForeColor = Color.Black;
             lblContraOl.Font = new System.Drawing.Font(lblContraOl.Font, FontStyle.Regular);
         }
 
         private void lblContraOl_Click(object sender, EventArgs e)
         {
+            //Abre la ventana del formulario de Recuperacion de la Clave
             FrRecuperarClave fr = new FrRecuperarClave();
             fr.Show();
         }
