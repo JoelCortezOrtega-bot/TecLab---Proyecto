@@ -61,14 +61,14 @@ namespace LabTec.Operaciones
 
         public void RecuperarCorreo()
         {
-            //Variable auxiliar
-            string Descripcion;
 
             //Indicamos al comando la conexión
             Comando.Connection = Cn.Conexiones;
             //Abrimos la conexion
             Cn.Conexiones.Open();
             //Asignamos al comando la consulta de B_activo
+            //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
+            //concuerda alguno ya existen
             Comando.CommandText = "SELECT dbo.fn_VerificacionCorreo('" + Correo1 + "')";
             //Guardamos el resultado en la variable auxiliar
             B_activo = (Comando.ExecuteScalar()).ToString();
@@ -99,6 +99,7 @@ namespace LabTec.Operaciones
                 SmtpClient cliente = new SmtpClient();
                 cliente.Credentials = new NetworkCredential("Departamento91@outlook.es", "/DepartamentoITT/");
 
+                //Puerto
                 cliente.Port = 587;
                 cliente.EnableSsl = true;
                 cliente.Host = "smtp.office365.com";
@@ -107,9 +108,14 @@ namespace LabTec.Operaciones
                 {
                     cliente.Send(mmsg);
                 }
-                catch
+                catch(Exception)
                 {
-                    MessageBox.Show("Error al enviar");
+                    //Mensaje indicando al usuario que no se puede mandar el correo por cualquier motivo
+                    MessageBox.Show("Se aproducido un error al enviar el mensaje.","Advertencia.",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    MessageBox.Show("Mensaje enviado. Por favor revise su correo electronico.","Recuperación",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
             else
