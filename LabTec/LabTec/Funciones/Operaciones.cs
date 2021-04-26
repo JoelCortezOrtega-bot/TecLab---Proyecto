@@ -39,17 +39,20 @@ namespace LabTec.Operaciones
                 Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario("+ IDUsuario1 +", '"+ Clave1 +"')";
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
+                //Enviara al usuario a la seccion del Administrador
                 if (B_activo == "1")
                 {
                     MessageBox.Show("Bienvenido Administrador.");
                 }
+                //Enviara al usuario a la seccion del Maestro
                 else if (B_activo == "2")
                 {
                     MessageBox.Show("Bienvenido Maestro.");
                 }
                 else
                 {
-                    MessageBox.Show("El usuario no existe.");
+                    //Indica al usuario que no se encuentra registrado en la BD
+                    MessageBox.Show("El usuario no existe.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
 
             }
@@ -87,7 +90,7 @@ namespace LabTec.Operaciones
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
                 //Asigamos el contenido del mensaje
-                mmsg.Body = "Tu clave es: " + B_activo;
+                mmsg.Body = "¡Hola! \n\nEste mensaje es para recuperar la contraseña de tu cuenta." + "\nTu clave es: " + B_activo + "\nSi no has solicitado restablecer tu contraseña, puedes ignorar este correo electrónico.";
                 //
                 mmsg.BodyEncoding = Encoding.UTF8;
                 //INDICA QUE EL CONTENIDO DEL MENSAJE ES EN HTML
