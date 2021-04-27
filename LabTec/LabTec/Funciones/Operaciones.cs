@@ -21,11 +21,11 @@ namespace LabTec.Operaciones
         SqlCommand Comando = new SqlCommand();
 
         //Guardamos el resultado de Comando en esta variable auxiliar
-        string B_activo;
+        public string B_activo;
 
         //Constructor de la clase Operaciones
         public Operaciones(){}
-
+        
         public void Login()
         {
             //Verifica si los datos recibidos estan vacios
@@ -41,10 +41,18 @@ namespace LabTec.Operaciones
                 B_activo = (Comando.ExecuteScalar()).ToString();
                 if (B_activo == "1")
                 {
+             
+                    FrMenu Menu = new FrMenu();
+                    Menu.MaestroAdmin = B_activo;
+                    Menu.Show();
                     MessageBox.Show("Bienvenido Administrador.");
                 }
                 else if (B_activo == "2")
                 {
+                   
+                    FrMenu Menu = new FrMenu();
+                    Menu.MaestroAdmin = B_activo;
+                    Menu.Show();
                     MessageBox.Show("Bienvenido Maestro.");
                 }
                 else
