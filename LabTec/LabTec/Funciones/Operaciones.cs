@@ -39,6 +39,7 @@ namespace LabTec.Operaciones
                 Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario("+ IDUsuario1 +", '"+ Clave1 +"')";
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
+                //Enviara al usuario a la seccion del Administrador
                 if (B_activo == "1")
                 {
              
@@ -47,6 +48,7 @@ namespace LabTec.Operaciones
                     Menu.Show();
                     MessageBox.Show("Bienvenido Administrador.");
                 }
+                //Enviara al usuario a la seccion del Maestro
                 else if (B_activo == "2")
                 {
                    
@@ -57,7 +59,8 @@ namespace LabTec.Operaciones
                 }
                 else
                 {
-                    MessageBox.Show("El usuario no existe.");
+                    //Indica al usuario que no se encuentra registrado en la BD
+                    MessageBox.Show("El usuario no existe.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
 
             }
@@ -69,14 +72,14 @@ namespace LabTec.Operaciones
 
         public void RecuperarCorreo()
         {
-            //Variable auxiliar
-            string Descripcion;
 
             //Indicamos al comando la conexión
             Comando.Connection = Cn.Conexiones;
             //Abrimos la conexion
             Cn.Conexiones.Open();
             //Asignamos al comando la consulta de B_activo
+            //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
+            //concuerda alguno ya existen
             Comando.CommandText = "SELECT dbo.fn_VerificacionCorreo('" + Correo1 + "')";
             //Guardamos el resultado en la variable auxiliar
             B_activo = (Comando.ExecuteScalar()).ToString();
@@ -95,7 +98,7 @@ namespace LabTec.Operaciones
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
                 //Asigamos el contenido del mensaje
-                mmsg.Body = "Tu clave es: " + B_activo;
+                mmsg.Body = "¡Hola! \n\nEste mensaje es para recuperar la contraseña de tu cuenta." + "\nTu clave es: " + B_activo + "\nSi no has solicitado restablecer tu contraseña, puedes ignorar este correo electrónico.";
                 //
                 mmsg.BodyEncoding = Encoding.UTF8;
                 //INDICA QUE EL CONTENIDO DEL MENSAJE ES EN HTML
@@ -107,6 +110,7 @@ namespace LabTec.Operaciones
                 SmtpClient cliente = new SmtpClient();
                 cliente.Credentials = new NetworkCredential("Departamento91@outlook.es", "/DepartamentoITT/");
 
+                //Puerto
                 cliente.Port = 587;
                 cliente.EnableSsl = true;
                 cliente.Host = "smtp.office365.com";
@@ -115,9 +119,14 @@ namespace LabTec.Operaciones
                 {
                     cliente.Send(mmsg);
                 }
-                catch
+                catch(Exception)
                 {
-                    MessageBox.Show("Error al enviar");
+                    //Mensaje indicando al usuario que no se puede mandar el correo por cualquier motivo
+                    MessageBox.Show("Se aproducido un error al enviar el mensaje.","Advertencia.",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    MessageBox.Show("Mensaje enviado. Por favor revise su correo electronico.","Recuperación",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
             else
