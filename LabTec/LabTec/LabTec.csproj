@@ -58,6 +58,12 @@
     <Compile Include="FrListaUsuarios.Designer.cs">
       <DependentUpon>FrListaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrMenu.Designer.cs">
+      <DependentUpon>FrMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrRecuperarClave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrListaUsuarios.resx">
       <DependentUpon>FrListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrMenu.resx">
+      <DependentUpon>FrMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrRecuperarClave.resx">
       <DependentUpon>FrRecuperarClave.cs</DependentUpon>
@@ -124,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LetraM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logotecnm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
