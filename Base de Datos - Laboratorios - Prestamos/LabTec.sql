@@ -15,21 +15,18 @@ CREATE TABLE Usuario
 	--Usar la letra M para masculino y F para Femenino
 	Genero CHAR NOT NULL, 
 	Correo VARCHAR(200),
-	--La contraseña no debe pasar los 8 caracteres.
+	--La contraseÃ±a no debe pasar los 8 caracteres.
 	Clave VARCHAR(10),
 	ID_Rol INT NOT NULL,
 	--Usar la letra T para indicar que se encuentra activo.
 	--Usar la letra F para indicar que se encuentra inactivo
 	Estado CHAR NOT NULL,
-	FOREIGN KEY(ID_Rol) REFERENCES Rol(ID_Rol)
-);
---Creacion de la tabla Maestros
-CREATE TABLE Maestros
-(
-	ID_Maestro INT NOT NULL PRIMARY KEY,
-	ID_Usuario INT NOT NULL,
+	--Esta campo sera utilizado para limitar las solicitudes que pueden ser realizadas por el usuario
+	--Por default siempre se encontrar en cero
+	--El limite de intentos es de 3 veces. Se modifica de forma manual este campo
+	ContadorRegistro INT,
 	ID_Dep INT NOT NULL,
-	FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID_Usuario),
+	FOREIGN KEY(ID_Rol) REFERENCES Rol(ID_Rol),
 	FOREIGN KEY(ID_Dep) REFERENCES Departamento(ID_Dep)
 );
 --Creacion de la tabla Proyector
@@ -53,35 +50,35 @@ CREATE TABLE Laboratorios
 CREATE TABLE Prestamo_Lab
 (
 	ID_PL INT NOT NULL PRIMARY KEY,
-	ID_Maestro INT NOT NULL,
+	ID_Usuario INT NOT NULL,
 	ID_Lap INT NOT NULL,
 	Fecha DATE,
 	Hora_Entrada TIME,
 	Hora_Salida TIME,
 	Codigo_Verificacion VARCHAR(20),
-	FOREIGN KEY(ID_Maestro) REFERENCES Maestros(ID_Maestro),
+	FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID_Usuario),
 	FOREIGN KEY(ID_Lap) REFERENCES Laboratorios(ID_Lap)
 );
 --Creacion de la tabla de prestamos de proyectores
 CREATE TABLE Prestamo_Proyectores
 (
 	ID_PP INT NOT NULL PRIMARY KEY,
-	ID_Maestro INT NOT NULL,
+	ID_Usuario INT NOT NULL,
 	ID_Proyector INT NOT NULL,
 	Fecha DATE,
 	Hora_Entrada TIME,
 	Hora_Salida TIME,
 	Codigo_Verificacion VARCHAR(20),
-	FOREIGN KEY(ID_Maestro) REFERENCES Maestros(ID_Maestro),
+	FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID_Usuario),
 	FOREIGN KEY(ID_Proyector) REFERENCES Proyectores(ID_Proyector)
 );
 --Creacion de la tabla de Comentarios
 CREATE TABLE Comentarios
 (
 	I_seq					INT IDENTITY (1,1) NOT NULL,
-	ID_Maestro				INT NOT NULL,
+	ID_Usuario				INT NOT NULL,
 	Fecha					DATE,
-	FOREIGN KEY(ID_Maestro) REFERENCES Maestros(ID_Maestro)
+	FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID_Usuario),
 );
 
 --Creacion de la tabla Rol
