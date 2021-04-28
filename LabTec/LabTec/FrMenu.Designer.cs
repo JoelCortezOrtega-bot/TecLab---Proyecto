@@ -61,8 +61,7 @@
             this.Ver_comentarios = new System.Windows.Forms.Button();
             this.btn_comentarios = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Modificar_perfil = new System.Windows.Forms.Button();
-            this.Mi_perfil = new System.Windows.Forms.Button();
+            this.Modificar_contraseña = new System.Windows.Forms.Button();
             this.btn_perfil = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -109,7 +108,7 @@
             this.panel6.Controls.Add(this.Agregar_usuarios);
             this.panel6.Controls.Add(this.Buscar_usuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 776);
+            this.panel6.Location = new System.Drawing.Point(0, 758);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(183, 93);
             this.panel6.TabIndex = 34;
@@ -189,7 +188,7 @@
             this.btn_usuarios.FlatAppearance.BorderSize = 0;
             this.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_usuarios.ForeColor = System.Drawing.Color.White;
-            this.btn_usuarios.Location = new System.Drawing.Point(0, 731);
+            this.btn_usuarios.Location = new System.Drawing.Point(0, 713);
             this.btn_usuarios.Name = "btn_usuarios";
             this.btn_usuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_usuarios.Size = new System.Drawing.Size(183, 45);
@@ -211,7 +210,7 @@
             this.panel5.Controls.Add(this.Apartar_proyectores);
             this.panel5.Controls.Add(this.Calendario_proyectores);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 549);
+            this.panel5.Location = new System.Drawing.Point(0, 531);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(183, 182);
             this.panel5.TabIndex = 15;
@@ -359,7 +358,7 @@
             this.btn_proyectores.FlatAppearance.BorderSize = 0;
             this.btn_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proyectores.ForeColor = System.Drawing.Color.White;
-            this.btn_proyectores.Location = new System.Drawing.Point(0, 504);
+            this.btn_proyectores.Location = new System.Drawing.Point(0, 486);
             this.btn_proyectores.Name = "btn_proyectores";
             this.btn_proyectores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_proyectores.Size = new System.Drawing.Size(183, 45);
@@ -381,7 +380,7 @@
             this.panel4.Controls.Add(this.Apartar_laboratorio);
             this.panel4.Controls.Add(this.Calendario_laboratorios);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 324);
+            this.panel4.Location = new System.Drawing.Point(0, 306);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(183, 180);
             this.panel4.TabIndex = 12;
@@ -529,7 +528,7 @@
             this.btn_laboratorios.FlatAppearance.BorderSize = 0;
             this.btn_laboratorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_laboratorios.ForeColor = System.Drawing.Color.White;
-            this.btn_laboratorios.Location = new System.Drawing.Point(0, 279);
+            this.btn_laboratorios.Location = new System.Drawing.Point(0, 261);
             this.btn_laboratorios.Name = "btn_laboratorios";
             this.btn_laboratorios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_laboratorios.Size = new System.Drawing.Size(183, 45);
@@ -545,7 +544,7 @@
             this.panel3.Controls.Add(this.Agregar_comentarios);
             this.panel3.Controls.Add(this.Ver_comentarios);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 234);
+            this.panel3.Location = new System.Drawing.Point(0, 216);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(183, 45);
             this.panel3.TabIndex = 8;
@@ -591,7 +590,7 @@
             this.btn_comentarios.FlatAppearance.BorderSize = 0;
             this.btn_comentarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_comentarios.ForeColor = System.Drawing.Color.White;
-            this.btn_comentarios.Location = new System.Drawing.Point(0, 189);
+            this.btn_comentarios.Location = new System.Drawing.Point(0, 171);
             this.btn_comentarios.Name = "btn_comentarios";
             this.btn_comentarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_comentarios.Size = new System.Drawing.Size(183, 45);
@@ -604,48 +603,30 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel2.Controls.Add(this.Modificar_perfil);
-            this.panel2.Controls.Add(this.Mi_perfil);
+            this.panel2.Controls.Add(this.Modificar_contraseña);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 146);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 43);
+            this.panel2.Size = new System.Drawing.Size(183, 25);
             this.panel2.TabIndex = 3;
             // 
-            // Modificar_perfil
+            // Modificar_contraseña
             // 
-            this.Modificar_perfil.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Modificar_perfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Modificar_perfil.FlatAppearance.BorderSize = 0;
-            this.Modificar_perfil.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Modificar_perfil.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Modificar_perfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Modificar_perfil.Location = new System.Drawing.Point(0, 23);
-            this.Modificar_perfil.Name = "Modificar_perfil";
-            this.Modificar_perfil.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Modificar_perfil.Size = new System.Drawing.Size(183, 23);
-            this.Modificar_perfil.TabIndex = 2;
-            this.Modificar_perfil.Text = "Modificar perfil";
-            this.Modificar_perfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Modificar_perfil.UseVisualStyleBackColor = false;
-            // 
-            // Mi_perfil
-            // 
-            this.Mi_perfil.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Mi_perfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Mi_perfil.FlatAppearance.BorderSize = 0;
-            this.Mi_perfil.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Mi_perfil.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Mi_perfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Mi_perfil.Location = new System.Drawing.Point(0, 0);
-            this.Mi_perfil.Name = "Mi_perfil";
-            this.Mi_perfil.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Mi_perfil.Size = new System.Drawing.Size(183, 23);
-            this.Mi_perfil.TabIndex = 1;
-            this.Mi_perfil.Text = "Mi perfil";
-            this.Mi_perfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Mi_perfil.UseVisualStyleBackColor = false;
-            this.Mi_perfil.Click += new System.EventHandler(this.Mi_perfil_Click);
+            this.Modificar_contraseña.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Modificar_contraseña.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Modificar_contraseña.FlatAppearance.BorderSize = 0;
+            this.Modificar_contraseña.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Modificar_contraseña.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Modificar_contraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Modificar_contraseña.Location = new System.Drawing.Point(0, 0);
+            this.Modificar_contraseña.Name = "Modificar_contraseña";
+            this.Modificar_contraseña.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.Modificar_contraseña.Size = new System.Drawing.Size(183, 25);
+            this.Modificar_contraseña.TabIndex = 1;
+            this.Modificar_contraseña.Text = "Modificar contraseña";
+            this.Modificar_contraseña.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Modificar_contraseña.UseVisualStyleBackColor = false;
+            this.Modificar_contraseña.Click += new System.EventHandler(this.Modificar_contraseña_Click);
             // 
             // btn_perfil
             // 
@@ -730,8 +711,7 @@
         private System.Windows.Forms.Button Ver_comentarios;
         private System.Windows.Forms.Button btn_comentarios;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Modificar_perfil;
-        private System.Windows.Forms.Button Mi_perfil;
+        private System.Windows.Forms.Button Modificar_contraseña;
         private System.Windows.Forms.Button btn_perfil;
         private System.Windows.Forms.Panel logo;
     }

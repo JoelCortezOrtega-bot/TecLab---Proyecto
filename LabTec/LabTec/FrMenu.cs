@@ -90,7 +90,6 @@ namespace LabTec
         private void FrMenu_Load(object sender, EventArgs e)
         {
             LabTec.Operaciones.Operaciones op = new LabTec.Operaciones.Operaciones();
-            MessageBox.Show(MaestroAdmin);
             if (MaestroAdmin=="2")
             {
                 
@@ -109,10 +108,10 @@ namespace LabTec
             }
         }
 
-        private void Mi_perfil_Click(object sender, EventArgs e)
+        //este es el boton para cambiar entre formas, usar este formato como ejemplo
+        private void Modificar_contraseña_Click(object sender, EventArgs e)
         {
-
-            //  Abrirchild(NombreDeFormaParaAbrir());
+            //Abrirchild(new NombreDeFormaParaAbrir());
         }
     }
 }

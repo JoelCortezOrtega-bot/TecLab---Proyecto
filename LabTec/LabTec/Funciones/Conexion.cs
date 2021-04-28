@@ -18,6 +18,8 @@ namespace LabTec.Funciones
         //CONEXION DE FERNANDO
         //NO BORRAR
         //(Para evitar ponerlo cada vez que quiera usar mi BD local, solo comenten la conexion que no sea suya)
+
+        //Conexion Javier
         public SqlConnection Conexiones = new SqlConnection("Data Source=localhost\\MSSQLSERVER01;Initial Catalog=LabTec;Integrated Security=True");
 
     }
