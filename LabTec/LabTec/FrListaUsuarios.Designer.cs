@@ -33,6 +33,9 @@
             this.cBoxTiposBusqueda = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.radiobtnLaboratorios = new System.Windows.Forms.RadioButton();
+            this.radiobtnProyectores = new System.Windows.Forms.RadioButton();
+            this.radiobtnUsuarios = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // panelPrincipal
@@ -52,22 +55,22 @@
             // 
             // cBoxTiposBusqueda
             // 
+            this.cBoxTiposBusqueda.Enabled = false;
             this.cBoxTiposBusqueda.FormattingEnabled = true;
             this.cBoxTiposBusqueda.Items.AddRange(new object[] {
             "Predeterminado",
             "Alfabeticamente",
             "Departamentos"});
-            this.cBoxTiposBusqueda.Location = new System.Drawing.Point(205, 26);
+            this.cBoxTiposBusqueda.Location = new System.Drawing.Point(193, 27);
             this.cBoxTiposBusqueda.Name = "cBoxTiposBusqueda";
-            this.cBoxTiposBusqueda.Size = new System.Drawing.Size(137, 21);
+            this.cBoxTiposBusqueda.Size = new System.Drawing.Size(161, 21);
             this.cBoxTiposBusqueda.TabIndex = 2;
-            this.cBoxTiposBusqueda.Text = "Selecciona una opcion";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(388, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(518, 20);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(80, 33);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -79,16 +82,55 @@
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(1, 62);
+            this.label5.Location = new System.Drawing.Point(1, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(800, 11);
             this.label5.TabIndex = 4;
+            // 
+            // radiobtnLaboratorios
+            // 
+            this.radiobtnLaboratorios.AutoSize = true;
+            this.radiobtnLaboratorios.Location = new System.Drawing.Point(376, 8);
+            this.radiobtnLaboratorios.Name = "radiobtnLaboratorios";
+            this.radiobtnLaboratorios.Size = new System.Drawing.Size(83, 17);
+            this.radiobtnLaboratorios.TabIndex = 5;
+            this.radiobtnLaboratorios.TabStop = true;
+            this.radiobtnLaboratorios.Text = "Laboratorios";
+            this.radiobtnLaboratorios.UseVisualStyleBackColor = true;
+            this.radiobtnLaboratorios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radiobtnLaboratorios_MouseClick);
+            // 
+            // radiobtnProyectores
+            // 
+            this.radiobtnProyectores.AutoSize = true;
+            this.radiobtnProyectores.Location = new System.Drawing.Point(376, 28);
+            this.radiobtnProyectores.Name = "radiobtnProyectores";
+            this.radiobtnProyectores.Size = new System.Drawing.Size(81, 17);
+            this.radiobtnProyectores.TabIndex = 6;
+            this.radiobtnProyectores.TabStop = true;
+            this.radiobtnProyectores.Text = "Proyectores";
+            this.radiobtnProyectores.UseVisualStyleBackColor = true;
+            this.radiobtnProyectores.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radiobtnProyectores_MouseClick);
+            // 
+            // radiobtnUsuarios
+            // 
+            this.radiobtnUsuarios.AutoSize = true;
+            this.radiobtnUsuarios.Location = new System.Drawing.Point(376, 48);
+            this.radiobtnUsuarios.Name = "radiobtnUsuarios";
+            this.radiobtnUsuarios.Size = new System.Drawing.Size(66, 17);
+            this.radiobtnUsuarios.TabIndex = 7;
+            this.radiobtnUsuarios.TabStop = true;
+            this.radiobtnUsuarios.Text = "Usuarios";
+            this.radiobtnUsuarios.UseVisualStyleBackColor = true;
+            this.radiobtnUsuarios.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radiobtnUsuarios_MouseClick);
             // 
             // FrListaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radiobtnUsuarios);
+            this.Controls.Add(this.radiobtnProyectores);
+            this.Controls.Add(this.radiobtnLaboratorios);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cBoxTiposBusqueda);
@@ -109,5 +151,8 @@
         private System.Windows.Forms.ComboBox cBoxTiposBusqueda;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton radiobtnLaboratorios;
+        private System.Windows.Forms.RadioButton radiobtnProyectores;
+        private System.Windows.Forms.RadioButton radiobtnUsuarios;
     }
 }
