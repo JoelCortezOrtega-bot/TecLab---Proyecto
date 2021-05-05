@@ -76,7 +76,7 @@
             // 
             this.Panelchild.Location = new System.Drawing.Point(206, 0);
             this.Panelchild.Name = "Panelchild";
-            this.Panelchild.Size = new System.Drawing.Size(595, 450);
+            this.Panelchild.Size = new System.Drawing.Size(777, 450);
             this.Panelchild.TabIndex = 2;
             // 
             // panel1
@@ -163,6 +163,7 @@
             this.Agregar_usuarios.Text = "Agregar usuarios";
             this.Agregar_usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Agregar_usuarios.UseVisualStyleBackColor = false;
+            this.Agregar_usuarios.Click += new System.EventHandler(this.Agregar_usuarios_Click);
             // 
             // Buscar_usuarios
             // 
@@ -660,7 +661,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(986, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panelchild);
             this.Name = "FrMenu";

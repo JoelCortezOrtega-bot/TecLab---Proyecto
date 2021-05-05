@@ -370,5 +370,10 @@ namespace LabTec
             cBoxTiposBusqueda.Enabled = false;
             cBoxTiposBusqueda.Text = "No disponible";
         }
+
+        private void FrListaUsuarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

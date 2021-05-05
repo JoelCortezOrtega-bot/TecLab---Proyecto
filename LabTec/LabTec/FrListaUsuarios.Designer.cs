@@ -139,6 +139,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrListaUsuarios";
             this.Text = "FrListaUsuarios";
+            this.Load += new System.EventHandler(this.FrListaUsuarios_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

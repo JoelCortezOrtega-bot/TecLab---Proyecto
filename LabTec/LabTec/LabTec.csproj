@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrAgregarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrAgregarUsuarios.Designer.cs">
+      <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="Funciones\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrAgregarUsuarios.resx">
+      <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrInicio.resx">
       <DependentUpon>FrInicio.cs</DependentUpon>
     </EmbeddedResource>

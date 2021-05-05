@@ -108,10 +108,29 @@ namespace LabTec
             }
         }
 
+        private Form formaactiva = null;
+        private void Abrirchild(Form childform)
+        {
+            if (formaactiva != null)
+                formaactiva.Close();
+            formaactiva = childform;
+            childform.TopLevel = false;
+            childform.FormBorderStyle = FormBorderStyle.None;
+            Panelchild.Controls.Add(childform);
+            Panelchild.Tag = childform;
+            childform.BringToFront();
+            childform.Show();
+        }
+
         //este es el boton para cambiar entre formas, usar este formato como ejemplo
         private void Modificar_contraseña_Click(object sender, EventArgs e)
         {
             //Abrirchild(new NombreDeFormaParaAbrir());
+        }
+
+        private void Agregar_usuarios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrAgregarUsuarios());
         }
     }
 }
