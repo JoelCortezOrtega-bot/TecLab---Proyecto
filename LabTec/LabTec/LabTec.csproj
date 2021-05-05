@@ -52,6 +52,12 @@
     <Compile Include="FrAgregarUsuarios.Designer.cs">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrEliminarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrEliminarUsuarios.Designer.cs">
+      <DependentUpon>FrEliminarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrAgregarUsuarios.resx">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrEliminarUsuarios.resx">
+      <DependentUpon>FrEliminarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrInicio.resx">
       <DependentUpon>FrInicio.cs</DependentUpon>

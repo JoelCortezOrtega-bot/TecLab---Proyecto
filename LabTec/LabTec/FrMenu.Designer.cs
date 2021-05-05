@@ -146,6 +146,7 @@
             this.Eliminar_usuarios.Text = "Eliminar usuarios";
             this.Eliminar_usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Eliminar_usuarios.UseVisualStyleBackColor = false;
+            this.Eliminar_usuarios.Click += new System.EventHandler(this.Eliminar_usuarios_Click);
             // 
             // Agregar_usuarios
             // 
