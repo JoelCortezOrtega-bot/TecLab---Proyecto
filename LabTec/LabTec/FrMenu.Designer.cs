@@ -129,6 +129,7 @@
             this.Modificar_usuarios.Text = "Modificar usuarios";
             this.Modificar_usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modificar_usuarios.UseVisualStyleBackColor = false;
+            this.Modificar_usuarios.Click += new System.EventHandler(this.Modificar_usuarios_Click);
             // 
             // Eliminar_usuarios
             // 

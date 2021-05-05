@@ -137,5 +137,10 @@ namespace LabTec
         {
             Abrirchild(new FrEliminarUsuarios());
         }
+
+        private void Modificar_usuarios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrModificarUsuarios());
+        }
     }
 }
