@@ -1,10 +1,10 @@
 --Funciones para LabTec
 USE LabTec
 
---Creamos una funcion para verficar si la contraseña y usuario son los mismos
+--Creamos una funcion para verficar si la contraseÃ±a y usuario son los mismos
 CREATE FUNCTION fn_VerificacionUsuario
 (
---Va ha recibir la contraseña y el usuario 
+--Va ha recibir la contraseÃ±a y el usuario 
 	@ID_usuario INT,
 	@Clave VARCHAR(10)
 )
@@ -23,12 +23,33 @@ BEGIN
 		END
 	RETURN @Mensaje
 END
+--Creamos una Funcion para verifica si existe algun laboratorio
+CREATE FUNCTION fn_VerificacionLaboratorio
+(
+--Va ha recibir el Numero del Laboratorio
+	@ID_Laboratorio INT
+)
+--Va ha devolver un resultado en cadana de texto
+RETURNS VARCHAR(50)
+AS 
+BEGIN
+	DECLARE @Mensaje VARCHAR(50)
+	IF EXISTS((SELECT ID_Lap FROM Laboratorios WHERE ID_Lap = @ID_Laboratorio)) 
+		BEGIN
+			SET @Mensaje = 'Si'
+		END
+	ELSE
+		BEGIN
+			SET @Mensaje = 'No'
+		END
+	RETURN @Mensaje
+END
 
 SELECT dbo.fn_VerificacionUsuario(17210550,'1234')
 
 CREATE FUNCTION fn_VerificacionCorreo
 (
---Va ha recibir la contraseña y el usuario 
+--Va ha recibir la contraseÃ±a y el usuario 
 	@Correo VARCHAR(50)
 )
 --Va ha devolver un resultado en cadana de texto
