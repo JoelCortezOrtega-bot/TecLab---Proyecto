@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrAgregarLaboratorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrAgregarLaboratorios.Designer.cs">
+      <DependentUpon>FrAgregarLaboratorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrAgregarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +97,12 @@
     <Compile Include="Funciones\Conexion.cs" />
     <Compile Include="Funciones\Operaciones.cs" />
     <Compile Include="Funciones\Usuarios.cs" />
+    <Compile Include="Funciones\VistasDeLasTablas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrAgregarLaboratorios.resx">
+      <DependentUpon>FrAgregarLaboratorios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrAgregarUsuarios.resx">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
