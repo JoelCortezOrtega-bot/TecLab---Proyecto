@@ -45,6 +45,30 @@ BEGIN
 	RETURN @Mensaje
 END
 
+--Creamos una Funcion para verifica si existe algun laboratorio
+CREATE FUNCTION fn_PrestamoVerificacionLaboratorio
+(
+--Va ha recibir el Numero del Laboratorio
+	@ID_Laboratorio INT
+)
+--Va ha devolver un resultado en cadana de texto
+RETURNS VARCHAR(50)
+AS 
+BEGIN
+	DECLARE @Mensaje VARCHAR(50)
+	IF EXISTS((SELECT ID_Lap FROM Prestamo_Lab WHERE ID_Lap = @ID_Laboratorio)) 
+		BEGIN
+			SET @Mensaje = 'Si'
+		END
+	ELSE
+		BEGIN
+			SET @Mensaje = 'No'
+		END
+	RETURN @Mensaje
+END
+
+SELECT dbo.fn_PrestamoVerificacionLaboratorio(1000)
+
 SELECT dbo.fn_VerificacionUsuario(17210550,'1234')
 
 CREATE FUNCTION fn_VerificacionCorreo
