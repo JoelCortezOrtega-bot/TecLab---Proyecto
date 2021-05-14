@@ -148,5 +148,15 @@ namespace LabTec
         {
             Abrirchild(new FrModificarUsuarios());
         }
+
+        private void Agregar_laboratorio_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrAgregarLaboratorios());
+        }
+
+        private void Eliminar_laboratorio_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrEliminarLaboratorio());
+        }
     }
 }

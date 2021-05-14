@@ -421,6 +421,7 @@
             this.Eliminar_laboratorio.Text = "Eliminar laboratorio";
             this.Eliminar_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Eliminar_laboratorio.UseVisualStyleBackColor = false;
+            this.Eliminar_laboratorio.Click += new System.EventHandler(this.Eliminar_laboratorio_Click);
             // 
             // Agregar_laboratorio
             // 
@@ -438,6 +439,7 @@
             this.Agregar_laboratorio.Text = "Agregar laboratorio";
             this.Agregar_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Agregar_laboratorio.UseVisualStyleBackColor = false;
+            this.Agregar_laboratorio.Click += new System.EventHandler(this.Agregar_laboratorio_Click);
             // 
             // Buscar_laboratorio
             // 
