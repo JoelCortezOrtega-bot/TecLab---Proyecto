@@ -68,12 +68,15 @@ namespace LabTec
 
         }
 
-
+        //este metodo se ejecuta cuando inicia la forma
         private void FrModificarUsuarios_Load(object sender, EventArgs e)
         {
+            //evita que el combobox se puedan agregar datos diferentes
             rolUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             generoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             estadoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //intenta ejecutar el metodo cargar
             try
             {
                 cargar(dataGridView1);
@@ -86,18 +89,24 @@ namespace LabTec
             }
         }
 
+        //accion click del boton para buscar
         private void buscarBtn_Click(object sender, EventArgs e)
         {
+            //si todos los cuadros estan llenados entra en el if
             if (!string.IsNullOrWhiteSpace(buscarTxt.Text))
             {
+                //intenta cargar el metodo buscar
                 try
                 {
                     cargarBusqueda(dataGridView1);
                     string i = dt.Rows.Count.ToString();
+                    //si solo hay un resultado al momento de buscar en el datagriedview entra en el if
                     if (i == "1")
                     {
+                        //Ejecut el metodo bloqueardesbloquear
                         BloquearDesbloquear();
 
+                        //Toma los valores actuales del usuario que se busco y los coloca en su respectivo textbox/combobox
                         idUsuario.Text = buscarTxt.Text;
                         nombreUsuario.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
                         apellidoPaterno.Text = dataGridView1.Rows[0].Cells[2].Value.ToString();
@@ -108,6 +117,7 @@ namespace LabTec
                         rolUsuario.Text = dataGridView1.Rows[0].Cells[7].Value.ToString();
                         estadoUsuario.Text = dataGridView1.Rows[0].Cells[8].Value.ToString();
                     }
+                    //si hay mas de 2 resultados solo te deja usar el boton y barra de buscar 
                     else if (i == "0")
                     {
                         buscarTxt.Enabled = true;
@@ -135,6 +145,8 @@ namespace LabTec
 
                 }
             }
+
+            //se ejecuta si no se llena el textbox de buscar
             else
             {
 
@@ -146,24 +158,30 @@ namespace LabTec
 
         }
 
+        //accion del click en boton modificar
         private void modificarBtn_Click(object sender, EventArgs e)
         {
-
+            //  muestra un cuadro de text con opcion si/no
             DialogResult dialog = MessageBox.Show("Desea eliminar al usuario con numero de control: " + idUsuario.Text, "Eliminar", MessageBoxButtons.YesNo);
+
+            //si le das si intenta modificar el usuario
             if (dialog == DialogResult.Yes)
             {
+                //condicion en la que si el estado del usuario es "conectado" no puedes modificar
                 string condicion1 = "select*from Usuario where ID_Usuario=" + idUsuario.Text + " and Estado='F'";
                 using (SqlCommand cmd = new SqlCommand(condicion1))
                 {
                     cmd.Connection = Con.Conexiones;
                     Con.Conexiones.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
-
+                    //abre el reader para ejecutar la condicion1
                     if (dr.Read())
                     {
 
+                        //si la condicion1 es "F" entra en este try
                         try
                         {
+                            //modifica los datos del usuario actual
                             Con.Conexiones.Close();
                             Con.Conexiones.Open();
                             string s = string.Format("UPDATE Usuario  SET " +
@@ -182,10 +200,11 @@ namespace LabTec
                             comando.ExecuteNonQuery();
                             Con.Conexiones.Close();
 
+                            //ejecuta el metodo bloqueardesbloquear
                             BloquearDesbloquear();
 
+                            //borra los datos de los textbox despues de agregar el usuario
                             buscarTxt.Text = "";
-
                             idUsuario.Text = "";
                             nombreUsuario.Text = "";
                             apellidoPaterno.Text = "";
@@ -208,6 +227,7 @@ namespace LabTec
 
                     }
 
+                    //si el usuario esta con estado "V" entra aqui
                     else
                     {
                         Con.Conexiones.Close();
@@ -221,13 +241,15 @@ namespace LabTec
                     }
                 }
             }
-
+            // si el usuario clickea en "no"
             else if (dialog == DialogResult.No)
             {
 
             }
 
         }
+
+        //este metodo bloquea/desbloquea los botones y textbox de para "buscar" y los que son para "modificar" porque no puedes buscar y modificar a la vez
         private void BloquearDesbloquear()
         {
             if (buscarTxt.Enabled == true) { buscarTxt.Enabled = false; }

@@ -19,8 +19,11 @@ namespace LabTec
             InitializeComponent();
         }
 
+        //En esta variable se guardara la tabla
         DataTable dt;
+        //En esta variable se guarda el adaptador 
         SqlDataAdapter da;
+        // aqui se carga la conexion a la base de datos de funciones/Conexion.cs
         Funciones.Conexion Con = new Funciones.Conexion();
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,15 +38,18 @@ namespace LabTec
             string rol = rolUsuario.Text;
             string estado = estadoUsuario.Text;
 
+            //Condicion: entra en el if si ninguna de las casillas esta vacia
             if (!string.IsNullOrWhiteSpace(idUsuario.Text) || !string.IsNullOrWhiteSpace(nombreUsuario.Text) || !string.IsNullOrWhiteSpace(apellidoPaterno.Text)
                || !string.IsNullOrWhiteSpace(apellidoMaterno.Text) || !string.IsNullOrWhiteSpace(claveUsuario.Text) || !string.IsNullOrWhiteSpace(correoUsuario.Text))
             {
                 try
                 {
+                    //  Intenta insertar los valores en el campo correspondiente
                     Con.Conexiones.Open();
                     string s = string.Format("INSERT INTO Usuario VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}') ", id, nombre, apellidop, apellidom, genero, correo, clave, rol, estado);
                     SqlCommand comando = new SqlCommand(s, Con.Conexiones);
                     comando.ExecuteNonQuery();
+                    //guarda el nombre completo del usuario para mostrarlo en el cuadro de texto
                     string fullname = nombre + " " + apellidom + " " + apellidop;
                     MessageBox.Show("usuario " + fullname + " agregado correctamente");
                 }
@@ -54,12 +60,13 @@ namespace LabTec
                 Con.Conexiones.Close();
 
             }
+            //si esta algun campo vacio entra aqui
             else
             {
                 MessageBox.Show("Uno o mas campos estan en blanco, llenalos para poder registrar");
             }
 
-
+            // intenta cargar el metodo cargar
             try
             {
                 cargar(dataGridView1);
@@ -72,6 +79,7 @@ namespace LabTec
             }
         }
 
+        //Carga la informacion de la base de datos a el datagridview
         public void cargar(DataGridView dgv)
         {
 
@@ -91,12 +99,15 @@ namespace LabTec
 
 
         }
-
+    //metodo que se carga cuando inicia la forma
         private void FrAgregarUsuarios_Load(object sender, EventArgs e)
         {
+            //esto evita que en el combobox se puedan editar las opciones
             rolUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             generoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             estadoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            // intenta cargar el metodo cargar
+
             try
             {
                 cargar(dataGridView1);
@@ -109,11 +120,12 @@ namespace LabTec
             }
         }
 
+        //evita que en el apeido se puedan poner numeros
         private void apellidoPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
-
+        //evita que en el apeido se puedan poner numeros
         private void apellidoMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);

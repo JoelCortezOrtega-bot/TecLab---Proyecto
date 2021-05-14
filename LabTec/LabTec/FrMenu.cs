@@ -17,10 +17,11 @@ namespace LabTec
             InitializeComponent();
             diseño();
         }
-
+        // esto toma la variable de si es admin o maestro
         public string MaestroAdmin { get; set; }
 
 
+        //oculta los paneles al inicio del form
         public void diseño()
         {
             panel2.Visible = false;
@@ -31,6 +32,7 @@ namespace LabTec
 
         }
 
+        //este metodo es el que oculta otros metodos cuando se llama en mostrarpanel()
         public void EsconderMenu()
         {
             if (panel2.Visible == true)
@@ -44,7 +46,7 @@ namespace LabTec
             if (panel6.Visible == true)
                 panel6.Visible = false;
         }
-
+        // utiliza a escondermenu() para esconder los paneles no seleccionados
         private void mostrarpanel(Panel submenu)
         {
             if (submenu.Visible == false)
@@ -56,6 +58,7 @@ namespace LabTec
                 submenu.Visible = false;
         }
 
+        //estos botones son los que despliegan las funcionalidades de cada seccion (Usuario despliega: Agregar, eliminar, modificar, etc)
         private void btn_perfil_Click(object sender, EventArgs e)
         {
             mostrarpanel(panel2);
@@ -86,9 +89,10 @@ namespace LabTec
 
         }
 
-
+        //el metodo se carga cuando inicia la forma
         private void FrMenu_Load(object sender, EventArgs e)
         {
+            //este if oculta algunos botones si el usuario es maestro
             LabTec.Operaciones.Operaciones op = new LabTec.Operaciones.Operaciones();
             if (MaestroAdmin=="2")
             {
@@ -109,6 +113,8 @@ namespace LabTec
         }
 
         private Form formaactiva = null;
+
+        //este es el metodo que toma la forma y la abre en el panel
         private void Abrirchild(Form childform)
         {
             if (formaactiva != null)
@@ -122,12 +128,12 @@ namespace LabTec
             childform.Show();
         }
 
-        //este es el boton para cambiar entre formas, usar este formato como ejemplo
+        
         private void Modificar_contraseña_Click(object sender, EventArgs e)
         {
             //Abrirchild(new NombreDeFormaParaAbrir());
         }
-
+        //este es el boton para cambiar entre formas, existe uno de estos para cada forma
         private void Agregar_usuarios_Click(object sender, EventArgs e)
         {
             Abrirchild(new FrAgregarUsuarios());
