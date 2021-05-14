@@ -16,12 +16,13 @@ namespace LabTec
     public partial class FrListaUsuarios : Form
     {
         //Variables que se usaran para guardar la informacion de la BD
-        //Coords
+        //Coords para cololar los elementos en el panel
         static int X = 112;
         static int Y = 13;
 
         static int iX = 3;
         static int iY = 8;
+
         //Variables normales
         string Nombre = "";
         string Tipo = "";
@@ -66,6 +67,7 @@ namespace LabTec
                 MessageBox.Show("Selecciona una opcion.","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
+
         //BUSCADOR
         //PARA
         //USUARIOS
@@ -97,6 +99,7 @@ namespace LabTec
             generador = "Usuario";
             GeneracionTabla(texto,Cadena,generador);
         }
+
         //BUSCADOR
         //PARA
         //PROYECTORES
@@ -114,6 +117,7 @@ namespace LabTec
             generador = "Proyectores";
             GeneracionTabla(texto, Cadena, generador);
         }
+
         //BUSCADOR
         //PARA
         //LABORATORIO
@@ -147,6 +151,7 @@ namespace LabTec
 
             //Creamos el comando de SQL
             SqlCommand cmd = new SqlCommand(Cadena, ConectarBD.Conexiones);
+
             //IF en caso de que haya texto en el buscador
             if (text == true)
             {
@@ -186,7 +191,7 @@ namespace LabTec
                     Id = dt.Rows[i][0].ToString();
                     Nombre= dt.Rows[i][1].ToString();
                     Estado= dt.Rows[i][2].ToString();
-                    //Agregar cantidad de PC
+                    //Agregar: Cantidad de PC
 
                     Imagen(gen);
                     TextoLab(Id,Nombre,Estado);
