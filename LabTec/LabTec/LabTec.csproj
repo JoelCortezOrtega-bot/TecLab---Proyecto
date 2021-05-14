@@ -58,6 +58,18 @@
     <Compile Include="FrAgregarUsuarios.Designer.cs">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrCalendario.Designer.cs">
+      <DependentUpon>FrCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrCalendarioHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrCalendarioHorario.Designer.cs">
+      <DependentUpon>FrCalendarioHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrEliminarLaboratorio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrAgregarUsuarios.resx">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrCalendario.resx">
+      <DependentUpon>FrCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrCalendarioHorario.resx">
+      <DependentUpon>FrCalendarioHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrEliminarLaboratorio.resx">
       <DependentUpon>FrEliminarLaboratorio.cs</DependentUpon>
