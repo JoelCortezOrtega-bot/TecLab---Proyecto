@@ -16,7 +16,7 @@ namespace LabTec
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrEliminarLaboratorio());
+            Application.Run(new FrListaUsuarios());
         }
     }
 }

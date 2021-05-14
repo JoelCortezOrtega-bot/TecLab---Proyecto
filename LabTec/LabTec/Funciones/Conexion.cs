@@ -12,8 +12,8 @@ namespace LabTec.Funciones
     public class Conexion
     {
         //Declaramos Objeto para realizar la conexion con la base de datos
-        public SqlConnection Conexiones = new SqlConnection(
-          "Data Source=DESKTOP-EOJJH72\\SQLEXPRESS;Initial Catalog=LabTec;Integrated Security=True");
+        //public SqlConnection Conexiones = new SqlConnection(
+          //"Data Source=DESKTOP-EOJJH72\\SQLEXPRESS;Initial Catalog=LabTec;Integrated Security=True");
 
         //CONEXION DE FERNANDO
         //NO BORRAR
