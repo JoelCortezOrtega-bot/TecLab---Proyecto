@@ -18,15 +18,44 @@ namespace LabTec
         //Consejo Y X (asi funciona el datatable)
         int UltimoDia = 0;
         int Numero = 0;
-        int[] HorasOcupadas;
-
-
+        int ano = 0;
+        int mes = 0;
+        string LocalTipo;
         public FrCalendario()
         {
             InitializeComponent();
         }
 
         private void FrCalendario_Load(object sender, EventArgs e)
+        {
+            DataTable fechas=MetodoMesYear();
+            DataTable nombres = MetodoNombreProy();
+            ano = Convert.ToInt32(fechas.Rows[0][1]);
+            mes = Convert.ToInt32(fechas.Rows[0][0]);
+            LocalTipo = "Laboratorio";
+            CrearCalendario(UltimoDia,fechas.Rows[0][1], fechas.Rows[0][0]);
+        }
+        string MetodoCantProyec()
+        {
+            //Conseguimos el total de proyectores
+            Conexion Conex = new Conexion();
+            string Cadena;
+            Conex.Conexiones.Open();
+            if (LocalTipo=="Laboratorio")
+            {
+                Cadena = "select Count(ID_Lap) from Laboratorios";
+            }
+            else
+            {
+                Cadena = "select Count(ID_Proyector) from Proyectores";
+            }
+            SqlCommand cmd = new SqlCommand(Cadena, Conex.Conexiones);
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dr.Fill(dt);
+            return dt.Rows[0][0].ToString();
+        }
+         DataTable MetodoMesYear()
         {
             //Conseguimos el mes y an~o actual y ponemos el titulo en el calendario
             Conexion Conex = new Conexion();
@@ -43,17 +72,67 @@ namespace LabTec
             //Pasamos a texto el mes
             string fullMonthName = new DateTime(Convert.ToInt32(Year), Convert.ToInt32(Mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
             lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
-            Conex.Conexiones.Close();
 
-            CrearCalendario(UltimoDia,Year,Mes);
+            return dt;
         }
+        DataTable MetodoNombreProy()
+        {
+            //Conseguimos los nombres de los proyectores
+            Conexion Conex = new Conexion();
+            Conex.Conexiones.Open();
+            string Cadena = "";
+            if (LocalTipo == "Laboratorio")
+            {
+                Cadena = "select ID_Lap from Laboratorios";
+
+            }
+            else
+            {
+                Cadena = "select ID_Proyector from Proyectores";
+            }
+            SqlCommand cmd = new SqlCommand(Cadena, Conex.Conexiones);
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dr.Fill(dt);
+            return dt;
+        }
+
+        DataTable MetodoHorasApartadas(int year, int mes, string dia)
+        {
+            Conexion Conex = new Conexion();
+            Conex.Conexiones.Open();
+            string Cadena;
+            if (LocalTipo=="Laboratorio")
+            {
+                Cadena = "select ID_Lap,Hora_Entrada from Prestamo_Lab where Fecha=('" + year + "-" + mes + "-" + dia + "') order by Hora_Entrada, ID_Lap";
+            }
+            else
+            {
+                Cadena = "select ID_Proyector,Hora_Entrada from Prestamo_Proyectores where Fecha=('" + year + "-" + mes + "-" + dia + "') order by Hora_Entrada, ID_Proyector";
+            }
+            SqlCommand cmd = new SqlCommand(Cadena, Conex.Conexiones);
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dr.Fill(dt);
+            return dt;
+        }
+
         private void CrearCalendario(int ultimodia,object year, object mes)
         {
             Conexion Conex = new Conexion();
 
             //Colorear Calendario
             Conex.Conexiones.Open();
-            string ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Proyectores where Month(Fecha)=Month(getdate()) group by Fecha";
+            string ColorComando;
+            if (LocalTipo == "Laboratorio")
+            {
+                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Proyectores where Month(Fecha)=Month(getdate()) group by Fecha";
+
+            }
+            else
+            {
+                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Lab where Month(Fecha)=Month(getdate()) group by Fecha";
+            }
             SqlCommand cmd2 = new SqlCommand(ColorComando, Conex.Conexiones);
             SqlDataAdapter dr2 = new SqlDataAdapter(cmd2);
             DataTable dt2 = new DataTable();
@@ -65,6 +144,7 @@ namespace LabTec
             //Creacion del picturebox fake
             DateTime date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(mes), 1);
             var AuxVacio=(int) date.DayOfWeek;
+            //MessageBox.Show(AuxVacio.ToString());
             for (int j = 0; j < AuxVacio; j++)
             {
                 PictureBox pboxVacio = new PictureBox();
@@ -77,7 +157,6 @@ namespace LabTec
             //Creacion del picturebox
             for (int i = 0; i < ultimodia; i++)
             {
-
                 Numero = Numero + 1;
                 PictureBox pbox = new PictureBox();
                 pbox.Name = Convert.ToString(i + 1);
@@ -87,9 +166,8 @@ namespace LabTec
                 pbox.Height = 100;
 
                 //Seleccion de color del dia en el calendario
-                if (Convert.ToInt32(dt2.Rows[Aux][0]) == (i + 1))
+                if (dt2.Rows.Count>0 && Convert.ToInt32(dt2.Rows[Aux][0]) == (i + 1))
                 {
-
                     if (Convert.ToInt32(dt2.Rows[Aux][1]) == 15)
                     {
                         pbox.BackColor = Color.DarkRed;
@@ -116,6 +194,7 @@ namespace LabTec
             }
         }
 
+        //Metodo para escribir el numero del dia en el calendario.
         void pboxPaint(object sender, PaintEventArgs e)
         {
             using (Font myFont = new Font("Arial", 14))
@@ -126,12 +205,48 @@ namespace LabTec
                 e.Graphics.DrawRectangle(pen, 0, 0, 100, 100);
             }
         }
-
+        
+        //Metodo para asignar el evento que tendra cada dia del calendario.
         void pboxClick(object sender, EventArgs e)
         {
             string pbxName = ((PictureBox)sender).Name;
-            string Cadena = "Select ";
-            MessageBox.Show(pbxName);
+            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes);
+            horario.ShowDialog();
+        }
+
+        private void btnSiguienteMes_Click(object sender, EventArgs e)
+        {
+            mes++;
+            if (mes==13)
+            {
+                ano++;
+                mes = 1;
+            }
+            UltimoDia = DateTime.DaysInMonth(Convert.ToInt32(ano), Convert.ToInt32(mes));
+
+            //Pasamos a texto el mes
+            string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
+            flowPanelCalendario.Controls.Clear();
+            CrearCalendario(UltimoDia,ano,mes);
+        }
+
+        private void btnAnteriorMes_Click(object sender, EventArgs e)
+        {
+            mes--;
+            if (mes==0)
+            {
+                ano--;
+                mes =12;
+            }
+            
+            UltimoDia = DateTime.DaysInMonth(Convert.ToInt32(ano), Convert.ToInt32(mes));
+
+            //Pasamos a texto el mes
+            string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
+            flowPanelCalendario.Controls.Clear();
+            CrearCalendario(UltimoDia, ano, mes);
         }
     }
 }
