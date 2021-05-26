@@ -49,7 +49,7 @@ CREATE TABLE Laboratorios
 --Creacion de la tabla de Prestamos de Laboratorio
 CREATE TABLE Prestamo_Lab
 (
-	ID_PL INT NOT NULL PRIMARY KEY,
+	ID_PL INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
 	ID_Usuario INT NOT NULL,
 	ID_Lap INT NOT NULL,
 	Fecha DATE,
@@ -62,7 +62,7 @@ CREATE TABLE Prestamo_Lab
 --Creacion de la tabla de prestamos de proyectores
 CREATE TABLE Prestamo_Proyectores
 (
-	ID_PP INT NOT NULL PRIMARY KEY,
+	ID_PP INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
 	ID_Usuario INT NOT NULL,
 	ID_Proyector INT NOT NULL,
 	Fecha DATE,
