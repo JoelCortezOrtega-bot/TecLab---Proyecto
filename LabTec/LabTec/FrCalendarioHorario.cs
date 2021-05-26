@@ -36,7 +36,7 @@ namespace LabTec
             LocalMes = month;
             LocalAño = year;
             LocalDia = nombreForm;
-            LocalTipo = "Laboratorio";
+            LocalTipo = "";
         }
 
 

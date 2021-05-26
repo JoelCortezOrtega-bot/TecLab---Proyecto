@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 604);
+            this.ClientSize = new System.Drawing.Size(980, 749);
             this.Controls.Add(this.lblDom);
             this.Controls.Add(this.lblSab);
             this.Controls.Add(this.lblVie);
@@ -165,6 +165,7 @@
             this.Controls.Add(this.lblMesTitulo);
             this.Controls.Add(this.flowPanelCalendario);
             this.Name = "FrCalendario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrCalendario";
             this.Load += new System.EventHandler(this.FrCalendario_Load);
             this.ResumeLayout(false);

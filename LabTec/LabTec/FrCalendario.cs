@@ -20,7 +20,9 @@ namespace LabTec
         int Numero = 0;
         int ano = 0;
         int mes = 0;
-        string LocalTipo;
+        int TotalDispositivosLabs = 0;
+        double MitadDisLabs = 0;
+        string LocalTipo="";
         public FrCalendario()
         {
             InitializeComponent();
@@ -32,7 +34,10 @@ namespace LabTec
             DataTable nombres = MetodoNombreProy();
             ano = Convert.ToInt32(fechas.Rows[0][1]);
             mes = Convert.ToInt32(fechas.Rows[0][0]);
-            LocalTipo = "Laboratorio";
+            TotalDispositivosLabs = Convert.ToInt32(MetodoCantProyec())*11;
+            MitadDisLabs = TotalDispositivosLabs/2;
+            MitadDisLabs = Math.Ceiling(MitadDisLabs);
+            LocalTipo = "";
             CrearCalendario(UltimoDia,fechas.Rows[0][1], fechas.Rows[0][0]);
         }
         string MetodoCantProyec()
@@ -71,7 +76,7 @@ namespace LabTec
 
             //Pasamos a texto el mes
             string fullMonthName = new DateTime(Convert.ToInt32(Year), Convert.ToInt32(Mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
+            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1) + "  " + Year;
 
             return dt;
         }
@@ -126,12 +131,12 @@ namespace LabTec
             string ColorComando;
             if (LocalTipo == "Laboratorio")
             {
-                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Proyectores where Month(Fecha)=Month(getdate()) group by Fecha";
+                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Lab where Month(Fecha)="+mes+" group by Fecha";
 
             }
             else
             {
-                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Lab where Month(Fecha)=Month(getdate()) group by Fecha";
+                ColorComando = "select Day(Fecha)as Dia, COUNT(Fecha) as Cantidad from Prestamo_Proyectores where Month(Fecha)="+mes+" group by Fecha";
             }
             SqlCommand cmd2 = new SqlCommand(ColorComando, Conex.Conexiones);
             SqlDataAdapter dr2 = new SqlDataAdapter(cmd2);
@@ -164,15 +169,15 @@ namespace LabTec
                 pbox.Click += new EventHandler(pboxClick);
                 pbox.Width = 100;
                 pbox.Height = 100;
-
+                //MessageBox.Show(dt2.Rows[Aux][1].ToString());
                 //Seleccion de color del dia en el calendario
                 if (dt2.Rows.Count>0 && Convert.ToInt32(dt2.Rows[Aux][0]) == (i + 1))
                 {
-                    if (Convert.ToInt32(dt2.Rows[Aux][1]) == 15)
+                    if (Convert.ToInt32(dt2.Rows[Aux][1]) >= TotalDispositivosLabs)
                     {
                         pbox.BackColor = Color.DarkRed;
                     }
-                    else if ((Convert.ToInt32(dt2.Rows[Aux][1])) <= 14 && (Convert.ToInt32(dt2.Rows[Aux][1]) ) >= 8)
+                    else if ((Convert.ToInt32(dt2.Rows[Aux][1])) < TotalDispositivosLabs && (Convert.ToInt32(dt2.Rows[Aux][1]) ) >= MitadDisLabs)
                     {
                         pbox.BackColor = Color.DarkOrange;
                     }
@@ -226,7 +231,7 @@ namespace LabTec
 
             //Pasamos a texto el mes
             string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
+            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1) + "  " + ano;
             flowPanelCalendario.Controls.Clear();
             CrearCalendario(UltimoDia,ano,mes);
         }
@@ -244,7 +249,7 @@ namespace LabTec
 
             //Pasamos a texto el mes
             string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1);
+            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1)+"  "+ano;
             flowPanelCalendario.Controls.Clear();
             CrearCalendario(UltimoDia, ano, mes);
         }

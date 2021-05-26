@@ -75,6 +75,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tlpHorario);
             this.Name = "FrCalendarioHorario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrCalendarioHorario";
             this.Load += new System.EventHandler(this.FrCalendarioHorario_Load);
             this.ResumeLayout(false);
