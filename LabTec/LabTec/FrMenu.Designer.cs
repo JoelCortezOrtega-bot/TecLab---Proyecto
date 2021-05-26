@@ -353,6 +353,7 @@
             this.Calendario_proyectores.Text = "Calendario de Proyectores";
             this.Calendario_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Calendario_proyectores.UseVisualStyleBackColor = false;
+            this.Calendario_proyectores.Click += new System.EventHandler(this.Calendario_proyectores_Click);
             // 
             // btn_proyectores
             // 
@@ -525,6 +526,7 @@
             this.Calendario_laboratorios.Text = "Calendario de laboratorios";
             this.Calendario_laboratorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Calendario_laboratorios.UseVisualStyleBackColor = false;
+            this.Calendario_laboratorios.Click += new System.EventHandler(this.Calendario_laboratorios_Click);
             // 
             // btn_laboratorios
             // 
