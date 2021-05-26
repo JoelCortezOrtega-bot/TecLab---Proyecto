@@ -234,6 +234,7 @@
             this.Modificar_proyectores.Text = "Modificar proyectores";
             this.Modificar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modificar_proyectores.UseVisualStyleBackColor = false;
+            this.Modificar_proyectores.Click += new System.EventHandler(this.Modificar_proyectores_Click);
             // 
             // Eliminar_proyectores
             // 
@@ -251,6 +252,7 @@
             this.Eliminar_proyectores.Text = "Eliminar proyectores";
             this.Eliminar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Eliminar_proyectores.UseVisualStyleBackColor = false;
+            this.Eliminar_proyectores.Click += new System.EventHandler(this.Eliminar_proyectores_Click);
             // 
             // Agregar_proyectores
             // 
@@ -268,6 +270,7 @@
             this.Agregar_proyectores.Text = "Agregar proyectores";
             this.Agregar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Agregar_proyectores.UseVisualStyleBackColor = false;
+            this.Agregar_proyectores.Click += new System.EventHandler(this.Agregar_proyectores_Click);
             // 
             // Buscar_proyectores
             // 

@@ -231,7 +231,7 @@
             // modificarBtn
             // 
             this.modificarBtn.Enabled = false;
-            this.modificarBtn.Location = new System.Drawing.Point(499, 371);
+            this.modificarBtn.Location = new System.Drawing.Point(486, 373);
             this.modificarBtn.Name = "modificarBtn";
             this.modificarBtn.Size = new System.Drawing.Size(220, 43);
             this.modificarBtn.TabIndex = 48;

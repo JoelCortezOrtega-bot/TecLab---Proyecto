@@ -52,6 +52,12 @@
     <Compile Include="FrAgregarLaboratorios.Designer.cs">
       <DependentUpon>FrAgregarLaboratorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrAgregarProyectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrAgregarProyectores.Designer.cs">
+      <DependentUpon>FrAgregarProyectores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrAgregarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="FrEliminarLaboratorio.Designer.cs">
       <DependentUpon>FrEliminarLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrEliminarProyectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrEliminarProyectores.Designer.cs">
+      <DependentUpon>FrEliminarProyectores.cs</DependentUpon>
     </Compile>
     <Compile Include="FrEliminarUsuarios.cs">
       <SubType>Form</SubType>
@@ -100,6 +112,12 @@
     <Compile Include="FrMenu.Designer.cs">
       <DependentUpon>FrMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrModificarProyectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrModificarProyectores.Designer.cs">
+      <DependentUpon>FrModificarProyectores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrModificarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +139,9 @@
     <EmbeddedResource Include="FrAgregarLaboratorios.resx">
       <DependentUpon>FrAgregarLaboratorios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrAgregarProyectores.resx">
+      <DependentUpon>FrAgregarProyectores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrAgregarUsuarios.resx">
       <DependentUpon>FrAgregarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +154,9 @@
     <EmbeddedResource Include="FrEliminarLaboratorio.resx">
       <DependentUpon>FrEliminarLaboratorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrEliminarProyectores.resx">
+      <DependentUpon>FrEliminarProyectores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrEliminarUsuarios.resx">
       <DependentUpon>FrEliminarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrMenu.resx">
       <DependentUpon>FrMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrModificarProyectores.resx">
+      <DependentUpon>FrModificarProyectores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrModificarUsuarios.resx">
       <DependentUpon>FrModificarUsuarios.cs</DependentUpon>

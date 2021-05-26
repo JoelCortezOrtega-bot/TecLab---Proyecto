@@ -22,6 +22,9 @@ namespace LabTec
         DataTable dt;
         SqlDataAdapter da;
         Funciones.Conexion Con = new Funciones.Conexion();
+        string date = DateTime.Now.ToString("yyyy-MM-dd");
+        string time = DateTime.Now.ToString("HH:mm:ss");
+
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -161,75 +164,22 @@ namespace LabTec
         //accion del click en boton modificar
         private void modificarBtn_Click(object sender, EventArgs e)
         {
-            //  muestra un cuadro de text con opcion si/no
-            DialogResult dialog = MessageBox.Show("Desea eliminar al usuario con numero de control: " + idUsuario.Text, "Eliminar", MessageBoxButtons.YesNo);
 
-            //si le das si intenta modificar el usuario
+            DialogResult dialog = MessageBox.Show("Desea modificar al usuario con numero de control: " + idUsuario.Text, "Eliminar", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                //condicion en la que si el estado del usuario es "conectado" no puedes modificar
-                string condicion1 = "select*from Usuario where ID_Usuario=" + idUsuario.Text + " and Estado='F'";
+                string condicion1 = "select*from Usuario where ID_Usuario=" + idUsuario.Text + " and Estado='T'";
+                string condicion2 = "select*from Prestamo_Proyectores where ID_Usuario =" + idUsuario.Text + " and '" + date + "'>= Fecha and '" + time + "' <= Hora_salida   ";
                 using (SqlCommand cmd = new SqlCommand(condicion1))
                 {
                     cmd.Connection = Con.Conexiones;
                     Con.Conexiones.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
-                    //abre el reader para ejecutar la condicion1
+
                     if (dr.Read())
                     {
 
-                        //si la condicion1 es "F" entra en este try
-                        try
-                        {
-                            //modifica los datos del usuario actual
-                            Con.Conexiones.Close();
-                            Con.Conexiones.Open();
-                            string s = string.Format("UPDATE Usuario  SET " +
-                            "ID_Usuario={0}," +
-                            "Nombre='{1}'," +
-                            "Ape_P='{2}'," +
-                            "Ape_M='{3}'," +
-                            "Genero='{4}'," +
-                            "Correo='{5}'," +
-                            "Clave='{6}'," +
-                            "ID_Rol={7}," +
-                            "Estado='{8}'" +
-                            "WHERE ID_Usuario='{9}';", idUsuario.Text, nombreUsuario.Text, apellidoPaterno.Text, apellidoMaterno.Text,
-                            generoUsuario.Text, correoUsuario.Text, claveUsuario.Text, rolUsuario.Text, estadoUsuario.Text, buscarTxt.Text);
-                            SqlCommand comando = new SqlCommand(s, Con.Conexiones);
-                            comando.ExecuteNonQuery();
-                            Con.Conexiones.Close();
-
-                            //ejecuta el metodo bloqueardesbloquear
-                            BloquearDesbloquear();
-
-                            //borra los datos de los textbox despues de agregar el usuario
-                            buscarTxt.Text = "";
-                            idUsuario.Text = "";
-                            nombreUsuario.Text = "";
-                            apellidoPaterno.Text = "";
-                            apellidoMaterno.Text = "";
-                            rolUsuario.Text = "";
-                            generoUsuario.Text = "";
-                            claveUsuario.Text = "";
-                            correoUsuario.Text = "";
-                            estadoUsuario.Text = "";
-
-                            cargar(dataGridView1);
-                        }
-
-
-                        catch (Exception exc)
-                        {
-                            Con.Conexiones.Close();
-                            MessageBox.Show(exc.Message);
-                        }
-
-                    }
-
-                    //si el usuario esta con estado "V" entra aqui
-                    else
-                    {
+                        dr.Close();
                         Con.Conexiones.Close();
                         BloquearDesbloquear();
                         cargar(dataGridView1);
@@ -238,14 +188,82 @@ namespace LabTec
                         generoUsuario.Text = ""; claveUsuario.Text = ""; correoUsuario.Text = "";
                         estadoUsuario.Text = "";
                         MessageBox.Show("El usuario aun esta activo, solo se puede completar esta accion si esta inactivo");
+
+                    }
+
+                    else
+                    {
+                        Con.Conexiones.Close();
+                        using (SqlCommand cmd2 = new SqlCommand(condicion2))
+                        {
+                            cmd2.Connection = Con.Conexiones;
+                            Con.Conexiones.Open();
+                            SqlDataReader dr2 = cmd2.ExecuteReader();
+
+                            if (dr2.Read())
+                            {
+
+                                dr2.Close();
+                                Con.Conexiones.Close();
+                                BloquearDesbloquear();
+                                cargar(dataGridView1);
+                                buscarTxt.Text = ""; idUsuario.Text = ""; nombreUsuario.Text = "";
+                                apellidoPaterno.Text = ""; apellidoMaterno.Text = ""; rolUsuario.Text = "";
+                                generoUsuario.Text = ""; claveUsuario.Text = ""; correoUsuario.Text = "";
+                                estadoUsuario.Text = "";
+                                MessageBox.Show("El usuario tiene un proyector activo");
+
+                            }
+
+                            else
+                            {
+                                dr2.Close();
+
+                                Con.Conexiones.Close();
+                                Con.Conexiones.Open();
+                                string s = string.Format("UPDATE Usuario  SET " +
+                                "ID_Usuario={0}," +
+                                "Nombre='{1}'," +
+                                "Ape_P='{2}'," +
+                                "Ape_M='{3}'," +
+                                "Genero='{4}'," +
+                                "Correo='{5}'," +
+                                "Clave='{6}'," +
+                                "ID_Rol={7}," +
+                                "Estado='{8}'" +
+                                "WHERE ID_Usuario='{9}';", idUsuario.Text, nombreUsuario.Text, apellidoPaterno.Text, apellidoMaterno.Text,
+                                generoUsuario.Text, correoUsuario.Text, claveUsuario.Text, rolUsuario.Text, estadoUsuario.Text, buscarTxt.Text);
+                                SqlCommand comando = new SqlCommand(s, Con.Conexiones);
+                                comando.ExecuteNonQuery();
+                                Con.Conexiones.Close();
+
+                                BloquearDesbloquear();
+
+                                buscarTxt.Text = "";
+
+                                idUsuario.Text = "";
+                                nombreUsuario.Text = "";
+                                apellidoPaterno.Text = "";
+                                apellidoMaterno.Text = "";
+                                rolUsuario.Text = "";
+                                generoUsuario.Text = "";
+                                claveUsuario.Text = "";
+                                correoUsuario.Text = "";
+                                estadoUsuario.Text = "";
+
+                                cargar(dataGridView1);
+
+                            }
+                        }
                     }
                 }
             }
-            // si el usuario clickea en "no"
+
             else if (dialog == DialogResult.No)
             {
 
             }
+
 
         }
 
