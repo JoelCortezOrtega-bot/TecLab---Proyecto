@@ -82,6 +82,22 @@ namespace LabTec
                     }
                     else if (descanso.Contains(Convert.ToString(LocalNombres.Rows[j][0]) + (i)))
                     {
+                        if (i>7)
+                        {
+                            foreach (Control c in tlpHorario.Controls)
+                            {
+                                
+                                if (Convert.ToString(c.Tag)==(LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + (i-2)) && c.Name== Convert.ToString(LocalNombres.Rows[j][0]))
+                                {
+                                    c.BackColor = Color.Purple;
+                                    c.Text = LocalNombres.Rows[j][0].ToString() + "    " + "DESCANSANDO";
+                                    c.Enabled = false;
+
+                                }
+                            }
+
+                        }
+                        
                         color = Color.Purple;
                         texto = "DESCANSANDO";
                         activado = false;
@@ -161,6 +177,7 @@ namespace LabTec
                 //1.Revisar que
                 string AuxAntiguo = "";
                 bool Advertencia = false;
+                ListaApartados.Sort();
                 foreach (var owo in ListaApartados)
                 {
                     string[] separado = owo.Split('/');
@@ -173,10 +190,8 @@ namespace LabTec
                         if ((Convert.ToInt32(AuxAntiguo) + 1) == Convert.ToInt32(separado[1]))
                         {
                             Advertencia = true;
-                            MessageBox.Show("Recuerda que no puedes pedir el mismo proyector dos horas seguidas.\r\nFavor de escoger otra proyector.", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
                 }
 
                 if (Advertencia == false)
@@ -241,6 +256,10 @@ namespace LabTec
                         MessageBox.Show("Se han apartado los proyectores correctamente.", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Recuerda que no puedes pedir el mismo proyector dos horas seguidas.\r\nFavor de escoger otra proyector.", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
