@@ -43,7 +43,7 @@ namespace LabTec.Operaciones
                 if (B_activo == "1")
                 {
              
-                    FrMenu Menu = new FrMenu();
+                    FrMenu Menu = new FrMenu(IDUsuario1);
                     Menu.MaestroAdmin = B_activo;
                     Menu.Show();
                     MessageBox.Show("Bienvenido Administrador.");
@@ -52,7 +52,7 @@ namespace LabTec.Operaciones
                 else if (B_activo == "2")
                 {
                    
-                    FrMenu Menu = new FrMenu();
+                    FrMenu Menu = new FrMenu(IDUsuario1);
                     Menu.MaestroAdmin = B_activo;
                     Menu.Show();
                     MessageBox.Show("Bienvenido Maestro.");

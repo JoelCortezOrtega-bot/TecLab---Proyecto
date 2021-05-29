@@ -23,9 +23,12 @@ namespace LabTec
         int TotalDispositivosLabs = 0;
         double MitadDisLabs = 0;
         string LocalTipo="";
-        public FrCalendario()
+        int LocalNumUsuario;
+        public FrCalendario(int NumUsuario, string Tipo)
         {
             InitializeComponent();
+            LocalTipo = Tipo;
+            LocalNumUsuario = NumUsuario;
         }
 
         private void FrCalendario_Load(object sender, EventArgs e)
@@ -235,7 +238,7 @@ namespace LabTec
         void pboxClick(object sender, EventArgs e)
         {
             string pbxName = ((PictureBox)sender).Name;
-            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes, MetodoHorasRestriccion(ano, mes, pbxName));
+            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes, MetodoHorasRestriccion(ano, mes, pbxName),LocalNumUsuario);
             horario.ShowDialog();
         }
 

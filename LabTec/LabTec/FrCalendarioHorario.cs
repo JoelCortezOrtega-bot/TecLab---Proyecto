@@ -19,6 +19,7 @@ namespace LabTec
         int LocalMes;
         int LocalAño;
         string LocalTipo;
+        int LocalNumUsuario;
         DataTable LocalNombres;
         DataTable LocalHoras;
         DataTable LocalRestriccion;
@@ -27,7 +28,7 @@ namespace LabTec
         int HoraFinal = 22;
 
 
-        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion)
+        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion,int NumUsuario)
         {
             InitializeComponent();
             LocalCantidadProy = Convert.ToInt32(cantidadProy);
@@ -39,6 +40,7 @@ namespace LabTec
             LocalDia = nombreForm;
             LocalTipo = "";
             LocalRestriccion = restriccion;
+            LocalNumUsuario = NumUsuario;
         }
 
 
@@ -239,11 +241,11 @@ namespace LabTec
                             string Cadena;
                             if (LocalTipo == "Laboratorio")
                             {
-                                Cadena = "insert into Prestamo_Lab values (18210844," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
+                                Cadena = "insert into Prestamo_Lab values ("+LocalNumUsuario+"," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
                             }
                             else
                             {
-                                Cadena = "insert into Prestamo_Proyectores values (18210844," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
+                                Cadena = "insert into Prestamo_Proyectores values (" + LocalNumUsuario + "," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
                             }
                             cmd = new SqlCommand(Cadena, Conex.Conexiones);
                             cmd.ExecuteNonQuery();
