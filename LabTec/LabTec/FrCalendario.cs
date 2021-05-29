@@ -106,8 +106,8 @@ namespace LabTec
         {
             Conexion Conex = new Conexion();
             Conex.Conexiones.Open();
-            string Cadena;
-            if (LocalTipo=="Laboratorio")
+            string Cadena="";
+            if (LocalTipo == "Laboratorio")
             {
                 Cadena = "select ID_Lap,Hora_Entrada from Prestamo_Lab where Fecha=('" + year + "-" + mes + "-" + dia + "') order by Hora_Entrada, ID_Lap";
             }
@@ -115,13 +115,33 @@ namespace LabTec
             {
                 Cadena = "select ID_Proyector,Hora_Entrada from Prestamo_Proyectores where Fecha=('" + year + "-" + mes + "-" + dia + "') order by Hora_Entrada, ID_Proyector";
             }
+
             SqlCommand cmd = new SqlCommand(Cadena, Conex.Conexiones);
             SqlDataAdapter dr = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             dr.Fill(dt);
+            Conex.Conexiones.Close();
             return dt;
         }
 
+        DataTable MetodoHorasRestriccion(int year, int mes, string dia)
+        {
+            Conexion Conex = new Conexion();
+            Conex.Conexiones.Open();
+            string Cadena="";
+            //Esta tabla sirve para hacer la restriccion de descanso del proyector
+            //if (LocalTipo == "Proyector")
+            //{
+                Cadena = "select ID_Proyector,Hora_Entrada from Prestamo_Proyectores where Fecha=('" + year + "-" + mes + "-" + dia + "') order by ID_Proyector, Hora_Entrada";
+            //}
+
+            SqlCommand cmd9 = new SqlCommand(Cadena, Conex.Conexiones);
+            SqlDataAdapter dr9 = new SqlDataAdapter(cmd9);
+            DataTable dt9 = new DataTable();
+            dr9.Fill(dt9);
+            Conex.Conexiones.Close();
+            return dt9;
+        }
         private void CrearCalendario(int ultimodia,object year, object mes)
         {
             Conexion Conex = new Conexion();
@@ -215,7 +235,7 @@ namespace LabTec
         void pboxClick(object sender, EventArgs e)
         {
             string pbxName = ((PictureBox)sender).Name;
-            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes);
+            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes, MetodoHorasRestriccion(ano, mes, pbxName));
             horario.ShowDialog();
         }
 

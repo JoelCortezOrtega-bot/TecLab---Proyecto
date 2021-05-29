@@ -31,6 +31,8 @@
             this.tlpHorario = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpHorario
@@ -65,12 +67,21 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(422, 97);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 43;
+            // 
             // FrCalendarioHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(345, 481);
+            this.ClientSize = new System.Drawing.Size(979, 481);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tlpHorario);
@@ -78,6 +89,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrCalendarioHorario";
             this.Load += new System.EventHandler(this.FrCalendarioHorario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,5 +98,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpHorario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
