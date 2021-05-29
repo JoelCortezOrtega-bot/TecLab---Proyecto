@@ -158,5 +158,15 @@ namespace LabTec
         {
             Abrirchild(new FrEliminarLaboratorio());
         }
+
+        private void Calendario_laboratorios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrCalendario());
+        }
+
+        private void Calendario_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrCalendario());
+        }
     }
 }
