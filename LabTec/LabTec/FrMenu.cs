@@ -186,5 +186,14 @@ namespace LabTec
             Abrirchild(new FrCalendario(LocalNumUsuario,"Proyector"));
         }
 
+        private void Cancelar_apartados_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrCancelarApartados(LocalNumUsuario));
+        }
+
+        private void Modificar_contraseña_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
