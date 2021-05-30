@@ -19,14 +19,16 @@ namespace LabTec
         int LocalMes;
         int LocalAño;
         string LocalTipo;
+        int LocalNumUsuario;
         DataTable LocalNombres;
         DataTable LocalHoras;
+        DataTable LocalRestriccion;
         List<string> ListaApartados = new List<string>();
         int HoraInicial = 6;
         int HoraFinal = 22;
 
 
-        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month)
+        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion,int NumUsuario)
         {
             InitializeComponent();
             LocalCantidadProy = Convert.ToInt32(cantidadProy);
@@ -37,12 +39,15 @@ namespace LabTec
             LocalAño = year;
             LocalDia = nombreForm;
             LocalTipo = "";
+            LocalRestriccion = restriccion;
+            LocalNumUsuario = NumUsuario;
         }
 
 
 
         private void FrCalendarioHorario_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = LocalRestriccion;
             CreacionHorario();
         }
 
@@ -54,6 +59,9 @@ namespace LabTec
             Color color = new Color();
             string texto = "";
             bool activado = false;
+            //Lista para saber cuales horas tendran descanso
+            List<string> descanso = new List<string>();
+            //For que maneja las Horas
             for (int i = HoraInicial; i < HoraFinal; i++)
             {
                 //TITULO DE HORA
@@ -61,15 +69,40 @@ namespace LabTec
                 string fromTimeString = "HORA: " + result.ToString("hh':'mm");
                 tlpHorario.Controls.Add(new Label { Text = fromTimeString, Anchor = AnchorStyles.None, Font = new Font("Arial", 14), AutoSize = true }, 0, ContadorRenglon);
                 ContadorRenglon++;
-
+                //For que maneja los proyectores/laboratorios
                 for (int j = 0; j < LocalCantidadProy; j++)
                 {
+                    //0 es menor al numero de horas apartadas en el dia [Y] el nombre de ID_Proyector de las horas apartadas es igual al nombre del ID_Proyector actual en el for [Y] La hora a la que se aparta es igual a la hora que se maneja en el for de arriba
+                    //0<19
                     if ((ContadorHoras < LocalHoras.Rows.Count) && (Convert.ToString(LocalHoras.Rows[ContadorHoras][0]) == Convert.ToString(LocalNombres.Rows[j][0])) && (LocalHoras.Rows[ContadorHoras][1].ToString() == result.ToString("hh':'mm':'ss")))
                     {
+                        descanso.Add(Convert.ToString(LocalNombres.Rows[j][0])+(i+1));
                         color = Color.Brown;
                         texto = "NO DISPONIBLE";
                         activado = false;
                         ContadorHoras++;
+                    }
+                    else if (descanso.Contains(Convert.ToString(LocalNombres.Rows[j][0]) + (i)))
+                    {
+                        if (i>7)
+                        {
+                            foreach (Control c in tlpHorario.Controls)
+                            {
+                                
+                                if (Convert.ToString(c.Tag)==(LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + (i-2)) && c.Name== Convert.ToString(LocalNombres.Rows[j][0]))
+                                {
+                                    c.BackColor = Color.Purple;
+                                    c.Text = LocalNombres.Rows[j][0].ToString() + "    " + "DESCANSANDO";
+                                    c.Enabled = false;
+
+                                }
+                            }
+
+                        }
+                        
+                        color = Color.Purple;
+                        texto = "DESCANSANDO";
+                        activado = false;
                     }
                     else
                     {
@@ -140,68 +173,110 @@ namespace LabTec
             }
             else
             {
-                foreach (var Aux in ListaApartados)
+                //
+                //RESTRICCION DE APARTADO
+                //
+                //1.Revisar que
+                string AuxAntiguo = "";
+                bool Advertencia = false;
+                ListaApartados.Sort();
+                foreach (var owo in ListaApartados)
                 {
-                    string[] separado = Aux.Split('/');
-                    Conexion Conex = new Conexion();
-                    Conex.Conexiones.Open();
-
-                    //Conversion a Hora Inicial
-                    TimeSpan AuxHoraInicial = TimeSpan.FromHours(Convert.ToDouble(separado[1]));
-                    AuxHoraInicial.ToString("hh':'mm':'ss");
-
-                    //Conver a Hora Final
-                    TimeSpan AuxHoraFinal = TimeSpan.FromHours(Convert.ToDouble(separado[1]) + 1);
-                    AuxHoraFinal.ToString("hh':'mm':'ss");
-
-                    //Condicion para confirmar que no este apartado esta fecha
-                    string AuxCadena;
-                    if (LocalTipo=="Laboratorio")
+                    string[] separado = owo.Split('/');
+                    if (AuxAntiguo == "")
                     {
-                        AuxCadena = "select * from Prestamo_Lab where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Lap=" + separado[2];
-
+                        AuxAntiguo = separado[1];
                     }
                     else
                     {
-                        AuxCadena = "select * from Prestamo_Proyectores where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Proyector=" + separado[2];
-
-                    }
-                    SqlCommand cmd = new SqlCommand(AuxCadena, Conex.Conexiones);
-                    SqlDataAdapter dr = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    dr.Fill(dt);
-                    Conex.Conexiones.Close();
-                    if (dt.Rows.Count > 0)
-                    {
-                        MessageBox.Show("Esta hora ya se encuentra apartada.\r\nFavor de escoger otra hora. \r\n[Conflicto => Hora:" + AuxHoraInicial.ToString("hh':'mm':'ss") + " Proyector: " + separado[2], "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                    }
-                    else
-                    {
-                        Auxiliar = 1;
-                        Conex.Conexiones.Open();
-                        string Cadena;
-                        if (LocalTipo=="Laboratorio")
+                        if ((Convert.ToInt32(AuxAntiguo) + 1) == Convert.ToInt32(separado[1]))
                         {
-                            Cadena = "insert into Prestamo_Lab values (18210844," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','ABC123DEF777')";
+                            Advertencia = true;
+                        }
+                    }
+                }
+
+                if (Advertencia == false)
+                {
+                    foreach (var Aux in ListaApartados)
+                    {
+                        string[] separado = Aux.Split('/');
+                        Conexion Conex = new Conexion();
+                        Conex.Conexiones.Open();
+
+                        //Conversion a Hora Inicial
+                        TimeSpan AuxHoraInicial = TimeSpan.FromHours(Convert.ToDouble(separado[1]));
+                        AuxHoraInicial.ToString("hh':'mm':'ss");
+
+                        //Conver a Hora Final
+                        TimeSpan AuxHoraFinal = TimeSpan.FromHours(Convert.ToDouble(separado[1]) + 1);
+                        AuxHoraFinal.ToString("hh':'mm':'ss");
+
+                        //Condicion para confirmar que no este apartado esta fecha
+                        string AuxCadena;
+                        if (LocalTipo == "Laboratorio")
+                        {
+                            AuxCadena = "select * from Prestamo_Lab where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Lap=" + separado[2];
+
                         }
                         else
                         {
-                            Cadena = "insert into Prestamo_Proyectores values (18210844," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','ABC123DEF777')";
-                        }
-                        cmd = new SqlCommand(Cadena, Conex.Conexiones);
-                        cmd.ExecuteNonQuery();
-                        Conex.Conexiones.Close();
-                    }
+                            AuxCadena = "select * from Prestamo_Proyectores where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Proyector=" + separado[2];
 
+                        }
+                        SqlCommand cmd = new SqlCommand(AuxCadena, Conex.Conexiones);
+                        SqlDataAdapter dr = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dr.Fill(dt);
+                        Conex.Conexiones.Close();
+                        if (dt.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Esta hora ya se encuentra apartada.\r\nFavor de escoger otra hora. \r\n[Conflicto => Hora:" + AuxHoraInicial.ToString("hh':'mm':'ss") + " Proyector: " + separado[2], "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+                        else
+                        {
+                            Auxiliar = 1;
+                            Conex.Conexiones.Open();
+                            string Cadena;
+                            if (LocalTipo == "Laboratorio")
+                            {
+                                Cadena = "insert into Prestamo_Lab values ("+LocalNumUsuario+"," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
+                            }
+                            else
+                            {
+                                Cadena = "insert into Prestamo_Proyectores values (" + LocalNumUsuario + "," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
+                            }
+                            cmd = new SqlCommand(Cadena, Conex.Conexiones);
+                            cmd.ExecuteNonQuery();
+                            Conex.Conexiones.Close();
+                        }
+
+                    }
+                    if (Auxiliar == 1)
+                    {
+                        MessageBox.Show("Se han apartado los proyectores correctamente.", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
-                if (Auxiliar==1)
+                else
                 {
-                    MessageBox.Show("Se han apartado los proyectores correctamente.", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show("Recuerda que no puedes pedir el mismo proyector dos horas seguidas.\r\nFavor de escoger otra proyector.", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-           
         }
+        # region    CodigoApartado
+        //Funcion para hacer el codigo compartir.
+        public string GeneradorCodigo()
+        {
+            string Codigo = "";
+            Random ran = new Random();
+            string UnoLetra = Convert.ToString((char)(((int)'A') + ran.Next(1, 26)));
+            string DosLetra = Convert.ToString((char)(((int)'A') + ran.Next(1, 26)));
+            string TresLetra = Convert.ToString((char)(((int)'A') + ran.Next(1, 26)));
+            Codigo = UnoLetra + DosLetra + ran.Next(0, 9) + Convert.ToChar(35 + ran.Next(0, 4)).ToString() + Convert.ToChar(35 + ran.Next(0, 4)).ToString() + TresLetra + ran.Next(0, 9) + ran.Next(0, 9);
+            return Codigo;
+        }
+        #endregion
     }
 }

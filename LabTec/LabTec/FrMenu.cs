@@ -12,9 +12,11 @@ namespace LabTec
 {
     public partial class FrMenu : Form
     {
-        public FrMenu()
+        int LocalNumUsuario;
+        public FrMenu(int numusuario)
         {
             InitializeComponent();
+            LocalNumUsuario = numusuario;
             diseño();
         }
         // esto toma la variable de si es admin o maestro
@@ -159,19 +161,15 @@ namespace LabTec
             Abrirchild(new FrEliminarLaboratorio());
         }
 
-        private void Agregar_proyectores_Click(object sender, EventArgs e)
+        private void Calendario_laboratorios_Click(object sender, EventArgs e)
         {
-            Abrirchild(new FrAgregarProyectores());
+            Abrirchild(new FrCalendario(LocalNumUsuario,"Laboratorio"));
         }
 
-        private void Eliminar_proyectores_Click(object sender, EventArgs e)
+        private void Calendario_proyectores_Click(object sender, EventArgs e)
         {
-            Abrirchild(new FrEliminarProyectores());
+            Abrirchild(new FrCalendario(LocalNumUsuario,"Proyector"));
         }
 
-        private void Modificar_proyectores_Click(object sender, EventArgs e)
-        {
-            Abrirchild(new FrModificarProyectores());
-        }
     }
 }
