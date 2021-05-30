@@ -161,6 +161,21 @@ namespace LabTec
             Abrirchild(new FrEliminarLaboratorio());
         }
 
+        private void Agregar_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrAgregarProyectores());
+        }
+
+        private void Eliminar_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrEliminarProyectores());
+        }
+
+        private void Modificar_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrModificarProyectores());
+        }
+
         private void Calendario_laboratorios_Click(object sender, EventArgs e)
         {
             Abrirchild(new FrCalendario(LocalNumUsuario,"Laboratorio"));
