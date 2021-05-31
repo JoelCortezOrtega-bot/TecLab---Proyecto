@@ -26,24 +26,24 @@ namespace LabTec.Operaciones
         //Constructor de la clase Operaciones
         public Operaciones(){}
         
-        public void Login()
+        public void Login(int IDUsuario, string Clave)
         {
             //Verifica si los datos recibidos estan vacios
-            if (IDUsuario1 != 0 || Clave1 != "")
+            if (IDUsuario != 0 || Clave != "")
             {
                 //Indicamos al comando la conexión
                 Comando.Connection = Cn.Conexiones;
                 //Abrimos la conexion
                 Cn.Conexiones.Open();
                 //Asignamos al comando la consulta de B_activo
-                Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario("+ IDUsuario1 +", '"+ Clave1 +"')";
+                Comando.CommandText = "SELECT dbo.fn_VerificacionUsuario("+ IDUsuario +", '"+ Clave +"')";
                 //Guardamos el resultado en la variable auxiliar
                 B_activo = (Comando.ExecuteScalar()).ToString();
                 //Enviara al usuario a la seccion del Administrador
                 if (B_activo == "1")
                 {
              
-                    FrMenu Menu = new FrMenu(IDUsuario1);
+                    FrMenu Menu = new FrMenu(IDUsuario);
                     Menu.MaestroAdmin = B_activo;
                     Menu.Show();
                     MessageBox.Show("Bienvenido Administrador.");
@@ -52,7 +52,7 @@ namespace LabTec.Operaciones
                 else if (B_activo == "2")
                 {
                    
-                    FrMenu Menu = new FrMenu(IDUsuario1);
+                    FrMenu Menu = new FrMenu(IDUsuario);
                     Menu.MaestroAdmin = B_activo;
                     Menu.Show();
                     MessageBox.Show("Bienvenido Maestro.");
@@ -226,6 +226,25 @@ namespace LabTec.Operaciones
                 //Mensaje Indicando al Usuario que NO exista un laboratorio con ese ID
                 MessageBox.Show("No se ha encontrado ese laboratorio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        public void AgregarComentario(string Comentario, int ID)
+        {
+            //Abrimos la conexion
+            Cn.Conexiones.Open();
+            //Asignamos a nuestro Sqlcommand cree un comando de SQLServer
+            Comando = Cn.Conexiones.CreateCommand();
+            //Indicamos a nuestro Sqlcommand el tipo de operacion que va realizar
+            Comando.CommandType = CommandType.Text;
+            //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
+            //concuerda alguno ya existen
+            Comando.CommandText = "INSERT INTO Comentarios(ID_Usuario,Descripcion,Fecha) VALUES(" + ID + ",'" + Comentario + "',GETDATE())";
+            //Ejecutamos nuestro comando
+            Comando.ExecuteNonQuery();
+            //Cerramos la conexion
+            Cn.Conexiones.Close();
+            //Mensaje de Aceptacion
+            MessageBox.Show("Se ha agregado exitosamente su comentario.","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }

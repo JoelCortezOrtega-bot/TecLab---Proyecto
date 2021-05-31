@@ -195,5 +195,10 @@ namespace LabTec
         {
 
         }
+
+        private void Ver_comentarios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrComentarios(LocalNumUsuario));
+        }
     }
 }

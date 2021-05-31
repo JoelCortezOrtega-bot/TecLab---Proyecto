@@ -82,6 +82,12 @@
     <Compile Include="FrCancelarApartados.Designer.cs">
       <DependentUpon>FrCancelarApartados.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrComentarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrComentarios.Designer.cs">
+      <DependentUpon>FrComentarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrEliminarLaboratorio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrCancelarApartados.resx">
       <DependentUpon>FrCancelarApartados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrComentarios.resx">
+      <DependentUpon>FrComentarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrEliminarLaboratorio.resx">
       <DependentUpon>FrEliminarLaboratorio.cs</DependentUpon>

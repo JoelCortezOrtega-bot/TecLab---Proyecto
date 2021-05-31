@@ -30,11 +30,12 @@ namespace LabTec
 
             try
             {
+                //FrInicio
                 //Asigna los valor capturadores de los txtbox en las variables 
-                op.IDUsuario1 = Convert.ToInt32(txtIDUsuario.Text);
-                op.Clave1 = txtClave.Text;
+                int IDUsuario = Convert.ToInt32(txtIDUsuario.Text);
+                string Clave = txtClave.Text;
                 //Llama al metodo Login de la clase Operaciones
-                op.Login();
+                op.Login(IDUsuario, Clave);
             }
             //Se encarga de atrapar cualquier error relacionado con valores no validos
             catch (FormatException)
@@ -43,7 +44,7 @@ namespace LabTec
                 if (txtIDUsuario.Text == "" || txtClave.Text == "")
                 {
                     //Llamamos al metodo static txtVacios
-                    txtVacios(txtIDUsuario.Text, txtClave.Text);
+                    MessageBox.Show("Por favor rellenar ambos cuadros de texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
                 else
