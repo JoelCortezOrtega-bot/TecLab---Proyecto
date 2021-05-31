@@ -173,6 +173,7 @@
             this.Ver_Perfil.Text = "Ver perfil";
             this.Ver_Perfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Ver_Perfil.UseVisualStyleBackColor = false;
+            this.Ver_Perfil.Click += new System.EventHandler(this.Ver_Perfil_Click);
             // 
             // btn_comentarios
             // 

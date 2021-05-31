@@ -52,7 +52,7 @@ namespace LabTec
                     MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            try
+            finally
             {
                 //Limpiar cuadro de texto
                 txtComentario.Clear();

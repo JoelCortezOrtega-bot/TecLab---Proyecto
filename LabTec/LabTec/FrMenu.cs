@@ -200,5 +200,10 @@ namespace LabTec
         {
             Abrirchild(new FrComentarios(LocalNumUsuario));
         }
+
+        private void Ver_Perfil_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrPerfil(LocalNumUsuario));
+        }
     }
 }
