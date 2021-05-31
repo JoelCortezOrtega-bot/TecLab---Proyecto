@@ -77,6 +77,7 @@ CREATE TABLE Comentarios
 (
 	I_seq					INT IDENTITY (1,1) NOT NULL,
 	ID_Usuario				INT NOT NULL,
+	Descripcion				VARCHAR(200),
 	Fecha					DATE,
 	FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID_Usuario),
 );
