@@ -273,5 +273,49 @@ namespace LabTec.Operaciones
                 MessageBox.Show("Se ha modificado con exito.", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        public void ModificarClave(int ID, string ClaveNueva, string ClaveAnterior, string ClaveRN)
+        {
+            if(ClaveAnterior == "" || ClaveNueva == "" || ClaveRN == "")
+            {
+                MessageBox.Show("Por favor relleno todos los cuadros de texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (ClaveNueva != ClaveRN)
+                {
+                    MessageBox.Show("Por favor ingrese correctarmente la nueva contraseña.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Cn.Conexiones.Open();
+                    string s = "SELECT Clave FROM Usuario WHERE ID_Usuario =" + ID + "";
+                    Comando = new SqlCommand(s, Cn.Conexiones);
+                    string Clave = Comando.ExecuteScalar().ToString();
+                    Cn.Conexiones.Close();
+                    if (ClaveAnterior == Clave)
+                    {
+                        Cn.Conexiones.Open();
+                        //Asignamos a nuestro Sqlcommand cree un comando de SQLServer
+                        Comando = Cn.Conexiones.CreateCommand();
+                        //Indicamos a nuestro Sqlcommand el tipo de operacion que va realizar
+                        Comando.CommandType = CommandType.Text;
+                        //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
+                        //concuerda alguno ya existen
+                        Comando.CommandText = "UPDATE Usuario SET Clave = '" + ClaveNueva + "' WHERE ID_Usuario = " + ID + ";";
+                        //Ejecutamos nuestro comando
+                        Comando.ExecuteNonQuery();
+                        //Cerramos la conexion
+                        Cn.Conexiones.Close();
+                        //Enviamos un mensaje al usuario indicando que se ha agragado el usuario
+                        MessageBox.Show("Se ha actualizado la contraseña.", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La contraseña actual no concuerda. Vuelva a intentarlo por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

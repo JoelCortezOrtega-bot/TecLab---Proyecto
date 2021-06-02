@@ -193,7 +193,7 @@ namespace LabTec
 
         private void Modificar_contraseña_Click_1(object sender, EventArgs e)
         {
-
+            Abrirchild(new FrModificarClave(LocalNumUsuario));
         }
 
         private void Ver_comentarios_Click(object sender, EventArgs e)
