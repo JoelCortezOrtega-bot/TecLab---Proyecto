@@ -264,7 +264,7 @@ namespace LabTec.Operaciones
                 Comando.CommandType = CommandType.Text;
                 //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
                 //concuerda alguno ya existen
-                Comando.CommandText = "UPDATE Usuario SET Nombre = '" + Nombre + "', Ape_P = '" + AP + "', Ape_M ='" + AM + "', ID_Dep = " + Dep + ", Genero = '" + Genero + "', Correo = '" + Correo + "'  WHERE CustomerID = " + ID + ";";
+                Comando.CommandText = "UPDATE Usuario SET Nombre = '" + Nombre + "', Ape_P = '" + AP + "', Ape_M ='" + AM + "', ID_Dep = " + Dep + ", Genero = '" + Genero + "', Correo = '" + Correo + "'  WHERE ID_Usuario = " + ID + ";";
                 //Ejecutamos nuestro comando
                 Comando.ExecuteNonQuery();
                 //Cerramos la conexion
