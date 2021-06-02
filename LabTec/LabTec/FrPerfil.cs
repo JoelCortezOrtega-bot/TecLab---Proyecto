@@ -147,18 +147,8 @@ namespace LabTec
             }
             catch (FormatException)
             {
-                //Verifica si alguno de los txt se encuentra vacio
-                if (txtNombre.Text == ""  || txtAP.Text == "" || txtAM.Text == "" || txtCorreo.Text == "" || Genero == "" || ID_Dep == 0)
-                {
-                    //Llamamos al metodo static txtVacios
-                    MessageBox.Show("Por favor relleno todos los cuadros de texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
-                else
-                {
-                    string mensaje = "Por favor, no ingrese los datos correctos.";
-                    MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                string mensaje = "Por favor, no ingrese los datos correctos.";
+                MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
