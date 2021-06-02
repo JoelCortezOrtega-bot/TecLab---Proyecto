@@ -41,7 +41,10 @@
             this.ptbID = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pnlDatosPerfil = new System.Windows.Forms.Panel();
+            this.lblCorreo = new System.Windows.Forms.Label();
             this.pnlModificarDatos = new System.Windows.Forms.Panel();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.lblEditCorreo = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cmbDep = new System.Windows.Forms.ComboBox();
             this.rtnFemenino = new System.Windows.Forms.RadioButton();
@@ -56,9 +59,6 @@
             this.lblEditGenero = new System.Windows.Forms.Label();
             this.lblEditAM = new System.Windows.Forms.Label();
             this.lblEditarTitulo = new System.Windows.Forms.Label();
-            this.lblCorreo = new System.Windows.Forms.Label();
-            this.lblEditCorreo = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbID)).BeginInit();
             this.pnlDatosPerfil.SuspendLayout();
             this.pnlModificarDatos.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.lblClave.AutoSize = true;
             this.lblClave.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblClave.Location = new System.Drawing.Point(138, 256);
+            this.lblClave.Location = new System.Drawing.Point(120, 256);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(76, 17);
             this.lblClave.TabIndex = 23;
@@ -78,7 +78,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblDepartamento.Location = new System.Drawing.Point(138, 226);
+            this.lblDepartamento.Location = new System.Drawing.Point(120, 226);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(96, 17);
             this.lblDepartamento.TabIndex = 22;
@@ -88,7 +88,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblEstado.Location = new System.Drawing.Point(138, 196);
+            this.lblEstado.Location = new System.Drawing.Point(120, 196);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(122, 17);
             this.lblEstado.TabIndex = 21;
@@ -98,7 +98,7 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblRol.Location = new System.Drawing.Point(138, 166);
+            this.lblRol.Location = new System.Drawing.Point(120, 166);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(30, 17);
             this.lblRol.TabIndex = 20;
@@ -108,7 +108,7 @@
             // 
             this.lblGenero.AutoSize = true;
             this.lblGenero.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblGenero.Location = new System.Drawing.Point(138, 136);
+            this.lblGenero.Location = new System.Drawing.Point(120, 136);
             this.lblGenero.Name = "lblGenero";
             this.lblGenero.Size = new System.Drawing.Size(54, 17);
             this.lblGenero.TabIndex = 19;
@@ -118,7 +118,7 @@
             // 
             this.lblApeM.AutoSize = true;
             this.lblApeM.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblApeM.Location = new System.Drawing.Point(138, 106);
+            this.lblApeM.Location = new System.Drawing.Point(120, 106);
             this.lblApeM.Name = "lblApeM";
             this.lblApeM.Size = new System.Drawing.Size(110, 17);
             this.lblApeM.TabIndex = 18;
@@ -128,7 +128,7 @@
             // 
             this.lblApeP.AutoSize = true;
             this.lblApeP.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblApeP.Location = new System.Drawing.Point(138, 76);
+            this.lblApeP.Location = new System.Drawing.Point(120, 76);
             this.lblApeP.Name = "lblApeP";
             this.lblApeP.Size = new System.Drawing.Size(105, 17);
             this.lblApeP.TabIndex = 17;
@@ -138,7 +138,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblNombre.Location = new System.Drawing.Point(138, 46);
+            this.lblNombre.Location = new System.Drawing.Point(120, 46);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 16;
@@ -148,7 +148,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblID.Location = new System.Drawing.Point(40, 139);
+            this.lblID.Location = new System.Drawing.Point(22, 139);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(71, 17);
             this.lblID.TabIndex = 14;
@@ -167,7 +167,7 @@
             // ptbID
             // 
             this.ptbID.Image = global::LabTec.Properties.Resources.user1;
-            this.ptbID.Location = new System.Drawing.Point(27, 35);
+            this.ptbID.Location = new System.Drawing.Point(9, 35);
             this.ptbID.Name = "ptbID";
             this.ptbID.Size = new System.Drawing.Size(100, 100);
             this.ptbID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -209,6 +209,16 @@
             this.pnlDatosPerfil.Size = new System.Drawing.Size(388, 450);
             this.pnlDatosPerfil.TabIndex = 248;
             // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblCorreo.Location = new System.Drawing.Point(120, 286);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(50, 17);
+            this.lblCorreo.TabIndex = 248;
+            this.lblCorreo.Text = "Correo:";
+            // 
             // pnlModificarDatos
             // 
             this.pnlModificarDatos.BackColor = System.Drawing.Color.MidnightBlue;
@@ -233,6 +243,25 @@
             this.pnlModificarDatos.Name = "pnlModificarDatos";
             this.pnlModificarDatos.Size = new System.Drawing.Size(388, 450);
             this.pnlModificarDatos.TabIndex = 249;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(135, 195);
+            this.txtCorreo.MaxLength = 98;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(222, 20);
+            this.txtCorreo.TabIndex = 257;
+            // 
+            // lblEditCorreo
+            // 
+            this.lblEditCorreo.AutoSize = true;
+            this.lblEditCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblEditCorreo.ForeColor = System.Drawing.Color.White;
+            this.lblEditCorreo.Location = new System.Drawing.Point(22, 196);
+            this.lblEditCorreo.Name = "lblEditCorreo";
+            this.lblEditCorreo.Size = new System.Drawing.Size(50, 17);
+            this.lblEditCorreo.TabIndex = 256;
+            this.lblEditCorreo.Text = "Correo:";
             // 
             // btnAceptar
             // 
@@ -389,35 +418,6 @@
             this.lblEditarTitulo.Size = new System.Drawing.Size(99, 23);
             this.lblEditarTitulo.TabIndex = 13;
             this.lblEditarTitulo.Text = "Editar Perfil";
-            // 
-            // lblCorreo
-            // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblCorreo.Location = new System.Drawing.Point(138, 286);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(50, 17);
-            this.lblCorreo.TabIndex = 248;
-            this.lblCorreo.Text = "Correo:";
-            // 
-            // lblEditCorreo
-            // 
-            this.lblEditCorreo.AutoSize = true;
-            this.lblEditCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblEditCorreo.ForeColor = System.Drawing.Color.White;
-            this.lblEditCorreo.Location = new System.Drawing.Point(22, 196);
-            this.lblEditCorreo.Name = "lblEditCorreo";
-            this.lblEditCorreo.Size = new System.Drawing.Size(50, 17);
-            this.lblEditCorreo.TabIndex = 256;
-            this.lblEditCorreo.Text = "Correo:";
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(135, 195);
-            this.txtCorreo.MaxLength = 98;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(222, 20);
-            this.txtCorreo.TabIndex = 257;
             // 
             // FrPerfil
             // 
