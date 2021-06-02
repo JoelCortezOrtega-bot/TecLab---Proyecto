@@ -36,24 +36,29 @@
             this.lblApeM = new System.Windows.Forms.Label();
             this.lblApeP = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.ptbID = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pnlDatosPerfil = new System.Windows.Forms.Panel();
             this.pnlModificarDatos = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.cmbDep = new System.Windows.Forms.ComboBox();
+            this.rtnFemenino = new System.Windows.Forms.RadioButton();
+            this.rntMasculino = new System.Windows.Forms.RadioButton();
+            this.txtAM = new System.Windows.Forms.TextBox();
+            this.txtAP = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblEditDepartamento = new System.Windows.Forms.Label();
             this.lblEditNombre = new System.Windows.Forms.Label();
-            this.lblEditRol = new System.Windows.Forms.Label();
             this.lblEditAP = new System.Windows.Forms.Label();
             this.lblEditGenero = new System.Windows.Forms.Label();
             this.lblEditAM = new System.Windows.Forms.Label();
             this.lblEditarTitulo = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.lblEditCorreo = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbID)).BeginInit();
             this.pnlDatosPerfil.SuspendLayout();
             this.pnlModificarDatos.SuspendLayout();
@@ -63,7 +68,7 @@
             // 
             this.lblClave.AutoSize = true;
             this.lblClave.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblClave.Location = new System.Drawing.Point(168, 256);
+            this.lblClave.Location = new System.Drawing.Point(138, 256);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(76, 17);
             this.lblClave.TabIndex = 23;
@@ -73,7 +78,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblDepartamento.Location = new System.Drawing.Point(168, 226);
+            this.lblDepartamento.Location = new System.Drawing.Point(138, 226);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(96, 17);
             this.lblDepartamento.TabIndex = 22;
@@ -83,7 +88,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblEstado.Location = new System.Drawing.Point(168, 196);
+            this.lblEstado.Location = new System.Drawing.Point(138, 196);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(122, 17);
             this.lblEstado.TabIndex = 21;
@@ -93,7 +98,7 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblRol.Location = new System.Drawing.Point(168, 166);
+            this.lblRol.Location = new System.Drawing.Point(138, 166);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(30, 17);
             this.lblRol.TabIndex = 20;
@@ -103,7 +108,7 @@
             // 
             this.lblGenero.AutoSize = true;
             this.lblGenero.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblGenero.Location = new System.Drawing.Point(168, 136);
+            this.lblGenero.Location = new System.Drawing.Point(138, 136);
             this.lblGenero.Name = "lblGenero";
             this.lblGenero.Size = new System.Drawing.Size(54, 17);
             this.lblGenero.TabIndex = 19;
@@ -113,7 +118,7 @@
             // 
             this.lblApeM.AutoSize = true;
             this.lblApeM.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblApeM.Location = new System.Drawing.Point(168, 106);
+            this.lblApeM.Location = new System.Drawing.Point(138, 106);
             this.lblApeM.Name = "lblApeM";
             this.lblApeM.Size = new System.Drawing.Size(110, 17);
             this.lblApeM.TabIndex = 18;
@@ -123,7 +128,7 @@
             // 
             this.lblApeP.AutoSize = true;
             this.lblApeP.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblApeP.Location = new System.Drawing.Point(168, 76);
+            this.lblApeP.Location = new System.Drawing.Point(138, 76);
             this.lblApeP.Name = "lblApeP";
             this.lblApeP.Size = new System.Drawing.Size(105, 17);
             this.lblApeP.TabIndex = 17;
@@ -133,21 +138,11 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblNombre.Location = new System.Drawing.Point(168, 46);
+            this.lblNombre.Location = new System.Drawing.Point(138, 46);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 16;
             this.lblNombre.Text = "Nombre:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(168, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 23);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Datos Personales";
             // 
             // lblID
             // 
@@ -163,7 +158,7 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.lblPerfil.Location = new System.Drawing.Point(12, 9);
+            this.lblPerfil.Location = new System.Drawing.Point(101, 9);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(137, 23);
             this.lblPerfil.TabIndex = 12;
@@ -195,13 +190,13 @@
             // 
             // pnlDatosPerfil
             // 
+            this.pnlDatosPerfil.Controls.Add(this.lblCorreo);
             this.pnlDatosPerfil.Controls.Add(this.ptbID);
             this.pnlDatosPerfil.Controls.Add(this.btnSalir);
             this.pnlDatosPerfil.Controls.Add(this.lblPerfil);
             this.pnlDatosPerfil.Controls.Add(this.lblClave);
             this.pnlDatosPerfil.Controls.Add(this.lblID);
             this.pnlDatosPerfil.Controls.Add(this.lblDepartamento);
-            this.pnlDatosPerfil.Controls.Add(this.label2);
             this.pnlDatosPerfil.Controls.Add(this.lblEstado);
             this.pnlDatosPerfil.Controls.Add(this.lblNombre);
             this.pnlDatosPerfil.Controls.Add(this.lblRol);
@@ -217,56 +212,124 @@
             // pnlModificarDatos
             // 
             this.pnlModificarDatos.BackColor = System.Drawing.Color.MidnightBlue;
-            this.pnlModificarDatos.Controls.Add(this.textBox3);
-            this.pnlModificarDatos.Controls.Add(this.textBox2);
-            this.pnlModificarDatos.Controls.Add(this.textBox1);
-            this.pnlModificarDatos.Controls.Add(this.button1);
+            this.pnlModificarDatos.Controls.Add(this.txtCorreo);
+            this.pnlModificarDatos.Controls.Add(this.lblEditCorreo);
+            this.pnlModificarDatos.Controls.Add(this.btnAceptar);
+            this.pnlModificarDatos.Controls.Add(this.cmbDep);
+            this.pnlModificarDatos.Controls.Add(this.rtnFemenino);
+            this.pnlModificarDatos.Controls.Add(this.rntMasculino);
+            this.pnlModificarDatos.Controls.Add(this.txtAM);
+            this.pnlModificarDatos.Controls.Add(this.txtAP);
+            this.pnlModificarDatos.Controls.Add(this.txtNombre);
+            this.pnlModificarDatos.Controls.Add(this.btnCancelar);
             this.pnlModificarDatos.Controls.Add(this.lblEditDepartamento);
             this.pnlModificarDatos.Controls.Add(this.lblEditNombre);
-            this.pnlModificarDatos.Controls.Add(this.lblEditRol);
             this.pnlModificarDatos.Controls.Add(this.lblEditAP);
             this.pnlModificarDatos.Controls.Add(this.lblEditGenero);
             this.pnlModificarDatos.Controls.Add(this.lblEditAM);
             this.pnlModificarDatos.Controls.Add(this.lblEditarTitulo);
             this.pnlModificarDatos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlModificarDatos.Location = new System.Drawing.Point(390, 0);
+            this.pnlModificarDatos.Location = new System.Drawing.Point(389, 0);
             this.pnlModificarDatos.Name = "pnlModificarDatos";
-            this.pnlModificarDatos.Size = new System.Drawing.Size(387, 450);
+            this.pnlModificarDatos.Size = new System.Drawing.Size(388, 450);
             this.pnlModificarDatos.TabIndex = 249;
             // 
-            // textBox2
+            // btnAceptar
             // 
-            this.textBox2.Location = new System.Drawing.Point(135, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 20);
-            this.textBox2.TabIndex = 250;
+            this.btnAceptar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAceptar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.ForeColor = System.Drawing.Color.Black;
+            this.btnAceptar.Location = new System.Drawing.Point(25, 238);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(332, 35);
+            this.btnAceptar.TabIndex = 255;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // textBox1
+            // cmbDep
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 20);
-            this.textBox1.TabIndex = 249;
+            this.cmbDep.FormattingEnabled = true;
+            this.cmbDep.Items.AddRange(new object[] {
+            "Sistemas Computacionales",
+            "Informatica",
+            "TICS"});
+            this.cmbDep.Location = new System.Drawing.Point(135, 165);
+            this.cmbDep.Name = "cmbDep";
+            this.cmbDep.Size = new System.Drawing.Size(121, 21);
+            this.cmbDep.TabIndex = 254;
             // 
-            // button1
+            // rtnFemenino
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(25, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 35);
-            this.button1.TabIndex = 248;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = false;
+            this.rtnFemenino.AutoSize = true;
+            this.rtnFemenino.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.rtnFemenino.ForeColor = System.Drawing.Color.White;
+            this.rtnFemenino.Location = new System.Drawing.Point(269, 136);
+            this.rtnFemenino.Name = "rtnFemenino";
+            this.rtnFemenino.Size = new System.Drawing.Size(81, 21);
+            this.rtnFemenino.TabIndex = 253;
+            this.rtnFemenino.TabStop = true;
+            this.rtnFemenino.Text = "Femenino";
+            this.rtnFemenino.UseVisualStyleBackColor = true;
+            // 
+            // rntMasculino
+            // 
+            this.rntMasculino.AutoSize = true;
+            this.rntMasculino.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.rntMasculino.ForeColor = System.Drawing.Color.White;
+            this.rntMasculino.Location = new System.Drawing.Point(135, 136);
+            this.rntMasculino.Name = "rntMasculino";
+            this.rntMasculino.Size = new System.Drawing.Size(83, 21);
+            this.rntMasculino.TabIndex = 252;
+            this.rntMasculino.TabStop = true;
+            this.rntMasculino.Text = "Masculino";
+            this.rntMasculino.UseVisualStyleBackColor = true;
+            // 
+            // txtAM
+            // 
+            this.txtAM.Location = new System.Drawing.Point(135, 106);
+            this.txtAM.MaxLength = 18;
+            this.txtAM.Name = "txtAM";
+            this.txtAM.Size = new System.Drawing.Size(222, 20);
+            this.txtAM.TabIndex = 251;
+            // 
+            // txtAP
+            // 
+            this.txtAP.Location = new System.Drawing.Point(135, 75);
+            this.txtAP.MaxLength = 18;
+            this.txtAP.Name = "txtAP";
+            this.txtAP.Size = new System.Drawing.Size(222, 20);
+            this.txtAP.TabIndex = 250;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(135, 45);
+            this.txtNombre.MaxLength = 98;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(222, 20);
+            this.txtNombre.TabIndex = 249;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(25, 286);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(332, 35);
+            this.btnCancelar.TabIndex = 248;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblEditDepartamento
             // 
             this.lblEditDepartamento.AutoSize = true;
             this.lblEditDepartamento.Font = new System.Drawing.Font("Calibri", 10.25F);
             this.lblEditDepartamento.ForeColor = System.Drawing.Color.White;
-            this.lblEditDepartamento.Location = new System.Drawing.Point(22, 196);
+            this.lblEditDepartamento.Location = new System.Drawing.Point(22, 166);
             this.lblEditDepartamento.Name = "lblEditDepartamento";
             this.lblEditDepartamento.Size = new System.Drawing.Size(96, 17);
             this.lblEditDepartamento.TabIndex = 30;
@@ -282,17 +345,6 @@
             this.lblEditNombre.Size = new System.Drawing.Size(58, 17);
             this.lblEditNombre.TabIndex = 24;
             this.lblEditNombre.Text = "Nombre:";
-            // 
-            // lblEditRol
-            // 
-            this.lblEditRol.AutoSize = true;
-            this.lblEditRol.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblEditRol.ForeColor = System.Drawing.Color.White;
-            this.lblEditRol.Location = new System.Drawing.Point(22, 166);
-            this.lblEditRol.Name = "lblEditRol";
-            this.lblEditRol.Size = new System.Drawing.Size(30, 17);
-            this.lblEditRol.TabIndex = 28;
-            this.lblEditRol.Text = "Rol:";
             // 
             // lblEditAP
             // 
@@ -338,12 +390,34 @@
             this.lblEditarTitulo.TabIndex = 13;
             this.lblEditarTitulo.Text = "Editar Perfil";
             // 
-            // textBox3
+            // lblCorreo
             // 
-            this.textBox3.Location = new System.Drawing.Point(135, 106);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(222, 20);
-            this.textBox3.TabIndex = 251;
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblCorreo.Location = new System.Drawing.Point(138, 286);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(50, 17);
+            this.lblCorreo.TabIndex = 248;
+            this.lblCorreo.Text = "Correo:";
+            // 
+            // lblEditCorreo
+            // 
+            this.lblEditCorreo.AutoSize = true;
+            this.lblEditCorreo.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblEditCorreo.ForeColor = System.Drawing.Color.White;
+            this.lblEditCorreo.Location = new System.Drawing.Point(22, 196);
+            this.lblEditCorreo.Name = "lblEditCorreo";
+            this.lblEditCorreo.Size = new System.Drawing.Size(50, 17);
+            this.lblEditCorreo.TabIndex = 256;
+            this.lblEditCorreo.Text = "Correo:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(135, 195);
+            this.txtCorreo.MaxLength = 98;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(222, 20);
+            this.txtCorreo.TabIndex = 257;
             // 
             // FrPerfil
             // 
@@ -376,7 +450,6 @@
         private System.Windows.Forms.Label lblApeM;
         private System.Windows.Forms.Label lblApeP;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox ptbID;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Button btnSalir;
@@ -386,13 +459,19 @@
         private System.Windows.Forms.Label lblEditarTitulo;
         private System.Windows.Forms.Label lblEditDepartamento;
         private System.Windows.Forms.Label lblEditNombre;
-        private System.Windows.Forms.Label lblEditRol;
         private System.Windows.Forms.Label lblEditAP;
         private System.Windows.Forms.Label lblEditGenero;
         private System.Windows.Forms.Label lblEditAM;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtAP;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtAM;
+        private System.Windows.Forms.RadioButton rtnFemenino;
+        private System.Windows.Forms.RadioButton rntMasculino;
+        private System.Windows.Forms.ComboBox cmbDep;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.Label lblEditCorreo;
+        private System.Windows.Forms.TextBox txtCorreo;
     }
 }

@@ -246,5 +246,23 @@ namespace LabTec.Operaciones
             //Mensaje de Aceptacion
             MessageBox.Show("Se ha agregado exitosamente su comentario.","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
+
+        public void ModificarPerfil(int ID, string Nombre, string AP, string AM, int Dep, string Genero, string Correo)
+        {
+            Cn.Conexiones.Open();
+            //Asignamos a nuestro Sqlcommand cree un comando de SQLServer
+            Comando = Cn.Conexiones.CreateCommand();
+            //Indicamos a nuestro Sqlcommand el tipo de operacion que va realizar
+            Comando.CommandType = CommandType.Text;
+            //Utiliza la funcion se encuentra en la base de datos para verificar si el correo ingresado 
+            //concuerda alguno ya existen
+            Comando.CommandText = "UPDATE Usuario SET Nombre = '" + Nombre + "', Ape_P = '" + AP + "', Ape_M ='" + AM + "', ID_Dep = " + Dep + ", Genero = '" + Genero + "', Correo = '" + Correo + "'  WHERE CustomerID = " + ID + ";";
+            //Ejecutamos nuestro comando
+            Comando.ExecuteNonQuery();
+            //Cerramos la conexion
+            Cn.Conexiones.Close();
+            //Enviamos un mensaje al usuario indicando que se ha agragado el usuario
+            MessageBox.Show("Se ha modificado con exito.", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
