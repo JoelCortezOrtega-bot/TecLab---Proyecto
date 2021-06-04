@@ -194,7 +194,24 @@ namespace LabTec
                 pbox.Click += new EventHandler(pboxClick);
                 pbox.Width = 100;
                 pbox.Height = 100;
-                //MessageBox.Show(dt2.Rows[Aux][1].ToString());
+                //Condicion para que sabados y domingos no se pueda apartar
+                if (AuxVacio==6 || AuxVacio==0)
+                {
+                    if (AuxVacio==6)
+                    {
+                        AuxVacio = 0;
+                    }
+                    else
+                    {
+                        AuxVacio++;
+                    }
+                    pbox.Enabled = false;
+                }
+                else
+                {
+                    AuxVacio++;
+                }
+
                 //Seleccion de color del dia en el calendario
                 if (dt2.Rows.Count>0 && Convert.ToInt32(dt2.Rows[Aux][0]) == (i + 1))
                 {
@@ -270,6 +287,7 @@ namespace LabTec
                 {
                     ano--;
                     mes = 12;
+                }
                     UltimoDia = DateTime.DaysInMonth(Convert.ToInt32(ano), Convert.ToInt32(mes));
 
                     //Pasamos a texto el mes
@@ -277,7 +295,7 @@ namespace LabTec
                     lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1) + "  " + ano;
                     flowPanelCalendario.Controls.Clear();
                     CrearCalendario(UltimoDia, ano, mes);
-                }
+                
             }
            
         }

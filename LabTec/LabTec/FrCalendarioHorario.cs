@@ -49,7 +49,6 @@ namespace LabTec
 
         private void FrCalendarioHorario_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = LocalRestriccion;
             CreacionHorario();
         }
 
