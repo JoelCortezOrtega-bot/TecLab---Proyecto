@@ -152,6 +152,12 @@
     <Compile Include="Funciones\Operaciones.cs" />
     <Compile Include="Funciones\Usuarios.cs" />
     <Compile Include="Funciones\VistasDeLasTablas.cs" />
+    <Compile Include="ModificarClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarClave.Designer.cs">
+      <DependentUpon>ModificarClave.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrAgregarLaboratorios.resx">
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrRecuperarClave.resx">
       <DependentUpon>FrRecuperarClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarClave.resx">
+      <DependentUpon>ModificarClave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

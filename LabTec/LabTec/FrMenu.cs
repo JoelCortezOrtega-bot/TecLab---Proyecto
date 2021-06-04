@@ -193,7 +193,7 @@ namespace LabTec
 
         private void Modificar_contraseña_Click_1(object sender, EventArgs e)
         {
-
+            Abrirchild(new FrModificarClave(LocalNumUsuario));
         }
 
         private void Ver_comentarios_Click(object sender, EventArgs e)
@@ -204,6 +204,21 @@ namespace LabTec
         private void Ver_Perfil_Click(object sender, EventArgs e)
         {
             Abrirchild(new FrPerfil(LocalNumUsuario));
+        }
+
+        private void Buscar_usuarios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
+        }
+
+        private void Buscar_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
+        }
+
+        private void Buscar_laboratorio_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
         }
     }
 }
