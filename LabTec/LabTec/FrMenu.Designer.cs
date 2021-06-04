@@ -341,6 +341,7 @@
             this.Buscar_laboratorio.Text = "Buscar laboratorio";
             this.Buscar_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscar_laboratorio.UseVisualStyleBackColor = false;
+            this.Buscar_laboratorio.Click += new System.EventHandler(this.Buscar_laboratorio_Click);
             // 
             // Cancelar_apartado
             // 
@@ -515,6 +516,7 @@
             this.Buscar_proyectores.Text = "Buscar proyectores";
             this.Buscar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscar_proyectores.UseVisualStyleBackColor = false;
+            this.Buscar_proyectores.Click += new System.EventHandler(this.Buscar_proyectores_Click);
             // 
             // Cancelar_proyectores
             // 
@@ -685,6 +687,7 @@
             this.Buscar_usuarios.Text = "Buscar usuarios";
             this.Buscar_usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscar_usuarios.UseVisualStyleBackColor = false;
+            this.Buscar_usuarios.Click += new System.EventHandler(this.Buscar_usuarios_Click);
             // 
             // panel1
             // 

@@ -205,5 +205,20 @@ namespace LabTec
         {
             Abrirchild(new FrPerfil(LocalNumUsuario));
         }
+
+        private void Buscar_usuarios_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
+        }
+
+        private void Buscar_proyectores_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
+        }
+
+        private void Buscar_laboratorio_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrListaUsuarios());
+        }
     }
 }

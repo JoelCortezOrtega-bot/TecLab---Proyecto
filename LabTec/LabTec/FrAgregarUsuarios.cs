@@ -37,16 +37,17 @@ namespace LabTec
             string clave = claveUsuario.Text;
             string rol = rolUsuario.Text;
             string estado = estadoUsuario.Text;
+            string iddepto = idDep.Text;
 
             //Condicion: entra en el if si ninguna de las casillas esta vacia
             if (!string.IsNullOrWhiteSpace(idUsuario.Text) || !string.IsNullOrWhiteSpace(nombreUsuario.Text) || !string.IsNullOrWhiteSpace(apellidoPaterno.Text)
-               || !string.IsNullOrWhiteSpace(apellidoMaterno.Text) || !string.IsNullOrWhiteSpace(claveUsuario.Text) || !string.IsNullOrWhiteSpace(correoUsuario.Text))
+               || !string.IsNullOrWhiteSpace(apellidoMaterno.Text) || !string.IsNullOrWhiteSpace(claveUsuario.Text) || !string.IsNullOrWhiteSpace(correoUsuario.Text) || !string.IsNullOrWhiteSpace(idDep.Text))
             {
                 try
                 {
                     //  Intenta insertar los valores en el campo correspondiente
                     Con.Conexiones.Open();
-                    string s = string.Format("INSERT INTO Usuario VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}') ", id, nombre, apellidop, apellidom, genero, correo, clave, rol, estado);
+                    string s = string.Format("INSERT INTO Usuario VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}',0,{9}) ", id, nombre, apellidop, apellidom, genero, correo, clave, rol, estado,iddepto);
                     SqlCommand comando = new SqlCommand(s, Con.Conexiones);
                     comando.ExecuteNonQuery();
                     //guarda el nombre completo del usuario para mostrarlo en el cuadro de texto
@@ -106,6 +107,7 @@ namespace LabTec
             rolUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             generoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             estadoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            idDep.DropDownStyle = ComboBoxStyle.DropDownList;
             // intenta cargar el metodo cargar
 
             try
