@@ -20,6 +20,7 @@ namespace LabTec
         int LocalAño;
         string LocalTipo;
         int LocalNumUsuario;
+        int LocalMesActual;
         DataTable LocalNombres;
         DataTable LocalHoras;
         DataTable LocalRestriccion;
@@ -28,7 +29,7 @@ namespace LabTec
         int HoraFinal = 22;
 
 
-        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion,int NumUsuario)
+        public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion,int NumUsuario, int mesactual)
         {
             InitializeComponent();
             LocalCantidadProy = Convert.ToInt32(cantidadProy);
@@ -39,6 +40,7 @@ namespace LabTec
             LocalAño = year;
             LocalDia = nombreForm;
             LocalTipo = "";
+            LocalMesActual = mesactual;
             LocalRestriccion = restriccion;
             LocalNumUsuario = NumUsuario;
         }
@@ -74,41 +76,49 @@ namespace LabTec
                 {
                     //0 es menor al numero de horas apartadas en el dia [Y] el nombre de ID_Proyector de las horas apartadas es igual al nombre del ID_Proyector actual en el for [Y] La hora a la que se aparta es igual a la hora que se maneja en el for de arriba
                     //0<19
-                    if ((ContadorHoras < LocalHoras.Rows.Count) && (Convert.ToString(LocalHoras.Rows[ContadorHoras][0]) == Convert.ToString(LocalNombres.Rows[j][0])) && (LocalHoras.Rows[ContadorHoras][1].ToString() == result.ToString("hh':'mm':'ss")))
+                    if ((LocalMes-LocalMesActual)<2)
                     {
-                        descanso.Add(Convert.ToString(LocalNombres.Rows[j][0])+(i+1));
-                        color = Color.Brown;
-                        texto = "NO DISPONIBLE";
-                        activado = false;
-                        ContadorHoras++;
-                    }
-                    else if (descanso.Contains(Convert.ToString(LocalNombres.Rows[j][0]) + (i)))
-                    {
-                        if (i>7)
+                        if ((ContadorHoras < LocalHoras.Rows.Count) && (Convert.ToString(LocalHoras.Rows[ContadorHoras][0]) == Convert.ToString(LocalNombres.Rows[j][0])) && (LocalHoras.Rows[ContadorHoras][1].ToString() == result.ToString("hh':'mm':'ss")))
                         {
-                            foreach (Control c in tlpHorario.Controls)
-                            {
-                                
-                                if (Convert.ToString(c.Tag)==(LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + (i-2)) && c.Name== Convert.ToString(LocalNombres.Rows[j][0]))
-                                {
-                                    c.BackColor = Color.Purple;
-                                    c.Text = LocalNombres.Rows[j][0].ToString() + "    " + "DESCANSANDO";
-                                    c.Enabled = false;
-
-                                }
-                            }
-
+                            descanso.Add(Convert.ToString(LocalNombres.Rows[j][0]) + (i + 1));
+                            color = Color.Brown;
+                            texto = "NO DISPONIBLE";
+                            activado = false;
+                            ContadorHoras++;
                         }
-                        
-                        color = Color.Purple;
-                        texto = "DESCANSANDO";
-                        activado = false;
+                        else if (descanso.Contains(Convert.ToString(LocalNombres.Rows[j][0]) + (i)) && LocalTipo=="Proyector")
+                        {
+                            if (i > 7)
+                            {
+                                foreach (Control c in tlpHorario.Controls)
+                                {
+
+                                    if (Convert.ToString(c.Tag) == (LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + (i - 2)) && c.Name == Convert.ToString(LocalNombres.Rows[j][0]))
+                                    {
+                                        c.BackColor = Color.Purple;
+                                        c.Text = LocalNombres.Rows[j][0].ToString() + "    " + "DESCANSANDO";
+                                        c.Enabled = false;
+
+                                    }
+                                }
+
+                            }
+                            color = Color.Purple;
+                            texto = "DESCANSANDO";
+                            activado = false;
+                        }
+                        else
+                        {
+                            color = Color.SpringGreen;
+                            texto = "DISPONIBLE";
+                            activado = true;
+                        }
                     }
                     else
                     {
-                        color = Color.SpringGreen;
-                        texto = "DISPONIBLE";
-                        activado = true;
+                        color = Color.GhostWhite;
+                        texto = "NO APARTABLE";
+                        activado = false;
                     }
                     tlpHorario.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     //tlpHorario.Controls.Add(new Button{ Text = (LocalNombres.Rows[j][0].ToString() + "    " + texto), Font = new Font("Arial", 14), Width = 294, Height = 28, BackColor = color, Enabled = activado, Name = LocalNombres.Rows[j][0].ToString(), Tag = LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + i, },0,ContadorRenglon);

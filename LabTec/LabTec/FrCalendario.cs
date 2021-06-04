@@ -20,6 +20,7 @@ namespace LabTec
         int Numero = 0;
         int ano = 0;
         int mes = 0;
+        int mesactual=0;
         int TotalDispositivosLabs = 0;
         double MitadDisLabs = 0;
         string LocalTipo="";
@@ -37,6 +38,7 @@ namespace LabTec
             DataTable nombres = MetodoNombreProy();
             ano = Convert.ToInt32(fechas.Rows[0][1]);
             mes = Convert.ToInt32(fechas.Rows[0][0]);
+            mesactual = mes;
             TotalDispositivosLabs = Convert.ToInt32(MetodoCantProyec())*11;
             MitadDisLabs = TotalDispositivosLabs/2;
             MitadDisLabs = Math.Ceiling(MitadDisLabs);
@@ -238,7 +240,7 @@ namespace LabTec
         void pboxClick(object sender, EventArgs e)
         {
             string pbxName = ((PictureBox)sender).Name;
-            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes, MetodoHorasRestriccion(ano, mes, pbxName),LocalNumUsuario);
+            FrCalendarioHorario horario = new FrCalendarioHorario(MetodoCantProyec(), pbxName, MetodoNombreProy(),MetodoHorasApartadas(ano,mes,pbxName),ano,mes, MetodoHorasRestriccion(ano, mes, pbxName),LocalNumUsuario,mesactual);
             horario.ShowDialog();
         }
 
@@ -261,20 +263,23 @@ namespace LabTec
 
         private void btnAnteriorMes_Click(object sender, EventArgs e)
         {
-            mes--;
-            if (mes==0)
+            if (mes>mesactual)
             {
-                ano--;
-                mes =12;
-            }
-            
-            UltimoDia = DateTime.DaysInMonth(Convert.ToInt32(ano), Convert.ToInt32(mes));
+                mes--;
+                if (mes == 0)
+                {
+                    ano--;
+                    mes = 12;
+                    UltimoDia = DateTime.DaysInMonth(Convert.ToInt32(ano), Convert.ToInt32(mes));
 
-            //Pasamos a texto el mes
-            string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1)+"  "+ano;
-            flowPanelCalendario.Controls.Clear();
-            CrearCalendario(UltimoDia, ano, mes);
+                    //Pasamos a texto el mes
+                    string fullMonthName = new DateTime(Convert.ToInt32(ano), Convert.ToInt32(mes), 1).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+                    lblMesTitulo.Text = fullMonthName.First().ToString().ToUpper() + fullMonthName.Substring(1) + "  " + ano;
+                    flowPanelCalendario.Controls.Clear();
+                    CrearCalendario(UltimoDia, ano, mes);
+                }
+            }
+           
         }
     }
 }
