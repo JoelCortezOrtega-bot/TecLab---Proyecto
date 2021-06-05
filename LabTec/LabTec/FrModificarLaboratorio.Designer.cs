@@ -36,13 +36,13 @@
             this.txtBuscarID = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.grbDatosLab = new System.Windows.Forms.GroupBox();
-            this.lblDGID = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEstadoLab = new System.Windows.Forms.ComboBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtIDLab = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblDGID = new System.Windows.Forms.Label();
             this.pndAdorno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).BeginInit();
             this.grbDatosLab.SuspendLayout();
@@ -101,6 +101,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscarID
             // 
@@ -121,10 +122,10 @@
             // 
             // grbDatosLab
             // 
-            this.grbDatosLab.Controls.Add(this.btnRegistrar);
+            this.grbDatosLab.Controls.Add(this.btnGuardar);
             this.grbDatosLab.Controls.Add(this.cmbEstadoLab);
-            this.grbDatosLab.Controls.Add(this.textBox2);
-            this.grbDatosLab.Controls.Add(this.textBox1);
+            this.grbDatosLab.Controls.Add(this.txtNombre);
+            this.grbDatosLab.Controls.Add(this.txtIDLab);
             this.grbDatosLab.Controls.Add(this.label2);
             this.grbDatosLab.Controls.Add(this.label1);
             this.grbDatosLab.Controls.Add(this.lblDGID);
@@ -135,26 +136,49 @@
             this.grbDatosLab.TabIndex = 257;
             this.grbDatosLab.TabStop = false;
             this.grbDatosLab.Text = "Datos Generales";
+            this.grbDatosLab.Visible = false;
             // 
-            // lblDGID
+            // btnGuardar
             // 
-            this.lblDGID.AutoSize = true;
-            this.lblDGID.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.lblDGID.Location = new System.Drawing.Point(10, 30);
-            this.lblDGID.Name = "lblDGID";
-            this.lblDGID.Size = new System.Drawing.Size(25, 17);
-            this.lblDGID.TabIndex = 257;
-            this.lblDGID.Text = "ID:";
+            this.btnGuardar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnGuardar.Location = new System.Drawing.Point(160, 207);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(151, 35);
+            this.btnGuardar.TabIndex = 262;
+            this.btnGuardar.Text = "Guardar cambios";
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // cmbEstadoLab
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 10.25F);
-            this.label1.Location = new System.Drawing.Point(10, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 258;
-            this.label1.Text = "Nombre:";
+            this.cmbEstadoLab.Enabled = false;
+            this.cmbEstadoLab.FormattingEnabled = true;
+            this.cmbEstadoLab.Items.AddRange(new object[] {
+            "Disponible",
+            "Fuera de Servicio",
+            "Mantenimiento"});
+            this.cmbEstadoLab.Location = new System.Drawing.Point(160, 87);
+            this.cmbEstadoLab.Name = "cmbEstadoLab";
+            this.cmbEstadoLab.Size = new System.Drawing.Size(151, 25);
+            this.cmbEstadoLab.TabIndex = 261;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Enabled = false;
+            this.txtNombre.Location = new System.Drawing.Point(160, 57);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(151, 24);
+            this.txtNombre.TabIndex = 260;
+            // 
+            // txtIDLab
+            // 
+            this.txtIDLab.Enabled = false;
+            this.txtIDLab.Location = new System.Drawing.Point(160, 27);
+            this.txtIDLab.Name = "txtIDLab";
+            this.txtIDLab.Size = new System.Drawing.Size(151, 24);
+            this.txtIDLab.TabIndex = 258;
             // 
             // label2
             // 
@@ -166,44 +190,25 @@
             this.label2.TabIndex = 259;
             this.label2.Text = "Estado del Laboratorio:";
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 24);
-            this.textBox1.TabIndex = 258;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.label1.Location = new System.Drawing.Point(10, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 258;
+            this.label1.Text = "Nombre:";
             // 
-            // textBox2
+            // lblDGID
             // 
-            this.textBox2.Location = new System.Drawing.Point(160, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(151, 24);
-            this.textBox2.TabIndex = 260;
-            // 
-            // cmbEstadoLab
-            // 
-            this.cmbEstadoLab.FormattingEnabled = true;
-            this.cmbEstadoLab.Items.AddRange(new object[] {
-            "Disponible",
-            "Fuera de Servicio",
-            "Mantenimiento"});
-            this.cmbEstadoLab.Location = new System.Drawing.Point(160, 87);
-            this.cmbEstadoLab.Name = "cmbEstadoLab";
-            this.cmbEstadoLab.Size = new System.Drawing.Size(151, 25);
-            this.cmbEstadoLab.TabIndex = 261;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegistrar.Location = new System.Drawing.Point(160, 207);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(151, 35);
-            this.btnRegistrar.TabIndex = 262;
-            this.btnRegistrar.Text = "Guardar cambios";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.lblDGID.AutoSize = true;
+            this.lblDGID.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblDGID.Location = new System.Drawing.Point(10, 30);
+            this.lblDGID.Name = "lblDGID";
+            this.lblDGID.Size = new System.Drawing.Size(25, 17);
+            this.lblDGID.TabIndex = 257;
+            this.lblDGID.Text = "ID:";
             // 
             // FrModificarLaboratorio
             // 
@@ -221,6 +226,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrModificarLaboratorio";
             this.Text = "FrModificarLaboratorio";
+            this.Load += new System.EventHandler(this.FrModificarLaboratorio_Load);
             this.pndAdorno.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).EndInit();
             this.grbDatosLab.ResumeLayout(false);
@@ -243,9 +249,9 @@
         private System.Windows.Forms.Label lblDGID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtIDLab;
         private System.Windows.Forms.ComboBox cmbEstadoLab;
-        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

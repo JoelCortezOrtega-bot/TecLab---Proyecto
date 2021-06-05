@@ -220,5 +220,10 @@ namespace LabTec
         {
             Abrirchild(new FrListaUsuarios());
         }
+
+        private void Modificar_Laboratorio_Click(object sender, EventArgs e)
+        {
+            Abrirchild(new FrModificarLaboratorio());
+        }
     }
 }

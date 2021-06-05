@@ -291,6 +291,7 @@
             this.Modificar_Laboratorio.Text = "Modificar laboratorio";
             this.Modificar_Laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modificar_Laboratorio.UseVisualStyleBackColor = false;
+            this.Modificar_Laboratorio.Click += new System.EventHandler(this.Modificar_Laboratorio_Click);
             // 
             // Eliminar_laboratorio
             // 
