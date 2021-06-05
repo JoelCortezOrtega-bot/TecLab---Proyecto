@@ -124,6 +124,12 @@
     <Compile Include="FrMenu.Designer.cs">
       <DependentUpon>FrMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrModificarLaboratorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrModificarLaboratorio.Designer.cs">
+      <DependentUpon>FrModificarLaboratorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrModificarProyectores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrMenu.resx">
       <DependentUpon>FrMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrModificarLaboratorio.resx">
+      <DependentUpon>FrModificarLaboratorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrModificarProyectores.resx">
       <DependentUpon>FrModificarProyectores.cs</DependentUpon>
