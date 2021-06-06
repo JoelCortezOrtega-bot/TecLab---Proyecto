@@ -43,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDGID = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.pndAdorno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).BeginInit();
             this.grbDatosLab.SuspendLayout();
@@ -60,6 +62,7 @@
             this.btnAtras.TabIndex = 18;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // lblTitulo
             // 
@@ -74,6 +77,7 @@
             // pndAdorno
             // 
             this.pndAdorno.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pndAdorno.Controls.Add(this.label3);
             this.pndAdorno.Controls.Add(this.dgvLaboratorios);
             this.pndAdorno.Dock = System.Windows.Forms.DockStyle.Right;
             this.pndAdorno.Location = new System.Drawing.Point(389, 0);
@@ -106,6 +110,7 @@
             // txtBuscarID
             // 
             this.txtBuscarID.Location = new System.Drawing.Point(85, 41);
+            this.txtBuscarID.MaxLength = 4;
             this.txtBuscarID.Name = "txtBuscarID";
             this.txtBuscarID.Size = new System.Drawing.Size(214, 20);
             this.txtBuscarID.TabIndex = 253;
@@ -122,6 +127,7 @@
             // 
             // grbDatosLab
             // 
+            this.grbDatosLab.Controls.Add(this.btnCancelar);
             this.grbDatosLab.Controls.Add(this.btnGuardar);
             this.grbDatosLab.Controls.Add(this.cmbEstadoLab);
             this.grbDatosLab.Controls.Add(this.txtNombre);
@@ -144,12 +150,13 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(160, 207);
+            this.btnGuardar.Location = new System.Drawing.Point(160, 157);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(151, 35);
             this.btnGuardar.TabIndex = 262;
             this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbEstadoLab
             // 
@@ -210,6 +217,31 @@
             this.lblDGID.TabIndex = 257;
             this.lblDGID.Text = "ID:";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Location = new System.Drawing.Point(160, 198);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(151, 35);
+            this.btnCancelar.TabIndex = 263;
+            this.btnCancelar.Text = "Cancelar cambios";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(144, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 250;
+            this.label3.Text = "Vista previa";
+            // 
             // FrModificarLaboratorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +260,7 @@
             this.Text = "FrModificarLaboratorio";
             this.Load += new System.EventHandler(this.FrModificarLaboratorio_Load);
             this.pndAdorno.ResumeLayout(false);
+            this.pndAdorno.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).EndInit();
             this.grbDatosLab.ResumeLayout(false);
             this.grbDatosLab.PerformLayout();
@@ -253,5 +286,7 @@
         private System.Windows.Forms.TextBox txtIDLab;
         private System.Windows.Forms.ComboBox cmbEstadoLab;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label3;
     }
 }
