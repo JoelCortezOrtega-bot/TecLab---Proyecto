@@ -46,7 +46,7 @@ namespace LabTec
         {
 
             Con.Conexiones.Open();
-            string s = string.Format("SELECT * FROM Proyectores");
+            string s = string.Format("SELECT Proyectores.ID_Proyector AS 'ID Proyector', Proyectores.Nombre, Proyectores.Descripcion, Estado_Proyector.Nombre AS  'Estado del Proyector' FROM Proyectores INNER JOIN Estado_Proyector ON Proyectores.ID_EstadoProyector = Estado_Proyector.ID_EstadoProyector");
 
 
 
@@ -228,6 +228,11 @@ namespace LabTec
 
                 }
             }
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

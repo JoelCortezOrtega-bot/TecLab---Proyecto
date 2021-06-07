@@ -200,7 +200,7 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(160, 57);
-            this.txtNombre.MaxLength = 29;
+            this.txtNombre.MaxLength = 19;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(151, 24);
             this.txtNombre.TabIndex = 260;
@@ -209,7 +209,7 @@
             // 
             this.txtIDLab.Enabled = false;
             this.txtIDLab.Location = new System.Drawing.Point(160, 27);
-            this.txtIDLab.MaxLength = 8;
+            this.txtIDLab.MaxLength = 4;
             this.txtIDLab.Name = "txtIDLab";
             this.txtIDLab.Size = new System.Drawing.Size(151, 24);
             this.txtIDLab.TabIndex = 258;
