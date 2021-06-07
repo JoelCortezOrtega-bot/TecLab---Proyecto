@@ -40,18 +40,8 @@ namespace LabTec
             //Se encarga de atrapar cualquier error relacionado con valores no validos
             catch (FormatException)
             {
-                //Verifica si alguno de los txt se encuentra vacio
-                if (txtIDUsuario.Text == "" || txtClave.Text == "")
-                {
-                    //Llamamos al metodo static txtVacios
-                    MessageBox.Show("Por favor rellenar ambos cuadros de texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
-                else
-                {
-                    string mensaje = "Por favor, no ingrese los datos correctos.";
-                    MessageBox.Show(mensaje, "Error de formato",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
+                string mensaje = "Por favor, no ingrese los datos correctos.";
+                MessageBox.Show(mensaje, "Error de formato",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             finally
             {
@@ -65,31 +55,6 @@ namespace LabTec
         {
             //Cerrar la Aplicacion
             this.Close();
-        }
-
-        //Excepcion personalizada
-        static void txtVacios(string x, string y)//Recibe el ID y Contraseña
-        {
-            //Verifica si los cuadros de txt ambos estan vacios
-            if (x == "" && y == "")
-            {
-                //Envia el siguiente mensaje.
-                MessageBox.Show("Por favor rellenar ambos cuadros de texto","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            else
-            {
-                //Verifica si el txt de la contraseña esta vacio
-                if (y == "")
-                {
-                    MessageBox.Show("Por favor, no deje el recuadro de contraseña vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //Verifica si el txt de la usuario esta vacio
-                else
-                {
-                    MessageBox.Show("Por favor, no deje el recuadro de usuario vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
         }
 
         private void lblContraOl_MouseHover(object sender, EventArgs e)

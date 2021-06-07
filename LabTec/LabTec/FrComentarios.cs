@@ -30,27 +30,27 @@ namespace LabTec
 
             try
             {
-                ID = LocalID;
-                Comentario = txtComentario.Text;
-                //Creamos un objeto de la clase Operaciones
-                LabTec.Operaciones.Operaciones operaciones = new Operaciones.Operaciones();
-                //Utilizamos el Metodo para agregar un comentario a la BD
-                operaciones.AgregarComentario(Comentario, ID);
-            }
-            catch(FormatException)
-            {
                 //Verifica si alguno de los txt se encuentra vacio
                 if (txtComentario.Text == "")
                 {
                     //Llamamos al metodo static txtVacios
                     MessageBox.Show("Por favor el cuadro de texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
                 else
                 {
-                    string mensaje = "Por favor, no ingrese los datos correctos.";
-                    MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ID = LocalID;
+                    Comentario = txtComentario.Text;
+                    //Creamos un objeto de la clase Operaciones
+                    LabTec.Operaciones.Operaciones operaciones = new Operaciones.Operaciones();
+                    //Utilizamos el Metodo para agregar un comentario a la BD
+                    operaciones.AgregarComentario(Comentario, ID);
                 }
+            }
+            catch(FormatException)
+            {
+          
+                string mensaje = "Por favor, no ingrese los datos correctos.";
+                MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -172,7 +172,7 @@ namespace LabTec
                 }
                 else
                 {
-                    bandera = false;
+                    bandera = false;                    
                 }
             }
         }

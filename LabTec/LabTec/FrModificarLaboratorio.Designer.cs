@@ -31,11 +31,13 @@
             this.btnAtras = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pndAdorno = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgvLaboratorios = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarID = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.grbDatosLab = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbEstadoLab = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDGID = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.pndAdorno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorios)).BeginInit();
             this.grbDatosLab.SuspendLayout();
@@ -84,6 +84,17 @@
             this.pndAdorno.Name = "pndAdorno";
             this.pndAdorno.Size = new System.Drawing.Size(388, 450);
             this.pndAdorno.TabIndex = 250;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(144, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 250;
+            this.label3.Text = "Vista previa";
             // 
             // dgvLaboratorios
             // 
@@ -144,6 +155,20 @@
             this.grbDatosLab.Text = "Datos Generales";
             this.grbDatosLab.Visible = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Location = new System.Drawing.Point(160, 198);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(151, 35);
+            this.btnCancelar.TabIndex = 263;
+            this.btnCancelar.Text = "Cancelar cambios";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.MidnightBlue;
@@ -175,6 +200,7 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(160, 57);
+            this.txtNombre.MaxLength = 29;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(151, 24);
             this.txtNombre.TabIndex = 260;
@@ -183,6 +209,7 @@
             // 
             this.txtIDLab.Enabled = false;
             this.txtIDLab.Location = new System.Drawing.Point(160, 27);
+            this.txtIDLab.MaxLength = 8;
             this.txtIDLab.Name = "txtIDLab";
             this.txtIDLab.Size = new System.Drawing.Size(151, 24);
             this.txtIDLab.TabIndex = 258;
@@ -216,31 +243,6 @@
             this.lblDGID.Size = new System.Drawing.Size(25, 17);
             this.lblDGID.TabIndex = 257;
             this.lblDGID.Text = "ID:";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelar.Location = new System.Drawing.Point(160, 198);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(151, 35);
-            this.btnCancelar.TabIndex = 263;
-            this.btnCancelar.Text = "Cancelar cambios";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(144, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 250;
-            this.label3.Text = "Vista previa";
             // 
             // FrModificarLaboratorio
             // 

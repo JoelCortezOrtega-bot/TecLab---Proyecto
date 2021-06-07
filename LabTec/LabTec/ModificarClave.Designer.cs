@@ -64,7 +64,7 @@
             // txtClaveActual
             // 
             this.txtClaveActual.Location = new System.Drawing.Point(150, 74);
-            this.txtClaveActual.MaxLength = 18;
+            this.txtClaveActual.MaxLength = 9;
             this.txtClaveActual.Name = "txtClaveActual";
             this.txtClaveActual.PasswordChar = '*';
             this.txtClaveActual.Size = new System.Drawing.Size(146, 20);
@@ -73,7 +73,7 @@
             // txtClaveNueva
             // 
             this.txtClaveNueva.Location = new System.Drawing.Point(150, 103);
-            this.txtClaveNueva.MaxLength = 18;
+            this.txtClaveNueva.MaxLength = 9;
             this.txtClaveNueva.Name = "txtClaveNueva";
             this.txtClaveNueva.PasswordChar = '*';
             this.txtClaveNueva.Size = new System.Drawing.Size(146, 20);
@@ -82,7 +82,7 @@
             // txtClaveNRepetir
             // 
             this.txtClaveNRepetir.Location = new System.Drawing.Point(150, 143);
-            this.txtClaveNRepetir.MaxLength = 18;
+            this.txtClaveNRepetir.MaxLength = 9;
             this.txtClaveNRepetir.Name = "txtClaveNRepetir";
             this.txtClaveNRepetir.PasswordChar = '*';
             this.txtClaveNRepetir.Size = new System.Drawing.Size(146, 20);

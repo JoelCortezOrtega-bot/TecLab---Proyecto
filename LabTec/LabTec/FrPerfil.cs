@@ -139,7 +139,7 @@ namespace LabTec
                 Nombre = txtNombre.Text;
                 AP = txtAP.Text;
                 AM = txtAM.Text;
-                Correo = txtCorreo.Text;
+                Correo = txtCorreo.Text + lblExtensionTEC};
 
                 //Utilizamos nuestro objeto declarado
                 //Para llamar a nuestro objeto

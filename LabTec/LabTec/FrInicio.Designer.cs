@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlControl = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblContraOl = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.txtIDUsuario = new System.Windows.Forms.TextBox();
-            this.ttlpMensajes = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtIDUsuario = new System.Windows.Forms.TextBox();
             this.pBoxCerrar = new System.Windows.Forms.PictureBox();
             this.pboxInicio = new System.Windows.Forms.PictureBox();
+            this.ttlpMensajes = new System.Windows.Forms.ToolTip(this.components);
             this.pnlControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +63,16 @@
             this.pnlControl.Size = new System.Drawing.Size(340, 295);
             this.pnlControl.TabIndex = 35;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LabTec.Properties.Resources.password;
+            this.pictureBox2.Location = new System.Drawing.Point(51, 164);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
@@ -72,6 +82,16 @@
             this.lblTitulo.Size = new System.Drawing.Size(156, 23);
             this.lblTitulo.TabIndex = 32;
             this.lblTitulo.Text = "INICIO DE SESIÓN";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LabTec.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(51, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // lblContraOl
             // 
@@ -91,42 +111,11 @@
             // 
             this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtClave.Location = new System.Drawing.Point(96, 164);
+            this.txtClave.MaxLength = 9;
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(152, 20);
             this.txtClave.TabIndex = 2;
-            // 
-            // txtIDUsuario
-            // 
-            this.txtIDUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtIDUsuario.Location = new System.Drawing.Point(96, 120);
-            this.txtIDUsuario.Name = "txtIDUsuario";
-            this.txtIDUsuario.Size = new System.Drawing.Size(152, 20);
-            this.txtIDUsuario.TabIndex = 1;
-            // 
-            // ttlpMensajes
-            // 
-            this.ttlpMensajes.IsBalloon = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LabTec.Properties.Resources.password;
-            this.pictureBox2.Location = new System.Drawing.Point(51, 164);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LabTec.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(51, 120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // btnAceptar
             // 
@@ -143,6 +132,15 @@
             this.btnAceptar.Text = "Ingresar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // txtIDUsuario
+            // 
+            this.txtIDUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtIDUsuario.Location = new System.Drawing.Point(96, 120);
+            this.txtIDUsuario.MaxLength = 8;
+            this.txtIDUsuario.Name = "txtIDUsuario";
+            this.txtIDUsuario.Size = new System.Drawing.Size(152, 20);
+            this.txtIDUsuario.TabIndex = 1;
             // 
             // pBoxCerrar
             // 
@@ -165,6 +163,10 @@
             this.pboxInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxInicio.TabIndex = 6;
             this.pboxInicio.TabStop = false;
+            // 
+            // ttlpMensajes
+            // 
+            this.ttlpMensajes.IsBalloon = true;
             // 
             // FrInicio
             // 

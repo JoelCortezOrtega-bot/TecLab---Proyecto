@@ -62,7 +62,6 @@ namespace LabTec.Operaciones
                     //Indica al usuario que no se encuentra registrado en la BD
                     MessageBox.Show("El usuario no existe.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
-
             }
             else
             {

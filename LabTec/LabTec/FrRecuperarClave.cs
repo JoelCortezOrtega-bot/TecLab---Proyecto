@@ -35,24 +35,24 @@ namespace LabTec
 
             try
             {
-                //Asignamos los valores capturados a sus respectivas variables
-                op.Correo1 = txtCorreo.Text;
-                op.RecuperarCorreo();
-            }
-            //Se encarga de atrapar cualquier error relacionado con valores no validos
-            catch (FormatException)
-            {
-                if(txtCorreo.Text == "")
+                if (txtCorreo.Text == "")
                 {
                     //Verifica si alguno de los txt se encuentra vacio
-                    MessageBox.Show("Por favor, no deje el cuadro de texto vacio.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Por favor, no deje el cuadro de texto vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 //En caso de ninguno se encuentre vacio, mostrara el siguiente mensaje
                 else
                 {
-                    string mensaje = "Por favor, no ingrese los datos correctos.";
-                    MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Asignamos los valores capturados a sus respectivas variables
+                    op.Correo1 = txtCorreo.Text;
+                    op.RecuperarCorreo();
                 }
+            }
+            //Se encarga de atrapar cualquier error relacionado con valores no validos
+            catch (FormatException)
+            {         
+                string mensaje = "Por favor, no ingrese los datos correctos.";
+                MessageBox.Show(mensaje, "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

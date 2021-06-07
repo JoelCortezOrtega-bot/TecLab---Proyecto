@@ -59,6 +59,7 @@
             this.lblEditGenero = new System.Windows.Forms.Label();
             this.lblEditAM = new System.Windows.Forms.Label();
             this.lblEditarTitulo = new System.Windows.Forms.Label();
+            this.lblExtensionTEC = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbID)).BeginInit();
             this.pnlDatosPerfil.SuspendLayout();
             this.pnlModificarDatos.SuspendLayout();
@@ -222,6 +223,7 @@
             // pnlModificarDatos
             // 
             this.pnlModificarDatos.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pnlModificarDatos.Controls.Add(this.lblExtensionTEC);
             this.pnlModificarDatos.Controls.Add(this.txtCorreo);
             this.pnlModificarDatos.Controls.Add(this.lblEditCorreo);
             this.pnlModificarDatos.Controls.Add(this.btnAceptar);
@@ -247,9 +249,9 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(135, 195);
-            this.txtCorreo.MaxLength = 98;
+            this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(222, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(121, 20);
             this.txtCorreo.TabIndex = 257;
             // 
             // lblEditCorreo
@@ -318,7 +320,7 @@
             // txtAM
             // 
             this.txtAM.Location = new System.Drawing.Point(135, 106);
-            this.txtAM.MaxLength = 18;
+            this.txtAM.MaxLength = 19;
             this.txtAM.Name = "txtAM";
             this.txtAM.Size = new System.Drawing.Size(222, 20);
             this.txtAM.TabIndex = 251;
@@ -326,7 +328,7 @@
             // txtAP
             // 
             this.txtAP.Location = new System.Drawing.Point(135, 75);
-            this.txtAP.MaxLength = 18;
+            this.txtAP.MaxLength = 19;
             this.txtAP.Name = "txtAP";
             this.txtAP.Size = new System.Drawing.Size(222, 20);
             this.txtAP.TabIndex = 250;
@@ -334,7 +336,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(135, 45);
-            this.txtNombre.MaxLength = 98;
+            this.txtNombre.MaxLength = 25;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(222, 20);
             this.txtNombre.TabIndex = 249;
@@ -419,6 +421,18 @@
             this.lblEditarTitulo.TabIndex = 13;
             this.lblEditarTitulo.Text = "Editar Perfil";
             // 
+            // lblExtensionTEC
+            // 
+            this.lblExtensionTEC.AutoSize = true;
+            this.lblExtensionTEC.BackColor = System.Drawing.Color.Transparent;
+            this.lblExtensionTEC.Font = new System.Drawing.Font("Calibri", 10.25F);
+            this.lblExtensionTEC.ForeColor = System.Drawing.Color.White;
+            this.lblExtensionTEC.Location = new System.Drawing.Point(261, 197);
+            this.lblExtensionTEC.Name = "lblExtensionTEC";
+            this.lblExtensionTEC.Size = new System.Drawing.Size(124, 17);
+            this.lblExtensionTEC.TabIndex = 258;
+            this.lblExtensionTEC.Text = "@tectijuana.edu.mx";
+            // 
             // FrPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,5 +487,6 @@
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lblEditCorreo;
         private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label lblExtensionTEC;
     }
 }

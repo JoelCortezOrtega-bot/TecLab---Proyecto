@@ -68,6 +68,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(16, 118);
+            this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(323, 20);
             this.txtCorreo.TabIndex = 40;

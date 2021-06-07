@@ -23,26 +23,11 @@ namespace LabTec
         SqlDataAdapter da;
         Funciones.Conexion Con = new Funciones.Conexion();
 
-        private void FrAgregarEquipos_Load(object sender, EventArgs e)
-        {
-            EstadoTxt.DropDownStyle = ComboBoxStyle.DropDownList;
-            try
-            {
-                cargar(dataGridView1);
-
-            }
-
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-
         public void cargar(DataGridView dgv)
         {
 
             Con.Conexiones.Open();
-            string s = string.Format("SELECT * FROM Proyectores");
+            string s = string.Format("SELECT Proyectores.ID_Proyector AS 'ID Proyector', Proyectores.Nombre, Proyectores.Descripcion, Estado_Proyector.Nombre AS  'Estado del Proyector' FROM Proyectores INNER JOIN Estado_Proyector ON Proyectores.ID_EstadoProyector = Estado_Proyector.ID_EstadoProyector");
 
 
 
@@ -107,6 +92,25 @@ namespace LabTec
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btmAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrAgregarProyectores_Load(object sender, EventArgs e)
+        {
+            EstadoTxt.DropDownStyle = ComboBoxStyle.DropDownList;
+            try
+            {
+                cargar(dataGridView1);
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
     }

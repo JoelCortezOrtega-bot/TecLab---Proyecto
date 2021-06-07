@@ -85,7 +85,7 @@ namespace LabTec
         {
 
             Con.Conexiones.Open();
-            string s = string.Format("SELECT * FROM Usuario");
+            string s = string.Format("SELECT Usuario.ID_Usuario AS 'ID Usuario', Usuario.Nombre, Usuario.Ape_P AS 'Apellido Paterno', Usuario.Ape_M AS 'Apellido Materno', Usuario.Genero, Usuario.Correo, Usuario.Clave, Rol.Nombre AS 'Rol', Usuario.Estado, Departamento.Nombre AS 'Departamento' FROM ((Usuario INNER JOIN Rol ON Usuario.ID_Rol = Rol.ID_Rol)INNER JOIN Departamento ON Usuario.ID_Dep = Departamento.ID_Dep)");
 
 
 
@@ -133,5 +133,9 @@ namespace LabTec
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
+        private void btmAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
