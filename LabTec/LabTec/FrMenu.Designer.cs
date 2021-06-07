@@ -722,6 +722,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panelchild);
             this.Name = "FrMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrMenu";
             this.Load += new System.EventHandler(this.FrMenu_Load);
             this.panel2.ResumeLayout(false);

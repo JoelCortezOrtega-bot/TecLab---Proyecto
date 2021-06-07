@@ -221,28 +221,38 @@ namespace LabTec
             TextoNombre.Text = "Nombre: " + nombre + " " + apepat + " " + apemat;
             TextoNombre.Location = new Point(X, Y);
             TextoNombre.AutoSize = true;
-            TextoNombre.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            //Lucida Console
+            TextoNombre.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoNombre);
-            Y = Y + 25;
+            Y = Y + 33;
             
             //Correo
             Label TextoCorreo = new Label();
             TextoCorreo.Text = "Correo: " + correo;
             TextoCorreo.Location = new Point(X, Y);
             TextoCorreo.AutoSize = true;
-            TextoCorreo.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoCorreo.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoCorreo);
-            Y = Y + 25;
+            Y = Y + 33;
 
             //Departamento
-            Y = Y + 25;
+            //Y = Y + 33;
             Label TextoDepto = new Label();
             TextoDepto.Text = "Departamento: " + depto;
             TextoDepto.Location = new Point(X, Y);
             TextoDepto.AutoSize = true;
-            TextoDepto.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoDepto.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoDepto);
-            Y = Y + 35;
+            Y = Y + 35; //45
+            //Separacion entre cada bloque
+            Label Separacion = new Label();
+            Separacion.Location=new Point(0,Y);
+            Separacion.AutoSize = false;
+            Separacion.BackColor = Color.MidnightBlue;
+            Separacion.Height =5;
+            Separacion.Width =panelPrincipal.Width;
+            panelPrincipal.Controls.Add(Separacion);
+            Y = Y + 10;
         }
 
         private void TextoLab(string id, string nombre, string estado)
@@ -252,27 +262,37 @@ namespace LabTec
             TextoID.Text = "ID: "+ id;
             TextoID.Location = new Point(X, Y);
             TextoID.AutoSize = true;
-            TextoID.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoID.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoID);
-            Y = Y + 25;
+            Y = Y + 33;
 
             //Nombre
             Label TextoNombre = new Label();
             TextoNombre.Text = "Nombre: " + nombre;
             TextoNombre.Location = new Point(X, Y);
             TextoNombre.AutoSize = true;
-            TextoNombre.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoNombre.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoNombre);
-            Y = Y + 25;
+            Y = Y + 33;
 
             //Estado
             Label TextoEstado = new Label();
             TextoEstado.Text = "Estado: " + Estado;
             TextoEstado.Location = new Point(X, Y);
             TextoEstado.AutoSize = true;
-            TextoEstado.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoEstado.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoEstado);
-            Y = Y + 25;
+            Y = Y + 35; //45
+            
+            //Separacion entre cada bloque
+            Label Separacion = new Label();
+            Separacion.Location = new Point(0, Y);
+            Separacion.AutoSize = false;
+            Separacion.BackColor = Color.MidnightBlue;
+            Separacion.Height = 5;
+            Separacion.Width = panelPrincipal.Width;
+            panelPrincipal.Controls.Add(Separacion);
+            Y = Y + 10;
         }
 
         private void TextoProyector(string id, string nombre, string estado, string descripcion)
@@ -282,36 +302,46 @@ namespace LabTec
             TextoID.Text = "ID: " + id;
             TextoID.Location = new Point(X, Y);
             TextoID.AutoSize = true;
-            TextoID.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoID.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoID);
-            Y = Y + 25;
+            Y = Y + 20;
 
             //Nombre
             Label TextoNombre = new Label();
             TextoNombre.Text = "Nombre: " + nombre;
             TextoNombre.Location = new Point(X, Y);
             TextoNombre.AutoSize = true;
-            TextoNombre.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoNombre.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoNombre);
-            Y = Y + 25;
+            Y = Y + 20;
 
             //Estado
             Label TextoEstado = new Label();
             TextoEstado.Text = "Estado: " + Estado;
             TextoEstado.Location = new Point(X, Y);
             TextoEstado.AutoSize = true;
-            TextoEstado.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoEstado.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoEstado);
-            Y = Y + 25;
+            Y = Y + 20;
 
             //Descripcion
             Label TextoDesc = new Label();
             TextoDesc.Text = "Descripcion: " + descripcion;
             TextoDesc.Location = new Point(X, Y);
             TextoDesc.AutoSize = true;
-            TextoDesc.Font = new Font("Lucida Console", 8, FontStyle.Regular);
+            TextoDesc.Font = new Font("Calibri", 10, FontStyle.Regular);
             panelPrincipal.Controls.Add(TextoDesc);
-            Y = Y + 25;
+            Y = Y + 80;
+
+            //Separacion entre cada bloque
+            Label Separacion = new Label();
+            Separacion.Location = new Point(0, Y);
+            Separacion.AutoSize = false;
+            Separacion.BackColor = Color.MidnightBlue;
+            Separacion.Height = 5;
+            Separacion.Width = panelPrincipal.Width;
+            panelPrincipal.Controls.Add(Separacion);
+            Y = Y + 20;
         }
         //Metodo para crear la imagen del perfil
         private void Imagen(string Tipo)
@@ -346,6 +376,10 @@ namespace LabTec
             
             //Agregamos altura para que la imagen tengan separacion
             iY = iY + 110;
+            if (Tipo== "Proyectores")
+            {
+                iY = iY + 60;
+            }
         }
 
         //Evento cuando se presiona el radiobutton de laboratorios para que modifique el combobox (cboxTiposBusqueda)

@@ -68,7 +68,8 @@ namespace LabTec
                 //TITULO DE HORA
                 TimeSpan result = TimeSpan.FromHours(i);
                 string fromTimeString = "HORA: " + result.ToString("hh':'mm");
-                tlpHorario.Controls.Add(new Label { Text = fromTimeString, Anchor = AnchorStyles.None, Font = new Font("Arial", 14), AutoSize = true }, 0, ContadorRenglon);
+                //Arial 14
+                tlpHorario.Controls.Add(new Label { Text = fromTimeString, Anchor = AnchorStyles.None, Font = new Font("Corbel", 12), AutoSize = true }, 0, ContadorRenglon);
                 ContadorRenglon++;
                 //For que maneja los proyectores/laboratorios
                 for (int j = 0; j < LocalCantidadProy; j++)
@@ -122,7 +123,7 @@ namespace LabTec
                     tlpHorario.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     //tlpHorario.Controls.Add(new Button{ Text = (LocalNombres.Rows[j][0].ToString() + "    " + texto), Font = new Font("Arial", 14), Width = 294, Height = 28, BackColor = color, Enabled = activado, Name = LocalNombres.Rows[j][0].ToString(), Tag = LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + i, },0,ContadorRenglon);
                     
-                    Button btn= new Button { Text = (LocalNombres.Rows[j][0].ToString() + "    " + texto), Font = new Font("Arial", 14), Width = 294, Height = 28, BackColor = color, Enabled = activado, Name = LocalNombres.Rows[j][0].ToString(), Tag = LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + i, };
+                    Button btn= new Button { Text = (LocalNombres.Rows[j][0].ToString() + "    " + texto), Font = new Font("Corbel", 12), Width = 294, Height = 28, BackColor = color, Enabled = activado, Name = LocalNombres.Rows[j][0].ToString(), Tag = LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + i, };
                     btn.Click += new EventHandler(btnClick);
                     tlpHorario.Controls.Add(btn, 0, ContadorRenglon);
                     ContadorRenglon++;

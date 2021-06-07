@@ -47,22 +47,30 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancelar.Location = new System.Drawing.Point(10, 435);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 34);
             this.btnCancelar.TabIndex = 41;
             this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnIngresar
             // 
+            this.btnIngresar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIngresar.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnIngresar.Location = new System.Drawing.Point(223, 435);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(107, 34);
             this.btnIngresar.TabIndex = 42;
             this.btnIngresar.Text = "INGRESAR";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // FrCalendarioHorario
@@ -74,6 +82,7 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tlpHorario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrCalendarioHorario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrCalendarioHorario";

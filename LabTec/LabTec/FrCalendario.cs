@@ -25,21 +25,28 @@ namespace LabTec
         double MitadDisLabs = 0;
         string LocalTipo="";
         int LocalNumUsuario;
+
         public FrCalendario(int NumUsuario, string Tipo)
         {
             InitializeComponent();
+            //Se guarda el tipo de usuario que es (Proyector o Laboratorio) y su numero de usuario
             LocalTipo = Tipo;
             LocalNumUsuario = NumUsuario;
+            
         }
-
+        
         private void FrCalendario_Load(object sender, EventArgs e)
         {
+            //Se consigue las fechas y nombres de los Proyectores o Laboratorios
             DataTable fechas=MetodoMesYear();
             DataTable nombres = MetodoNombreProy();
+            //Se guarda el an~o y mes.
             ano = Convert.ToInt32(fechas.Rows[0][1]);
             mes = Convert.ToInt32(fechas.Rows[0][0]);
             mesactual = mes;
+            //Se guarda el total de dispositivos y se multiplica por las horas (Esto es para poner diferentes colores en los dias)
             TotalDispositivosLabs = Convert.ToInt32(MetodoCantProyec())*11;
+            //Se realiza una serie de operaciones para saber la mitad de las usos.
             MitadDisLabs = TotalDispositivosLabs/2;
             MitadDisLabs = Math.Ceiling(MitadDisLabs);
             LocalTipo = "";
@@ -147,6 +154,7 @@ namespace LabTec
             Conex.Conexiones.Close();
             return dt9;
         }
+
         private void CrearCalendario(int ultimodia,object year, object mes)
         {
             Conexion Conex = new Conexion();
@@ -179,8 +187,10 @@ namespace LabTec
             {
                 PictureBox pboxVacio = new PictureBox();
                 pboxVacio.Name = Convert.ToString(j + "Vacio");
-                pboxVacio.Width = 100;
-                pboxVacio.Height = 100;
+                pboxVacio.Width = (flowPanelCalendario.Width/7)-9;
+                pboxVacio.Height = flowPanelCalendario.Height/5;
+                //pboxVacio.Width = 100;
+                //pboxVacio.Height = 100;
                 flowPanelCalendario.Controls.Add(pboxVacio);
             }
 
@@ -192,8 +202,10 @@ namespace LabTec
                 pbox.Name = Convert.ToString(i + 1);
                 pbox.Paint += new PaintEventHandler(pboxPaint);
                 pbox.Click += new EventHandler(pboxClick);
-                pbox.Width = 100;
-                pbox.Height = 100;
+                pbox.Width = (flowPanelCalendario.Width / 7)-9;
+                pbox.Height = flowPanelCalendario.Height / 5;
+                //pbox.Width = 100;
+                //pbox.Height = 100;
                 //Condicion para que sabados y domingos no se pueda apartar
                 if (AuxVacio==6 || AuxVacio==0)
                 {
