@@ -116,6 +116,26 @@ BEGIN
 	RETURN @Clave
 END
 
+CREATE FUNCTION fn_Comentarios
+(
+	@I_seq INT 
+)
+RETURNS VARCHAR(50)
+AS
+BEGIN 
+	DECLARE @Mensaje VARCHAR(50)
+	IF EXISTS((SELECT * FROM Comentarios WHERE I_seq = @I_seq)) 
+		BEGIN
+			SET @Mensaje = 'Si'
+		END
+	ELSE
+		BEGIN
+			SET @Mensaje = 'No'
+		END
+	RETURN @Mensaje
+END
+
+
 SELECT dbo.fn_RecuperarClave('joel.ortega17@tectijuana.edu.mx')
 
 SELECT Clave FROM Usuario WHERE Correo = 'joel.ortega17@tectijuana.edu.mx'
