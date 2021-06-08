@@ -45,12 +45,11 @@ namespace LabTec
         public void cargarBusqueda(DataGridView dgv)
         {
             //toma el valor de la columna selecionada
-            string columna = dataGridView1.CurrentCell.OwningColumn.Name.ToString();
             Con.Conexiones.Open();
             //toma el texto del textbox para buscarla
             string buscar = buscartxt.Text;
             //comando de sql para buscar un dato en cierta columna
-            string s = string.Format("SELECT * FROM Proyectores WHERE {0} LIKE '%{1}%'", columna, buscar);
+            string s = string.Format("SELECT Proyectores.ID_Proyector AS 'ID Proyector', Proyectores.Nombre, Proyectores.Descripcion, Estado_Proyector.Nombre AS  'Estado del Proyector' FROM Proyectores INNER JOIN Estado_Proyector ON Proyectores.ID_EstadoProyector = Estado_Proyector.ID_EstadoProyector WHERE Proyectores.ID_Proyector LIKE '%{0}%'",  buscar);
 
             da = new SqlDataAdapter(s, Con.Conexiones);
             dt = new DataTable();

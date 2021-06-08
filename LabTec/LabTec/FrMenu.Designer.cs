@@ -37,7 +37,6 @@
             this.Ver_Perfil = new System.Windows.Forms.Button();
             this.btn_comentarios = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Agregar_comentarios = new System.Windows.Forms.Button();
             this.Ver_comentarios = new System.Windows.Forms.Button();
             this.btn_laboratorios = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -45,9 +44,6 @@
             this.Eliminar_laboratorio = new System.Windows.Forms.Button();
             this.Agregar_laboratorio = new System.Windows.Forms.Button();
             this.Buscar_laboratorio = new System.Windows.Forms.Button();
-            this.Cancelar_apartado = new System.Windows.Forms.Button();
-            this.Codigo_laboratorio = new System.Windows.Forms.Button();
-            this.Apartar_laboratorio = new System.Windows.Forms.Button();
             this.Calendario_laboratorios = new System.Windows.Forms.Button();
             this.btn_proyectores = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -55,9 +51,6 @@
             this.Eliminar_proyectores = new System.Windows.Forms.Button();
             this.Agregar_proyectores = new System.Windows.Forms.Button();
             this.Buscar_proyectores = new System.Windows.Forms.Button();
-            this.Cancelar_proyectores = new System.Windows.Forms.Button();
-            this.Codigo_proyectores = new System.Windows.Forms.Button();
-            this.Apartar_proyectores = new System.Windows.Forms.Button();
             this.Calendario_proyectores = new System.Windows.Forms.Button();
             this.btn_usuarios = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -198,30 +191,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel3.Controls.Add(this.Agregar_comentarios);
             this.panel3.Controls.Add(this.Ver_comentarios);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 266);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(183, 45);
+            this.panel3.Size = new System.Drawing.Size(183, 23);
             this.panel3.TabIndex = 8;
-            // 
-            // Agregar_comentarios
-            // 
-            this.Agregar_comentarios.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Agregar_comentarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Agregar_comentarios.FlatAppearance.BorderSize = 0;
-            this.Agregar_comentarios.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Agregar_comentarios.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Agregar_comentarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agregar_comentarios.Location = new System.Drawing.Point(0, 23);
-            this.Agregar_comentarios.Name = "Agregar_comentarios";
-            this.Agregar_comentarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Agregar_comentarios.Size = new System.Drawing.Size(183, 23);
-            this.Agregar_comentarios.TabIndex = 4;
-            this.Agregar_comentarios.Text = "Agregar comentarios";
-            this.Agregar_comentarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Agregar_comentarios.UseVisualStyleBackColor = false;
             // 
             // Ver_comentarios
             // 
@@ -248,7 +223,7 @@
             this.btn_laboratorios.FlatAppearance.BorderSize = 0;
             this.btn_laboratorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_laboratorios.ForeColor = System.Drawing.Color.White;
-            this.btn_laboratorios.Location = new System.Drawing.Point(0, 311);
+            this.btn_laboratorios.Location = new System.Drawing.Point(0, 289);
             this.btn_laboratorios.Name = "btn_laboratorios";
             this.btn_laboratorios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_laboratorios.Size = new System.Drawing.Size(183, 45);
@@ -265,14 +240,11 @@
             this.panel4.Controls.Add(this.Eliminar_laboratorio);
             this.panel4.Controls.Add(this.Agregar_laboratorio);
             this.panel4.Controls.Add(this.Buscar_laboratorio);
-            this.panel4.Controls.Add(this.Cancelar_apartado);
-            this.panel4.Controls.Add(this.Codigo_laboratorio);
-            this.panel4.Controls.Add(this.Apartar_laboratorio);
             this.panel4.Controls.Add(this.Calendario_laboratorios);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 356);
+            this.panel4.Location = new System.Drawing.Point(0, 334);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(183, 180);
+            this.panel4.Size = new System.Drawing.Size(183, 116);
             this.panel4.TabIndex = 12;
             // 
             // Modificar_Laboratorio
@@ -283,7 +255,7 @@
             this.Modificar_Laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Modificar_Laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Modificar_Laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Modificar_Laboratorio.Location = new System.Drawing.Point(0, 161);
+            this.Modificar_Laboratorio.Location = new System.Drawing.Point(0, 92);
             this.Modificar_Laboratorio.Name = "Modificar_Laboratorio";
             this.Modificar_Laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Modificar_Laboratorio.Size = new System.Drawing.Size(183, 23);
@@ -301,7 +273,7 @@
             this.Eliminar_laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Eliminar_laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Eliminar_laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar_laboratorio.Location = new System.Drawing.Point(0, 138);
+            this.Eliminar_laboratorio.Location = new System.Drawing.Point(0, 69);
             this.Eliminar_laboratorio.Name = "Eliminar_laboratorio";
             this.Eliminar_laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Eliminar_laboratorio.Size = new System.Drawing.Size(183, 23);
@@ -319,7 +291,7 @@
             this.Agregar_laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Agregar_laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Agregar_laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agregar_laboratorio.Location = new System.Drawing.Point(0, 115);
+            this.Agregar_laboratorio.Location = new System.Drawing.Point(0, 46);
             this.Agregar_laboratorio.Name = "Agregar_laboratorio";
             this.Agregar_laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Agregar_laboratorio.Size = new System.Drawing.Size(183, 23);
@@ -337,7 +309,7 @@
             this.Buscar_laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Buscar_laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Buscar_laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Buscar_laboratorio.Location = new System.Drawing.Point(0, 92);
+            this.Buscar_laboratorio.Location = new System.Drawing.Point(0, 23);
             this.Buscar_laboratorio.Name = "Buscar_laboratorio";
             this.Buscar_laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Buscar_laboratorio.Size = new System.Drawing.Size(183, 23);
@@ -346,57 +318,6 @@
             this.Buscar_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscar_laboratorio.UseVisualStyleBackColor = false;
             this.Buscar_laboratorio.Click += new System.EventHandler(this.Buscar_laboratorio_Click);
-            // 
-            // Cancelar_apartado
-            // 
-            this.Cancelar_apartado.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Cancelar_apartado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Cancelar_apartado.FlatAppearance.BorderSize = 0;
-            this.Cancelar_apartado.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Cancelar_apartado.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Cancelar_apartado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelar_apartado.Location = new System.Drawing.Point(0, 69);
-            this.Cancelar_apartado.Name = "Cancelar_apartado";
-            this.Cancelar_apartado.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Cancelar_apartado.Size = new System.Drawing.Size(183, 23);
-            this.Cancelar_apartado.TabIndex = 7;
-            this.Cancelar_apartado.Text = "Cancelar apartado";
-            this.Cancelar_apartado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancelar_apartado.UseVisualStyleBackColor = false;
-            // 
-            // Codigo_laboratorio
-            // 
-            this.Codigo_laboratorio.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Codigo_laboratorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Codigo_laboratorio.FlatAppearance.BorderSize = 0;
-            this.Codigo_laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Codigo_laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Codigo_laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Codigo_laboratorio.Location = new System.Drawing.Point(0, 46);
-            this.Codigo_laboratorio.Name = "Codigo_laboratorio";
-            this.Codigo_laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Codigo_laboratorio.Size = new System.Drawing.Size(183, 23);
-            this.Codigo_laboratorio.TabIndex = 6;
-            this.Codigo_laboratorio.Text = "Codigo de apartado";
-            this.Codigo_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Codigo_laboratorio.UseVisualStyleBackColor = false;
-            // 
-            // Apartar_laboratorio
-            // 
-            this.Apartar_laboratorio.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Apartar_laboratorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Apartar_laboratorio.FlatAppearance.BorderSize = 0;
-            this.Apartar_laboratorio.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Apartar_laboratorio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Apartar_laboratorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Apartar_laboratorio.Location = new System.Drawing.Point(0, 23);
-            this.Apartar_laboratorio.Name = "Apartar_laboratorio";
-            this.Apartar_laboratorio.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Apartar_laboratorio.Size = new System.Drawing.Size(183, 23);
-            this.Apartar_laboratorio.TabIndex = 5;
-            this.Apartar_laboratorio.Text = "Apartar laboratorio";
-            this.Apartar_laboratorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Apartar_laboratorio.UseVisualStyleBackColor = false;
             // 
             // Calendario_laboratorios
             // 
@@ -423,7 +344,7 @@
             this.btn_proyectores.FlatAppearance.BorderSize = 0;
             this.btn_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proyectores.ForeColor = System.Drawing.Color.White;
-            this.btn_proyectores.Location = new System.Drawing.Point(0, 536);
+            this.btn_proyectores.Location = new System.Drawing.Point(0, 450);
             this.btn_proyectores.Name = "btn_proyectores";
             this.btn_proyectores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_proyectores.Size = new System.Drawing.Size(183, 45);
@@ -440,14 +361,11 @@
             this.panel5.Controls.Add(this.Eliminar_proyectores);
             this.panel5.Controls.Add(this.Agregar_proyectores);
             this.panel5.Controls.Add(this.Buscar_proyectores);
-            this.panel5.Controls.Add(this.Cancelar_proyectores);
-            this.panel5.Controls.Add(this.Codigo_proyectores);
-            this.panel5.Controls.Add(this.Apartar_proyectores);
             this.panel5.Controls.Add(this.Calendario_proyectores);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 581);
+            this.panel5.Location = new System.Drawing.Point(0, 495);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(183, 182);
+            this.panel5.Size = new System.Drawing.Size(183, 116);
             this.panel5.TabIndex = 15;
             // 
             // Modificar_proyectores
@@ -458,7 +376,7 @@
             this.Modificar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Modificar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Modificar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Modificar_proyectores.Location = new System.Drawing.Point(0, 161);
+            this.Modificar_proyectores.Location = new System.Drawing.Point(0, 92);
             this.Modificar_proyectores.Name = "Modificar_proyectores";
             this.Modificar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Modificar_proyectores.Size = new System.Drawing.Size(183, 23);
@@ -476,7 +394,7 @@
             this.Eliminar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Eliminar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Eliminar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar_proyectores.Location = new System.Drawing.Point(0, 138);
+            this.Eliminar_proyectores.Location = new System.Drawing.Point(0, 69);
             this.Eliminar_proyectores.Name = "Eliminar_proyectores";
             this.Eliminar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Eliminar_proyectores.Size = new System.Drawing.Size(183, 23);
@@ -494,7 +412,7 @@
             this.Agregar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Agregar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Agregar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agregar_proyectores.Location = new System.Drawing.Point(0, 115);
+            this.Agregar_proyectores.Location = new System.Drawing.Point(0, 46);
             this.Agregar_proyectores.Name = "Agregar_proyectores";
             this.Agregar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Agregar_proyectores.Size = new System.Drawing.Size(183, 23);
@@ -512,7 +430,7 @@
             this.Buscar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Buscar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Buscar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Buscar_proyectores.Location = new System.Drawing.Point(0, 92);
+            this.Buscar_proyectores.Location = new System.Drawing.Point(0, 23);
             this.Buscar_proyectores.Name = "Buscar_proyectores";
             this.Buscar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Buscar_proyectores.Size = new System.Drawing.Size(183, 23);
@@ -521,57 +439,6 @@
             this.Buscar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscar_proyectores.UseVisualStyleBackColor = false;
             this.Buscar_proyectores.Click += new System.EventHandler(this.Buscar_proyectores_Click);
-            // 
-            // Cancelar_proyectores
-            // 
-            this.Cancelar_proyectores.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Cancelar_proyectores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Cancelar_proyectores.FlatAppearance.BorderSize = 0;
-            this.Cancelar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Cancelar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Cancelar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelar_proyectores.Location = new System.Drawing.Point(0, 69);
-            this.Cancelar_proyectores.Name = "Cancelar_proyectores";
-            this.Cancelar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Cancelar_proyectores.Size = new System.Drawing.Size(183, 23);
-            this.Cancelar_proyectores.TabIndex = 15;
-            this.Cancelar_proyectores.Text = "Cancelar apartado";
-            this.Cancelar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancelar_proyectores.UseVisualStyleBackColor = false;
-            // 
-            // Codigo_proyectores
-            // 
-            this.Codigo_proyectores.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Codigo_proyectores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Codigo_proyectores.FlatAppearance.BorderSize = 0;
-            this.Codigo_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Codigo_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Codigo_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Codigo_proyectores.Location = new System.Drawing.Point(0, 46);
-            this.Codigo_proyectores.Name = "Codigo_proyectores";
-            this.Codigo_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Codigo_proyectores.Size = new System.Drawing.Size(183, 23);
-            this.Codigo_proyectores.TabIndex = 14;
-            this.Codigo_proyectores.Text = "Codigo de apartado";
-            this.Codigo_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Codigo_proyectores.UseVisualStyleBackColor = false;
-            // 
-            // Apartar_proyectores
-            // 
-            this.Apartar_proyectores.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Apartar_proyectores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Apartar_proyectores.FlatAppearance.BorderSize = 0;
-            this.Apartar_proyectores.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Apartar_proyectores.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Apartar_proyectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Apartar_proyectores.Location = new System.Drawing.Point(0, 23);
-            this.Apartar_proyectores.Name = "Apartar_proyectores";
-            this.Apartar_proyectores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Apartar_proyectores.Size = new System.Drawing.Size(183, 23);
-            this.Apartar_proyectores.TabIndex = 13;
-            this.Apartar_proyectores.Text = "Apartar Proyectores";
-            this.Apartar_proyectores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Apartar_proyectores.UseVisualStyleBackColor = false;
             // 
             // Calendario_proyectores
             // 
@@ -598,7 +465,7 @@
             this.btn_usuarios.FlatAppearance.BorderSize = 0;
             this.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_usuarios.ForeColor = System.Drawing.Color.White;
-            this.btn_usuarios.Location = new System.Drawing.Point(0, 763);
+            this.btn_usuarios.Location = new System.Drawing.Point(0, 611);
             this.btn_usuarios.Name = "btn_usuarios";
             this.btn_usuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_usuarios.Size = new System.Drawing.Size(183, 45);
@@ -616,7 +483,7 @@
             this.panel6.Controls.Add(this.Agregar_usuarios);
             this.panel6.Controls.Add(this.Buscar_usuarios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 808);
+            this.panel6.Location = new System.Drawing.Point(0, 656);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(183, 93);
             this.panel6.TabIndex = 34;
@@ -743,7 +610,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_comentarios;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button Agregar_comentarios;
         private System.Windows.Forms.Button Ver_comentarios;
         private System.Windows.Forms.Button btn_laboratorios;
         private System.Windows.Forms.Panel panel4;
@@ -751,9 +617,6 @@
         private System.Windows.Forms.Button Eliminar_laboratorio;
         private System.Windows.Forms.Button Agregar_laboratorio;
         private System.Windows.Forms.Button Buscar_laboratorio;
-        private System.Windows.Forms.Button Cancelar_apartado;
-        private System.Windows.Forms.Button Codigo_laboratorio;
-        private System.Windows.Forms.Button Apartar_laboratorio;
         private System.Windows.Forms.Button Calendario_laboratorios;
         private System.Windows.Forms.Button btn_proyectores;
         private System.Windows.Forms.Panel panel5;
@@ -761,9 +624,6 @@
         private System.Windows.Forms.Button Eliminar_proyectores;
         private System.Windows.Forms.Button Agregar_proyectores;
         private System.Windows.Forms.Button Buscar_proyectores;
-        private System.Windows.Forms.Button Cancelar_proyectores;
-        private System.Windows.Forms.Button Codigo_proyectores;
-        private System.Windows.Forms.Button Apartar_proyectores;
         private System.Windows.Forms.Button Calendario_proyectores;
         private System.Windows.Forms.Button btn_usuarios;
         private System.Windows.Forms.Panel panel6;

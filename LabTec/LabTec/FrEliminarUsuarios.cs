@@ -101,12 +101,11 @@ namespace LabTec
         public void cargarBusqueda(DataGridView dgv)
         {
             //toma el valor de la columna selecionada
-            string columna = dataGridView1.CurrentCell.OwningColumn.Name.ToString();
             Con.Conexiones.Open();
             //toma el texto del textbox para buscarla
             string buscar = buscartxt.Text;
             //comando de sql para buscar un dato en cierta columna
-            string s = string.Format("SELECT * FROM Usuario WHERE {0} LIKE '%{1}%'", columna, buscar);
+            string s = string.Format("SELECT Usuario.ID_Usuario AS 'ID Usuario', Usuario.Nombre, Usuario.Ape_P AS 'Apellido Paterno', Usuario.Ape_M AS 'Apellido Materno', Usuario.Genero, Usuario.Correo, Usuario.Clave, Rol.Nombre AS 'Rol', Usuario.Estado, Departamento.Nombre AS 'Departamento' FROM ((Usuario INNER JOIN Rol ON Usuario.ID_Rol = Rol.ID_Rol)INNER JOIN Departamento ON Usuario.ID_Dep = Departamento.ID_Dep) WHERE Usuario.ID_Usuario LIKE '%{0}%' ",  buscar);
 
             da = new SqlDataAdapter(s, Con.Conexiones);
             dt = new DataTable();

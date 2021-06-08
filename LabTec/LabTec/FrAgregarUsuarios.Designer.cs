@@ -170,13 +170,13 @@
             // 
             this.rolUsuario.FormattingEnabled = true;
             this.rolUsuario.Items.AddRange(new object[] {
-            "1",
-            "2"});
+            "Administrador",
+            "Maestro"});
             this.rolUsuario.Location = new System.Drawing.Point(116, 261);
             this.rolUsuario.Name = "rolUsuario";
             this.rolUsuario.Size = new System.Drawing.Size(119, 25);
             this.rolUsuario.TabIndex = 35;
-            this.rolUsuario.Text = "1";
+            this.rolUsuario.Text = "Administrador";
             // 
             // generoUsuario
             // 
@@ -255,14 +255,14 @@
             // 
             this.idDep.FormattingEnabled = true;
             this.idDep.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
+            "Sistemas Computacionales",
+            "Informatica",
+            "TICS"});
             this.idDep.Location = new System.Drawing.Point(116, 295);
             this.idDep.Name = "idDep";
             this.idDep.Size = new System.Drawing.Size(119, 25);
             this.idDep.TabIndex = 47;
-            this.idDep.Text = "1";
+            this.idDep.Text = "Sistemas Computacionales";
             // 
             // label
             // 

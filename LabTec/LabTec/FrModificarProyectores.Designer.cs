@@ -56,16 +56,14 @@
             this.EstadoTxt.Enabled = false;
             this.EstadoTxt.FormattingEnabled = true;
             this.EstadoTxt.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "f"});
+            "Disponible",
+            "Fuera de servicio",
+            "Mantenimiento"});
             this.EstadoTxt.Location = new System.Drawing.Point(215, 32);
             this.EstadoTxt.Name = "EstadoTxt";
             this.EstadoTxt.Size = new System.Drawing.Size(121, 21);
             this.EstadoTxt.TabIndex = 70;
-            this.EstadoTxt.Text = "1";
+            this.EstadoTxt.Text = "Disponible";
             // 
             // label4
             // 

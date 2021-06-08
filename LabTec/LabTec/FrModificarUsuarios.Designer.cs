@@ -160,13 +160,13 @@
             this.rolUsuario.Enabled = false;
             this.rolUsuario.FormattingEnabled = true;
             this.rolUsuario.Items.AddRange(new object[] {
-            "1",
-            "2"});
+            "Administrador",
+            "Maestro"});
             this.rolUsuario.Location = new System.Drawing.Point(21, 214);
             this.rolUsuario.Name = "rolUsuario";
             this.rolUsuario.Size = new System.Drawing.Size(119, 22);
             this.rolUsuario.TabIndex = 56;
-            this.rolUsuario.Text = "1";
+            this.rolUsuario.Text = "Maestro";
             // 
             // generoUsuario
             // 

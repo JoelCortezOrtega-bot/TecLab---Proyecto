@@ -51,15 +51,14 @@
             this.EstadoTxt.Font = new System.Drawing.Font("Calibri", 10.25F);
             this.EstadoTxt.FormattingEnabled = true;
             this.EstadoTxt.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "f"});
+            "Disponible ",
+            "Fuera de servicio",
+            "Mantenimiento"});
             this.EstadoTxt.Location = new System.Drawing.Point(161, 119);
             this.EstadoTxt.Name = "EstadoTxt";
             this.EstadoTxt.Size = new System.Drawing.Size(119, 25);
             this.EstadoTxt.TabIndex = 29;
+            this.EstadoTxt.Text = "Disponible";
             // 
             // label4
             // 

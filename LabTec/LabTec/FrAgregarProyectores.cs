@@ -47,7 +47,12 @@ namespace LabTec
             string id = IdTxt.Text;
             string nombre = NombreTxt.Text;
             string descripcion = DescripcionTxt.Text;
-            string estado = EstadoTxt.Text;
+            string estados = EstadoTxt.Text;
+            int estado=1;
+            MessageBox.Show(estados);
+            if (estados == "Disponible") { estado = 1; }
+            if (estados == "Fuera de servicio") { estado = 2; }
+            if (estados == "Mantenimiento") { estado = 3; }
 
             if (string.IsNullOrWhiteSpace(IdTxt.Text) || string.IsNullOrWhiteSpace(NombreTxt.Text) || string.IsNullOrWhiteSpace(DescripcionTxt.Text) || string.IsNullOrWhiteSpace(EstadoTxt.Text))
             {

@@ -35,9 +35,15 @@ namespace LabTec
             string genero = generoUsuario.Text;
             string correo = correoUsuario.Text + "@tectijuana.edu.mx";
             string clave = claveUsuario.Text;
-            string rol = rolUsuario.Text;
+            int rol = 0;
             string estado = estadoUsuario.Text;
-            string iddepto = idDep.Text;
+            int iddepto = 0;
+            
+            if (rolUsuario.Text == "Administrador") { rol = 1; }
+            if (rolUsuario.Text == "Maestro") { rol = 2; }
+            if (idDep.Text == "Sistemas Computacionales") { iddepto = 1; }
+            if (idDep.Text == "Fuera de Informatica") { iddepto = 2; }
+            if (idDep.Text == "TICS") { iddepto = 3; }
 
             //Condicion: entra en el if si ninguna de las casillas esta vacia
             if (!string.IsNullOrWhiteSpace(idUsuario.Text) || !string.IsNullOrWhiteSpace(nombreUsuario.Text) || !string.IsNullOrWhiteSpace(apellidoPaterno.Text)

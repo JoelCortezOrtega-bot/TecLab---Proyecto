@@ -67,7 +67,7 @@ namespace LabTec
             //toma el texto del textbox para buscarla
             string buscar = buscarTxt.Text;
             //comando de sql para buscar un dato en cierta columna
-            string s = string.Format("SELECT * FROM Proyectores WHERE {0} = '{1}'", columna, buscar);
+            string s = string.Format("SELECT Proyectores.ID_Proyector AS 'ID Proyector', Proyectores.Nombre, Proyectores.Descripcion, Estado_Proyector.Nombre AS  'Estado del Proyector' FROM Proyectores INNER JOIN Estado_Proyector ON Proyectores.ID_EstadoProyector = Estado_Proyector.ID_EstadoProyector WHERE Proyectores.ID_Proyector = '{0}'", buscar);
 
             da = new SqlDataAdapter(s, Con.Conexiones);
             dt = new DataTable();
@@ -195,7 +195,11 @@ namespace LabTec
 
                         else
                         {
-                            MessageBox.Show(time);
+                            
+                            int estado=0;
+                            if (EstadoTxt.Text == "Disponible") { estado = 1; }
+                            if (EstadoTxt.Text== "Fuera de servicio") { estado = 2; }
+                            if (EstadoTxt.Text == "Mantenimiento") { estado = 3; }
                             Con.Conexiones.Close();
                             Con.Conexiones.Open();
                             string s = string.Format("UPDATE proyectores  SET " +
@@ -203,7 +207,7 @@ namespace LabTec
                             "Nombre='{1}'," +
                             "Descripcion='{2}'," +
                             "ID_EstadoProyector='{3}'" +
-                            "WHERE ID_Proyector='{4}';", IdTxt.Text, NombreTxt.Text, DescripcionTxt.Text, EstadoTxt.Text, buscarTxt.Text);
+                            "WHERE ID_Proyector='{4}';", IdTxt.Text, NombreTxt.Text, DescripcionTxt.Text, estado, buscarTxt.Text);
                             SqlCommand comando = new SqlCommand(s, Con.Conexiones);
                             comando.ExecuteNonQuery();
                             Con.Conexiones.Close();

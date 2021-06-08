@@ -117,7 +117,10 @@ namespace LabTec
                         generoUsuario.Text = dataGridView1.Rows[0].Cells[4].Value.ToString();
                         correoUsuario.Text = dataGridView1.Rows[0].Cells[5].Value.ToString();
                         claveUsuario.Text = dataGridView1.Rows[0].Cells[6].Value.ToString();
-                        rolUsuario.Text = dataGridView1.Rows[0].Cells[7].Value.ToString();
+                        string x= dataGridView1.Rows[0].Cells[7].Value.ToString();
+                        if (x == "1") { rolUsuario.Text = "Administrador"; }
+                        if (x == "2") { rolUsuario.Text = "Maestro"; }
+                         
                         estadoUsuario.Text = dataGridView1.Rows[0].Cells[8].Value.ToString();
                     }
                     //si hay mas de 2 resultados solo te deja usar el boton y barra de buscar 
@@ -218,7 +221,9 @@ namespace LabTec
                             else
                             {
                                 dr2.Close();
-
+                                int rol = 0;
+                                if (rolUsuario.Text == "Administrador") { rol = 1; }
+                                if (rolUsuario.Text == "Maestro") { rol = 2; }
                                 Con.Conexiones.Close();
                                 Con.Conexiones.Open();
                                 string s = string.Format("UPDATE Usuario  SET " +
@@ -232,7 +237,7 @@ namespace LabTec
                                 "ID_Rol={7}," +
                                 "Estado='{8}'" +
                                 "WHERE ID_Usuario='{9}';", idUsuario.Text, nombreUsuario.Text, apellidoPaterno.Text, apellidoMaterno.Text,
-                                generoUsuario.Text, correoUsuario.Text, claveUsuario.Text, rolUsuario.Text, estadoUsuario.Text, buscarTxt.Text);
+                                generoUsuario.Text, correoUsuario.Text, claveUsuario.Text, rol, estadoUsuario.Text, buscarTxt.Text);
                                 SqlCommand comando = new SqlCommand(s, Con.Conexiones);
                                 comando.ExecuteNonQuery();
                                 Con.Conexiones.Close();

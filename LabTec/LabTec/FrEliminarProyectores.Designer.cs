@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
             this.Eliminarbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.eliminartxt = new System.Windows.Forms.TextBox();
@@ -43,17 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pndAdorno.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(29, 405);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(332, 23);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Haz click en la columna que desees buscar";
             // 
             // Eliminarbtn
             // 
@@ -113,9 +101,9 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F);
             this.label1.Location = new System.Drawing.Point(15, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.Size = new System.Drawing.Size(120, 23);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Buscar:";
+            this.label1.Text = "Buscar por ID:";
             // 
             // dataGridView1
             // 
@@ -147,7 +135,6 @@
             this.pndAdorno.BackColor = System.Drawing.Color.MidnightBlue;
             this.pndAdorno.Controls.Add(this.label4);
             this.pndAdorno.Controls.Add(this.dataGridView1);
-            this.pndAdorno.Controls.Add(this.label3);
             this.pndAdorno.Dock = System.Windows.Forms.DockStyle.Right;
             this.pndAdorno.Location = new System.Drawing.Point(412, 0);
             this.pndAdorno.Name = "pndAdorno";
@@ -203,8 +190,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Eliminarbtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox eliminartxt;

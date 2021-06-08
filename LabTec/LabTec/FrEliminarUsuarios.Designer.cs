@@ -35,7 +35,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pndAdorno = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@
             // 
             this.pndAdorno.BackColor = System.Drawing.Color.MidnightBlue;
             this.pndAdorno.Controls.Add(this.label4);
-            this.pndAdorno.Controls.Add(this.label3);
             this.pndAdorno.Controls.Add(this.dataGridView1);
             this.pndAdorno.Dock = System.Windows.Forms.DockStyle.Right;
             this.pndAdorno.Location = new System.Drawing.Point(412, 0);
@@ -119,17 +117,6 @@
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 251;
             this.label4.Text = "Vista previa";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(29, 405);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(332, 23);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Haz click en la columna que desees buscar";
             // 
             // lblTitulo
             // 
@@ -157,9 +144,9 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F);
             this.label1.Location = new System.Drawing.Point(15, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.Size = new System.Drawing.Size(120, 23);
             this.label1.TabIndex = 255;
-            this.label1.Text = "Buscar:";
+            this.label1.Text = "Buscar por ID:";
             // 
             // btmAtras
             // 
@@ -210,7 +197,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel pndAdorno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
