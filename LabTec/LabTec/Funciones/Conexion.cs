@@ -13,7 +13,7 @@ namespace LabTec.Funciones
     {
         //Conexion de Joel
         //Declaramos Objeto para realizar la conexion con la base de datos
-        //public SqlConnection Conexiones = new SqlConnection("Data Source=LAPTOP-Q2PRJIBH;Initial Catalog=LabTec;Integrated Security=True");
+        public SqlConnection Conexiones = new SqlConnection("Data Source=LAPTOP-Q2PRJIBH;Initial Catalog=LabTec;Integrated Security=True");
 
         //CONEXION DE FERNANDO
         //NO BORRAR
