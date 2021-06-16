@@ -98,7 +98,6 @@ namespace LabTec
                                         c.BackColor = Color.Purple;
                                         c.Text = LocalNombres.Rows[j][0].ToString() + "    " + "DESCANSANDO";
                                         c.Enabled = false;
-
                                     }
                                 }
 
@@ -130,6 +129,7 @@ namespace LabTec
                 }
 
             } 
+
             void btnClick(object sender, EventArgs e)
             {
                 string btnName = ((Button)sender).Name;

@@ -25,14 +25,15 @@ namespace LabTec
         double MitadDisLabs = 0;
         string LocalTipo="";
         int LocalNumUsuario;
-
+        string DiaActual;
         public FrCalendario(int NumUsuario, string Tipo)
         {
             InitializeComponent();
             //Se guarda el tipo de usuario que es (Proyector o Laboratorio) y su numero de usuario
             LocalTipo = Tipo;
             LocalNumUsuario = NumUsuario;
-            
+            DiaActual = DateTime.Now.ToString("d");
+            DiaActual=DiaActual.Remove(2);
         }
         
         private void FrCalendario_Load(object sender, EventArgs e)
@@ -223,7 +224,11 @@ namespace LabTec
                 {
                     AuxVacio++;
                 }
-
+                //Condicion para que los dias pasados al actual no se puedan abrir
+                if ((Convert.ToInt32(DiaActual)-1)>i && Convert.ToInt32(mes)==mesactual)
+                {
+                    pbox.Enabled = false;
+                }
                 //Seleccion de color del dia en el calendario
                 if (dt2.Rows.Count>0 && Convert.ToInt32(dt2.Rows[Aux][0]) == (i + 1))
                 {
