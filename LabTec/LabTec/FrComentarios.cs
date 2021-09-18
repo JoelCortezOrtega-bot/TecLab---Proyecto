@@ -77,7 +77,11 @@ namespace LabTec
             string Fecha;
             string Descripcion;
 
+            //Valores predeterminados para mostrar la seccción de comentarios
+            //La bandera sirver para monstrar comentarios, en caso de no tener ninguno
+            //No mostrara ninguno, cuando deje cambie de estado significa que ya no hay comentarios
             bool bandera = true;
+            //Valores predeterminados de las posiciones base de los comentarios
             int conteo = 0;
             int contador = 1;
             int PINombre = 96;
@@ -102,31 +106,41 @@ namespace LabTec
                 Cn.Conexiones.Close();
                 if (B_activo == "Si")
                 {
+                    //Abrimos la conexion con la base de datos
                     Cn.Conexiones.Open();
+                    //Esta consulta nos permite mostrar el Nombre del usuario de acuerdo al contador que se esta utilizando
                     string s = "SELECT Usuario.Nombre FROM Comentarios INNER JOIN Usuario ON Usuario.ID_Usuario = Comentarios.ID_Usuario WHERE Comentarios.I_seq =" + contador + "";
                     Comando = new SqlCommand(s, Cn.Conexiones);
                     Nombre = Comando.ExecuteScalar().ToString();
+                    //Estas consultas nos permiten mostrar el Apellidos del usuario de acuerdo al contador que se esta utilizando
                     s = "SELECT Usuario.Ape_P FROM Comentarios INNER JOIN Usuario ON Usuario.ID_Usuario = Comentarios.ID_Usuario WHERE Comentarios.I_seq =" + contador + "";
                     Comando = new SqlCommand(s, Cn.Conexiones);
                     ApellidoPaterno = Comando.ExecuteScalar().ToString();
                     s = "SELECT Usuario.Ape_M FROM Comentarios INNER JOIN Usuario ON Usuario.ID_Usuario = Comentarios.ID_Usuario WHERE Comentarios.I_seq =" + contador + "";
                     Comando = new SqlCommand(s, Cn.Conexiones);
                     ApellidoMaterno = Comando.ExecuteScalar().ToString();
+                    //Esta consulta nos permite mostrar el Comentario del usuario de acuerdo al contador que se esta utilizando
                     s = "SELECT Comentarios.Descripcion FROM Comentarios INNER JOIN Usuario ON Usuario.ID_Usuario = Comentarios.ID_Usuario WHERE Comentarios.I_seq =" + contador + "";
                     Comando = new SqlCommand(s, Cn.Conexiones);
                     Descripcion = Comando.ExecuteScalar().ToString();
+                    //Esta consulta nos permite mostrar la Fecha en que se publico de acuerdo al contador que se esta utilizando
                     s = "SELECT Comentarios.Fecha FROM Comentarios INNER JOIN Usuario ON Usuario.ID_Usuario = Comentarios.ID_Usuario WHERE Comentarios.I_seq =" + contador + "";
                     Comando = new SqlCommand(s, Cn.Conexiones);
                     Fecha = Comando.ExecuteScalar().ToString();
                     Cn.Conexiones.Close();
 
                     //Creamos la instancia del boton
+                    /*
+                     Estos objetos los vamos a utilizar para crear
+                     de forma dinamica los elementos que seran requeridos
+                     que en este caso son los Labels y un pictureBox.
+                     */
                     Label temp = new Label();
                     Label Comentario = new Label();
                     Label FechaPublicada = new Label();
                     PictureBox picture = new PictureBox();
 
-
+                    //Posicion de los elementos recien instanciados
                     //Colocamos las propiedades del lblNombre
                     picture.Height = 72;
                     picture.Width = 91;
@@ -160,11 +174,15 @@ namespace LabTec
                     FechaPublicada.Text = "Fecha de Publicación: " + Fecha;
                     FechaPublicada.Font = new Font("Arial", 12f);
 
-
+                    //Aumentamos ambos contadores
                     conteo++;
                     contador++;
 
                     //Adicionamos el boton a la forma
+                    /*
+                     Ahora agregamos a nuestra interfaz los elementos que 
+                     hemos especificado sus respectivas caracteristicas
+                     */
                     panel1.Controls.Add(Comentario);
                     panel1.Controls.Add(temp);
                     panel1.Controls.Add(FechaPublicada);
@@ -179,6 +197,7 @@ namespace LabTec
 
         private void FrComentarios_Load(object sender, EventArgs e)
         {
+            //Muestra el ID del Usuario
             lblID.Text = LocalID.ToString();
         }
 
