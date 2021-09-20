@@ -78,6 +78,7 @@ namespace LabTec
                     //0<19
                     if ((LocalMes-LocalMesActual)<2)
                     {
+                    //If que nos permitirar saber si no esta disponible debido alas horas
                         if ((ContadorHoras < LocalHoras.Rows.Count) && (Convert.ToString(LocalHoras.Rows[ContadorHoras][0]) == Convert.ToString(LocalNombres.Rows[j][0])) && (LocalHoras.Rows[ContadorHoras][1].ToString() == result.ToString("hh':'mm':'ss")))
                         {
                             descanso.Add(Convert.ToString(LocalNombres.Rows[j][0]) + (i + 1));
@@ -86,13 +87,15 @@ namespace LabTec
                             activado = false;
                             ContadorHoras++;
                         }
+                        //En caso de que sea falso se realizara otro if con otra condicion para saber si esta en descanso
                         else if (descanso.Contains(Convert.ToString(LocalNombres.Rows[j][0]) + (i)) && LocalTipo=="Proyector")
                         {
                             if (i > 7)
                             {
+                                //Foreach que nos permitire desplegar los tipos de horario si se cumple la condicion que tiene que tener año,mes y dia 
                                 foreach (Control c in tlpHorario.Controls)
                                 {
-
+                                    //Condicion a cumplir para que se pueda mostrar
                                     if (Convert.ToString(c.Tag) == (LocalAño + "-" + LocalMes + "-" + LocalDia + "/" + (i - 2)) && c.Name == Convert.ToString(LocalNombres.Rows[j][0]))
                                     {
                                         c.BackColor = Color.Purple;
@@ -106,6 +109,7 @@ namespace LabTec
                             texto = "DESCANSANDO";
                             activado = false;
                         }
+                        //En caso de que no cumpla la condicion se pone disponible
                         else
                         {
                             color = Color.SpringGreen;
@@ -113,6 +117,7 @@ namespace LabTec
                             activado = true;
                         }
                     }
+                    //En otro caso de no de no cumplir condiciones significa que no es apartable debido a que ya fue selecionaod
                     else
                     {
                         color = Color.GhostWhite;
@@ -129,21 +134,24 @@ namespace LabTec
                 }
 
             } 
-
+            //Boton Clik
             void btnClick(object sender, EventArgs e)
             {
+                //Se le agrega nombre  y fecha selecionado
                 string btnName = ((Button)sender).Name;
                 var btnFecha = ((Button)sender).Tag;
                 Button btn = (Button)sender;
+                //If que nos permitira saber si ya esta selecionado o si esta disponible 
                 if (btn.BackColor==Color.SpringGreen)
                 {
-                    
+                    //si es verdadero y el color es SpringGreen se realiza lo siguiente
                     btn.BackColor = Color.Orange;
                     btn.Text= btnName + "    " + "SELECCIONADO";
                     ListaApartados.Add(btnFecha+"/"+btnName);
                 }
                 else
                 {
+                    //En caso contrario de que no cumpla la condicion se realiza lo siguiente
                     btn.BackColor = Color.SpringGreen;
                     btn.Text = btnName + "    " + "DISPONIBLE";
                     ListaApartados.Remove(btnFecha + "/" + btnName);
@@ -163,7 +171,7 @@ namespace LabTec
             //panel.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 3, panel.RowCount - 1);
             //this.Controls.Add(panel);
         }
-
+        //Boton cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
