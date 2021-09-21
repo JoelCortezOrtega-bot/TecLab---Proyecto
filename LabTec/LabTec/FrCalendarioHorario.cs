@@ -14,6 +14,9 @@ namespace LabTec
 {
     public partial class FrCalendarioHorario : Form
     {
+        //Varialbles de Apoyo 
+        //Estas variables se utilizan para manejar el Dia, Hora, Mes y Año de forma local
+        //Ademas de solicitar el ID ingresado por el usuario en el inicio de sesión
         int LocalCantidadProy;
         string LocalDia;
         int LocalMes;
@@ -28,7 +31,7 @@ namespace LabTec
         int HoraInicial = 6;
         int HoraFinal = 22;
 
-
+        //Este método recibe todos los datos que hemos declarado con antelación
         public FrCalendarioHorario(string cantidadProy, string nombreForm, DataTable nombres, DataTable horas, int year, int month, DataTable restriccion,int NumUsuario, int mesactual)
         {
             InitializeComponent();
@@ -46,7 +49,7 @@ namespace LabTec
         }
 
 
-
+        //Este metodo cargara el metodo Creación de Horario
         private void FrCalendarioHorario_Load(object sender, EventArgs e)
         {
             CreacionHorario();
