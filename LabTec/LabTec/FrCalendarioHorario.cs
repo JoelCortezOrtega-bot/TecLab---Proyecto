@@ -180,13 +180,14 @@ namespace LabTec
         //
         //FORMATO 
         //[0]= Fecha [1]=Hora [2]=ID Proyector
-        //
+        //Boton para ingresar
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Auxiliar para mandar mensaje de aviso que se agrego correctamente
             int Auxiliar = 0;
             if (ListaApartados.Count == 0)
             {
+            // Mensaje  de error, indicando conflicto, sugiriendo seleccionar un dispositivo
                 MessageBox.Show("Selecciona un dispositivo", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -198,6 +199,8 @@ namespace LabTec
                 string AuxAntiguo = "";
                 bool Advertencia = false;
                 ListaApartados.Sort();
+                
+                //Bucle para recorrer elementos de lista de apartados
                 foreach (var owo in ListaApartados)
                 {
                     string[] separado = owo.Split('/');
@@ -213,7 +216,8 @@ namespace LabTec
                         }
                     }
                 }
-
+                
+                // si advertencia es falso iniciara un bucle foreach
                 if (Advertencia == false)
                 {
                     foreach (var Aux in ListaApartados)
@@ -226,7 +230,7 @@ namespace LabTec
                         TimeSpan AuxHoraInicial = TimeSpan.FromHours(Convert.ToDouble(separado[1]));
                         AuxHoraInicial.ToString("hh':'mm':'ss");
 
-                        //Conver a Hora Final
+                        //Conversion a Hora Final
                         TimeSpan AuxHoraFinal = TimeSpan.FromHours(Convert.ToDouble(separado[1]) + 1);
                         AuxHoraFinal.ToString("hh':'mm':'ss");
 
@@ -234,51 +238,68 @@ namespace LabTec
                         string AuxCadena;
                         if (LocalTipo == "Laboratorio")
                         {
+                        // Seleccion de la tabla Prestamo_Lab  cuando la hora y fecha y ID sean las definidas.
                             AuxCadena = "select * from Prestamo_Lab where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Lap=" + separado[2];
 
                         }
                         else
                         {
+                        // Seleccion de la tabla Prestamo_Proyectores  cuando la hora y fecha y ID sean las definidas.
                             AuxCadena = "select * from Prestamo_Proyectores where Hora_Entrada='" + AuxHoraInicial.ToString("hh':'mm':'ss") + "' and Fecha='" + separado[0] + "' and ID_Proyector=" + separado[2];
 
                         }
+                        
+                        // Se crea una instancia SqlCommand pasando el string con el comando SQL y la referencia a la conexión
                         SqlCommand cmd = new SqlCommand(AuxCadena, Conex.Conexiones);
+                        // Recuperacion de los datos generados                         
                         SqlDataAdapter dr = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dr.Fill(dt);
+                        // Se cierra la conexion de la base de datos
                         Conex.Conexiones.Close();
                         if (dt.Rows.Count > 0)
                         {
+                        // Mensaje de error que indica que el proyector se encuentra ya se encuentra apartado, mostrando la hora y fel proyector marcando conflicto
                             MessageBox.Show("Esta hora ya se encuentra apartada.\r\nFavor de escoger otra hora. \r\n[Conflicto => Hora:" + AuxHoraInicial.ToString("hh':'mm':'ss") + " Proyector: " + separado[2], "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         }
                         else
                         {
                             Auxiliar = 1;
+                            // Abrir conexion con la base de datos
                             Conex.Conexiones.Open();
                             string Cadena;
+                            // En caso de elegir Local tipo laboratorio
                             if (LocalTipo == "Laboratorio")
                             {
+                            // Cadeba donde se insertan los valores en la tabla Prestamo_Lab
                                 Cadena = "insert into Prestamo_Lab values ("+LocalNumUsuario+"," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
                             }
                             else
                             {
+                            // Cadeba donde se insertan los valores en la tabla Prestamo_Proyectores
                                 Cadena = "insert into Prestamo_Proyectores values (" + LocalNumUsuario + "," + separado[2] + ",'" + separado[0] + "','" + AuxHoraInicial.ToString("hh':'mm':'ss") + "','" + AuxHoraFinal.ToString("hh':'mm':'ss") + "','" + GeneradorCodigo() + "')";
                             }
+                            
+                            // Se crea una instancia SqlCommand pasando el string con el comando SQL y la referencia a la conexión
                             cmd = new SqlCommand(Cadena, Conex.Conexiones);
+                            //Llamamos ExecuteNonQuery para enviar comandos
                             cmd.ExecuteNonQuery();
+                            // Se cierra la conexion de la base de datos
                             Conex.Conexiones.Close();
                         }
 
                     }
                     if (Auxiliar == 1)
                     {
+                // Mensaje que confirma que se ha llevado con exito el apartado del proyector                
                         MessageBox.Show("Se han apartado los proyectores correctamente.", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }
                 else
                 {
+                // Mensaje en caso de error, indicando conflicto y sugerirendo no pedir el mismo proyector 2 horas seguidas
                     MessageBox.Show("Recuerda que no puedes pedir el mismo proyector dos horas seguidas.\r\nFavor de escoger otra proyector.", "Conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
